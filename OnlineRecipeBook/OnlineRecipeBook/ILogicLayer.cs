@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OnlineRecipeBook
 {
-    public class Class1
+    public interface ILogicLayer
     {
     }
 }

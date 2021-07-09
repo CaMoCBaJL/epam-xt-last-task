@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Entities
+{
+    class User : CommonEntity
+    {
+        string UserName { get; }
+
+        int Age { get; }
+
+
+        public User(int id, string userName, int age) : base(id)
+        {
+            UserName = userName;
+
+            Age = age;
+        }
+
+        public override string ToString()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

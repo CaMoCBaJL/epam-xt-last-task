@@ -8,5 +8,8 @@ namespace Entities
 {
     abstract class CommonEntity
     {
+        public int Id { get; set; }
+
+        public CommonEntity(int id) => Id = id;
     }
 }

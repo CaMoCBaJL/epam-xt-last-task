@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dependencies
 {
-    public class Class1
+    public class DependencyResolver
     {
     }
 }
