@@ -8,5 +8,6 @@ namespace OnlineRecipeBook
 {
     public interface ILogicLayer
     {
+
     }
 }

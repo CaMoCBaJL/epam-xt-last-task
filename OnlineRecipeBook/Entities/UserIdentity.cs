@@ -1,6 +1,8 @@
-﻿namespace Entities
+﻿using System;
+
+namespace Entities
 {
-    class UserIdentity : CommonEntity
+    public class UserIdentity : CommonEntity
     {
         public string Login { get; set; }
 

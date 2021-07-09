@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    class Commentary : CommonEntity
+    public class Commentary : CommonEntity
     {
         string Text { get; set; }
 

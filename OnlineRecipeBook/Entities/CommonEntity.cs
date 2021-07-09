@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    abstract class CommonEntity
+    public abstract class CommonEntity
     {
         public int Id { get; set; }
 
