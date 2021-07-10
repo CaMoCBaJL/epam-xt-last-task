@@ -1,20 +1,21 @@
 ﻿using System.Collections.Generic;
-using Entities;
+using DALInterfaces;
 
-namespace DALInterfaces
+namespace OnlineRecipeBook
 {
-    public interface IUserDAL : IDataLayer
+    public interface IUserLogic : ILogicLayer
     {
+        IUserDAL _DAO { get; }
+
+
         bool CreateUser(string userName, int age, string login, string password);
 
-        IEnumerable<Commentary> GetUserCommentaries();
+        List<string> GetUserCommentaries();
 
-        IEnumerable<Recipe> GetUserRecipes();
+        List<string> GetUserRecipes();
 
         bool UpdateUserInfo(int userId, string userName, int age);
 
         bool UpdateUserIdentity(int userId, string login, string password);
-
-        void CreateAdmin();
     }
 }
