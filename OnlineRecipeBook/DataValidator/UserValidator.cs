@@ -33,8 +33,8 @@ namespace DataValidator
 
         public string ValidateUserIdentity(string login, string password)
         {
-            if (password.Length > 100)
-                return "Password" + Constants.paramterTooLong;
+            if (!new PasswordValidator().ValidatePassword(password).ValidationPassed())
+                return new PasswordValidator().ValidatePassword(password);
 
             if (login.Length > 100)
                 return "Login" + Constants.paramterTooLong;

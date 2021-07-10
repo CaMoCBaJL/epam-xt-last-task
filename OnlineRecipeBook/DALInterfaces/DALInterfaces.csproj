@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICommentaryDAL.cs" />
     <Compile Include="IDataLayer.cs" />
+    <Compile Include="IRecipeDAL.cs" />
+    <Compile Include="IUserDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

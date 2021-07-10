@@ -8,6 +8,14 @@ namespace DataValidator
 {
     public static class Constants
     {
+        public const string addCapitalLetterToPasswordMessage = "There are no capital letters in password. Add some to it.";
+
+        public const string addPunctuantionToPasswordMessage = "There are no punctuation marks in password. Add some to it.";
+
+        public const string addNumberToPasswordMessage = "There are no numbers in password. Add some to it.";
+
+        public const string passwordIsShort = "Password is too short. Minimum passwords symbols amount - 8.";
+
         public const string stringIsEmpty = " content is empty. Please fix it.";
 
         public const string sucResult = "All";
