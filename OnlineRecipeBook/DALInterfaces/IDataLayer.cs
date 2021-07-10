@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DALInterfaces
 {
     public interface IDataLayer
     {
+        IEnumerable<CommonEntity> GetEntities();
+
+        bool RemoveEntity(int entityId);
     }
 }
