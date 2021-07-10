@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace OnlineRecipeBook
+namespace BLInterfaces
 {
     public interface ILogicLayer
     {

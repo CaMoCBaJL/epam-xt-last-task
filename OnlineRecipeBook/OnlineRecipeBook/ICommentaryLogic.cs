@@ -1,14 +1,11 @@
 ﻿using DALInterfaces;
 
-namespace OnlineRecipeBook
+namespace BLInterfaces
 {
     public interface ICommentaryLogic : ILogicLayer
     {
-        ICommentaryDAL _DAO { get; }
+        string CreateCommentary(int recipeId, int userId, string text);
 
-
-        bool CreateCommentary(int recipeId, int userId, string text);
-
-        bool UpdateRecipe(int commentaryId, string text);
+        string UpdateCommentary(int commentaryId, string text);
     }
 }

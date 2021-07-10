@@ -14,5 +14,7 @@ namespace DALInterfaces
         int GetRecipeAward();
 
         bool UpdateRecipe(int recipeId, string title, string ingridients, string cookingProcess);
+
+        IEnumerable<Recipe> GetEntities();
     }
 }

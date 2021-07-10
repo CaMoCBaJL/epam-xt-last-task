@@ -1,19 +1,16 @@
 ﻿using System.Collections.Generic;
 using DALInterfaces;
 
-namespace OnlineRecipeBook
+namespace BLInterfaces
 {
     public interface IRecipeLogic
     {
-        IRecipeDAL _DAO { get; }
-
-
-        bool CreateRecipe(int userId, string title, string ingridients, string cookingProcess);
+        string CreateRecipe(int userId, string title, string ingridients, string cookingProcess);
 
         List<string> GetRecipeCommentaries();
 
         int GetRecipeAward();
 
-        bool UpdateRecipe(int recipeId, string title, string ingridients, string cookingProcess);
+        string UpdateRecipe(int recipeId, string title, string ingridients, string cookingProcess);
     }
 }

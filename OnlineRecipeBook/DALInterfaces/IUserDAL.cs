@@ -5,6 +5,8 @@ namespace DALInterfaces
 {
     public interface IUserDAL : IDataLayer
     {
+        IEnumerable<User> GetEntities();
+
         bool CreateUser(string userName, int age, string login, string password);
 
         IEnumerable<Commentary> GetUserCommentaries();
