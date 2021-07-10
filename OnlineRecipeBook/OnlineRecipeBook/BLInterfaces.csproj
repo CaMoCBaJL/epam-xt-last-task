@@ -44,5 +44,15 @@
     <Compile Include="ILogicLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DALInterfaces\DALInterfaces.csproj">
+      <Project>{6dfeef4f-14fe-4989-bd60-03508104bf98}</Project>
+      <Name>DALInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{7758adee-3bd7-4c78-b61e-d16ef42d3d27}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -58,6 +58,13 @@ CREATE TABLE UserReactions
 	[Award] binary
 )
 
+CREATE TABLE RecipeComments
+(
+	[CommentId] INT FOREIGN KEY REFERENCES Commentary(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+	[RecipeId] INT FOREIGN KEY REFERENCES Recipe(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT CommentsAreUnique UNIQUE (CommentId, RecipeId)
+)
+
 CREATE PROCEDURE GetUsers
 AS
 BEGIN
@@ -137,7 +144,8 @@ BEGIN
 	COMMIT
 END
 
-CREATE PROCEDURE AddCommentary
+ALTER PROCEDURE AddCommentary
+@RecipeId INT,
 @Text TEXT,
 @UserId INT
 AS
@@ -153,9 +161,16 @@ BEGIN
 
 		IF (@@ERROR <> 0)
 		ROLLBACK
+
+		INSERT INTO [dbo].[RecipeComments] VALUES
+		((SELECT COUNT([dbo].[Commentary].[Id]) FROM [dbo].[Commentary]),
+		@RecipeId)
+
+		IF (@@ERROR <> 0)
+		ROLLBACK
 END
 
-CREATE PROCEDURE LikeTheComment
+ALTER PROCEDURE LikeTheComment
 @UserId int,
 @CommentaryId int
 AS
@@ -165,8 +180,7 @@ BEGIN
 		WHERE [dbo].[UserReactions].[CommentId] = @CommentaryId AND
 		[dbo].[UserReactions].[UserId] = @UserId) <> NULL)
 		BEGIN
-			UPDATE [dbo].[UserReactions]
-			SET [dbo].[UserReactions].[Award] = 1
+			DELETE FROM [dbo].[UserReactions]
 			WHERE [dbo].[UserReactions].[UserId] = @UserId AND
 			[dbo].[UserReactions].[CommentId] = @CommentaryId
 		END
@@ -177,7 +191,7 @@ BEGIN
 		END
 END
 
-CREATE PROCEDURE DislikeTheComment
+ALTER PROCEDURE DislikeTheComment
 @UserId int,
 @CommentaryId int
 AS
@@ -187,8 +201,7 @@ BEGIN
 		WHERE [dbo].[UserReactions].[CommentId] = @CommentaryId AND
 		[dbo].[UserReactions].[UserId] = @UserId) <> NULL)
 		BEGIN
-			UPDATE [dbo].[UserReactions]
-			SET [dbo].[UserReactions].[Award] = 0
+			DELETE FROM [dbo].[UserReactions]
 			WHERE [dbo].[UserReactions].[UserId] = @UserId AND
 			[dbo].[UserReactions].[CommentId] = @CommentaryId
 		END
@@ -268,19 +281,46 @@ BEGIN
 	UPDATE [dbo].[AppUser]
 	SET [dbo].[AppUser].[UserName] = @UserName,
 	[dbo].[AppUser].[Age] = @UserAge
-	WHERE [dbo].[AppUser].[UserId] = @UserId
+	WHERE [dbo].[AppUser].[Id] = @UserId
 END
 
 CREATE PROCEDURE ChangeRecipe
-@UserId INT,
-@UserName NVARCHAR(255),
-@UserAge INT
+@RecipeId INT,
+@RecipeTitle NVARCHAR(255),
+@CookingProcess TEXT,
+@Ingridients TEXT
 AS
 BEGIN
-	UPDATE [dbo].[AppUser]
-	SET [dbo].[AppUser].[UserName] = @UserName,
-	[dbo].[AppUser].[Age] = @UserAge
-	WHERE [dbo].[AppUser].[UserId] = @UserId
+	UPDATE [dbo].[Recipe]
+	SET [dbo].[Recipe].[Title] = @RecipeTitle,
+	[dbo].[Recipe].[CookingProgress] = @CookingProcess,
+	[dbo].[Recipe].[Ingridients] = @Ingridients
+	WHERE [dbo].[Recipe].[Id] = @RecipeId
+END
+
+CREATE PROCEDURE ChangeComment
+@CommentId INT,
+@Text TEXT
+AS
+BEGIN
+	UPDATE [dbo].[Commentary]
+	SET [dbo].[Commentary].[Text] = @Text
+	WHERE [dbo].[Commentary].[Id] = @CommentId
+END
+
+CREATE PROCEDURE GetAllCommentRecipes
+@RecipeId
+AS 
+BEGIN
+	SELECT * FROM [dbo].[Commentary] JOIN [dbo].[RecipeComments]
+	ON [dbo].[Commentary].[Id] = [dbo].[RecipeComments].[CommentId]
+END
+
+CREATE PROCEDURE GetRecipeAward
+@RecipeId
+AS
+BEGIN
+
 END
 
 CREATE PROCEDURE CheckIdentity

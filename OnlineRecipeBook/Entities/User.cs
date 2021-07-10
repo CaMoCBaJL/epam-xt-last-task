@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    class User : CommonEntity
+    public class User : CommonEntity
     {
         string UserName { get; }
 
