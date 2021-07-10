@@ -9,9 +9,9 @@ namespace DALInterfaces
     {
         bool CreateRecipe(int userId, string title, string ingridients, string cookingProcess);
 
-        IEnumerable<Commentary> GetRecipeCommentaries();
+        IEnumerable<Commentary> GetRecipeCommentaries(int recipeId);
 
-        int GetRecipeAward();
+        int GetRecipeAward(int recipeId);
 
         bool UpdateRecipe(int recipeId, string title, string ingridients, string cookingProcess);
 

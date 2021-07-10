@@ -5,10 +5,25 @@ namespace DataValidator
 {
     public class UserValidator
     {
+        public string ValidateData(string userName, string login, string password, int age)
+        {
+            if (ValidateUserInfo(userName, age).ValidationPassed())
+            {
+                if (ValidateUserIdentity(login, password).ValidationPassed())
+                {
+                    return Constants.allOk;
+                }
+                else
+                    return ValidateUserIdentity(login, password);
+            }
+            else
+                return ValidateUserInfo(userName, age);
+        }
+
         public string ValidateUserInfo(string userName, int age)
         {
             if (userName.Length > 255)
-                return Constants.usernameTooLong;
+                return "UserName"+Constants.paramterTooLong;
 
             if (!ValidateParameter(age.ToString(), Constants.ageRegexPattern))
                 return Constants.wrongAge;
@@ -19,10 +34,10 @@ namespace DataValidator
         public string ValidateUserIdentity(string login, string password)
         {
             if (password.Length > 100)
-                return Constants.passwordTooLong;
+                return "Password" + Constants.paramterTooLong;
 
             if (login.Length > 100)
-                return Constants.loginTooLong;
+                return "Login" + Constants.paramterTooLong;
 
             return Constants.allOk;
         }

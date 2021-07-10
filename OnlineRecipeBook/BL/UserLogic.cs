@@ -11,26 +11,22 @@ namespace BL
     {
         IUserDAL _DAO;
 
+
         public UserLogic(IUserDAL userDAL) => _DAO = userDAL;
 
         public string CreateUser(string userName, int age, string login, string password)
         {
             var validator = new UserValidator();
 
-            if (validator.ValidateUserInfo(userName, age).StartsWith(Constants.sucResult))
+            if (validator.ValidateData(userName, login, password, age).ValidationPassed())
             {
-                if (validator.ValidateUserIdentity(login, password).StartsWith(Constants.sucResult))
-                {
-                    if (_DAO.CreateUser(userName, age, login, password))
-                        return Constants.allOk;
-                    else
-                        return Constants.serverError;
-                }
+                if (_DAO.CreateUser(userName, age, login, password))
+                    return Constants.allOk;
                 else
-                    return validator.ValidateUserIdentity(login, password);
+                    return Constants.serverError;
             }
             else
-                return validator.ValidateUserInfo(userName, age);
+                return validator.ValidateData(userName, login, password, age);
         }
 
         public List<string> GetEntities()
@@ -70,7 +66,7 @@ namespace BL
         }
 
         public bool RemoveEntity(int entityId)
-        => _DAO.RemoveEntity(entityId);
+                => _DAO.RemoveEntity(entityId);
 
         public string UpdateUserIdentity(int userId, string login, string password)
         {
