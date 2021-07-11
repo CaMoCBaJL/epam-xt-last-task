@@ -17,7 +17,7 @@ namespace SqlDAL
                 CreateAdmin();
         }
 
-        bool AdminExists { get => GetUsers().ToList<User>().FindIndex(user => user.UserName == "admin") > -1; }
+        bool AdminExists { get => GetUsers().ToList().FindIndex(user => user.UserName == "admin") > -1; }
 
         public IEnumerable<User> GetUsers()
         {
@@ -119,6 +119,8 @@ namespace SqlDAL
                 }
                 catch (Exception)
                 {
+                    //todo Add logger to each try-catch block.
+
                     return new List<string>();
                 }
             }
@@ -161,6 +163,8 @@ namespace SqlDAL
                 }
                 catch (Exception)
                 {
+                    //todo Add logger to each try-catch block.
+
                     return new UserIdentity();
                 }
             }
@@ -187,17 +191,17 @@ namespace SqlDAL
                     while (reader.Read())
                     {
                         result.Add(new Commentary(
-                            id: int.Parse(reader["Id"].ToString()),
+                            id: (int)reader["Id"],
                             text: reader["Text"] as string,
-                            likesNum: new CommentDAL().GetRecipeLikesCounter(
-                            int.Parse(reader["Id"].ToString())),
-                            dislikesNum: new CommentDAL().GetRecipeDislikesCounter(
-                            int.Parse(reader["Id"].ToString())))
+                            likesNum: new CommentDAL().GetCommentLikesCounter((int)reader["Id"]),
+                            dislikesNum: new CommentDAL().GetCommentDislikesCounter((int)reader["Id"]))
                             );
                     }
                 }
                 catch (Exception)
                 {
+                    //todo Add logger to each try-catch block.
+
                     return new List<Commentary>();
                 }
             }
@@ -230,16 +234,17 @@ namespace SqlDAL
                     while (reader.Read())
                     {
                         result.Add(new Recipe(
-                            id: int.Parse(reader["Id"].ToString()),
+                            id: (int)reader["Id"],
                             title: reader["Title"] as string,
                             ingridients: reader["Ingridients"] as string,
                             cookingProcess: reader["CookingProcess"] as string,
-                            recipeAward: new RecipeDAL().GetRecipeAward(
-                                int.Parse(reader["Id"].ToString()))));
+                            recipeAward: new RecipeDAL().GetRecipeAward((int)reader["Id"])));
                     }
                 }
                 catch (Exception)
-                {
+                {           
+                    //todo Add logger to each try-catch block.
+
                     return new List<Recipe>();
                 }
             }
@@ -255,7 +260,7 @@ namespace SqlDAL
 
                 SqlCommand command = new SqlCommand("RemoveUser", connection);
 
-                command.Parameters.AddWithValue("@EntityId", entityId);
+                command.Parameters.AddWithValue("@UserId", entityId);
 
                 command.CommandType = CommandType.StoredProcedure;
 
@@ -265,6 +270,8 @@ namespace SqlDAL
                 }
                 catch (Exception)
                 {
+                    //todo Add logger to each try-catch block.
+
                     return false;
                 }
             }
@@ -295,6 +302,8 @@ namespace SqlDAL
                 }
                 catch (Exception)
                 {
+                    //todo Add logger to each try-catch block.
+
                     return false;
                 }
             }
@@ -324,6 +333,8 @@ namespace SqlDAL
                 }
                 catch (Exception)
                 {
+                    //todo Add logger to each try-catch block.
+
                     return false;
                 }
             }

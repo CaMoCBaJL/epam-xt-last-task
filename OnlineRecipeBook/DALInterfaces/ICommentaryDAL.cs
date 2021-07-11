@@ -7,12 +7,16 @@ namespace DALInterfaces
     {
         bool CreateCommentary(int recipeId, int userId, string text);
 
-        bool UpdateCommentary(int commentaryId, string text);
+        bool UpdateCommentary(int commentId, string text);
 
         IEnumerable<Commentary> GetEntities();
 
-        int GetRecipeLikesCounter(int recipeId);
+        int GetCommentLikesCounter(int commentId);
 
-        int GetRecipeDislikesCounter(int recipeId);
+        int GetCommentDislikesCounter(int commentId);
+
+        bool LikeTheComment(int commentId, int userId);
+
+        bool DislikeTheComment(int commentId, int userId);
     }
 }

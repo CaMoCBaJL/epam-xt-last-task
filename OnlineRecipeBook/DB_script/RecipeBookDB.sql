@@ -55,7 +55,8 @@ CREATE TABLE UserReactions
 (
 	[UserId] INT FOREIGN KEY REFERENCES AppUser(Id) ON DELETE CASCADE ON UPDATE CASCADE,
 	[CommentId] INT FOREIGN KEY REFERENCES Commentary(Id) ON DELETE CASCADE ON UPDATE CASCADE,
-	[Award] binary
+	[Award] BIT,
+	CONSTRAINT UserReactionsAreUnique UNIQUE (UserId, CommentId)
 )
 
 CREATE TABLE RecipeComments
@@ -82,6 +83,12 @@ CREATE PROCEDURE GetRecipes
 AS
 BEGIN
 	SELECT * FROM [dbo].[Recipe]
+END
+
+CREATE PROCEDURE GetComments
+AS
+BEGIN
+	SELECT * FROM [dbo].[Commentary]
 END
 
 CREATE PROCEDURE GetUserComments
@@ -182,20 +189,7 @@ ALTER PROCEDURE LikeTheComment
 @CommentaryId int
 AS
 BEGIN
-	IF ((SELECT [dbo].[UserReactions].[Award]
-		FROM [dbo].[UserReactions]
-		WHERE [dbo].[UserReactions].[CommentId] = @CommentaryId AND
-		[dbo].[UserReactions].[UserId] = @UserId) <> NULL)
-		BEGIN
-			DELETE FROM [dbo].[UserReactions]
-			WHERE [dbo].[UserReactions].[UserId] = @UserId AND
-			[dbo].[UserReactions].[CommentId] = @CommentaryId
-		END
-	ELSE
-		BEGIN
-			INSERT INTO [dbo].[UserReactions] VALUES
-			(@UserId, @CommentaryId, 1)
-		END
+	EXEC CommentAwarding @CommentaryId, @UserId, 1
 END
 
 ALTER PROCEDURE DislikeTheComment
@@ -203,36 +197,59 @@ ALTER PROCEDURE DislikeTheComment
 @CommentaryId int
 AS
 BEGIN
-	IF ((SELECT [dbo].[UserReactions].[Award]
-		FROM [dbo].[UserReactions]
-		WHERE [dbo].[UserReactions].[CommentId] = @CommentaryId AND
-		[dbo].[UserReactions].[UserId] = @UserId) <> NULL)
+	EXEC CommentAwarding @CommentaryId, @UserId, 0
+END
+
+CREATE PROCEDURE CommentAwarding
+@CommentId INT,
+@UserId INT,
+@NewAwardValue BIT
+AS
+BEGIN
+	DECLARE @AwardValue BIT
+
+	SELECT @AwardValue=[dbo].[UserReactions].[Award]
+	FROM [dbo].[UserReactions]
+	WHERE [dbo].[UserReactions].[CommentId] = @CommentId AND
+	[dbo].[UserReactions].[UserId] = @UserId
+
+	IF (@AwardValue = NULL)
 		BEGIN
-			DELETE FROM [dbo].[UserReactions]
-			WHERE [dbo].[UserReactions].[UserId] = @UserId AND
-			[dbo].[UserReactions].[CommentId] = @CommentaryId
+			INSERT INTO [dbo].[UserReactions] VALUES
+			(@UserId, @CommentId, @NewAwardValue)
 		END
 	ELSE
 		BEGIN
-			INSERT INTO [dbo].[UserReactions] VALUES
-			(@UserId, @CommentaryId, 0)
+			IF(@AwardValue = @NewAwardValue)
+				DELETE FROM [dbo].[UserReactions]
+				WHERE [dbo].[UserReactions].[UserId] = @UserId AND
+				[dbo].[UserReactions].[CommentId] = @CommentId 
+			ELSE
+				BEGIN
+					DELETE FROM [dbo].[UserReactions]
+					WHERE [dbo].[UserReactions].[UserId] = @UserId AND
+					[dbo].[UserReactions].[CommentId] = @CommentId
+
+					INSERT INTO [dbo].[UserReactions] VALUES
+					(@UserId, @CommentId, @NewAwardValue)
+				END
 		END
 END
 
-CREATE PROCEDURE GetCommentaryLikes
+ALTER PROCEDURE GetCommentaryLikes
 @CommentId INT
 AS
 BEGIN
-	SELECT COUNT([dbo].[UserReactions].[Award])
+	SELECT COUNT([dbo].[UserReactions].[Award]) as LikesCounter
 	FROM [dbo].[UserReactions]
 	WHERE [dbo].[UserReactions].[Award] = 1
 END
 
-CREATE PROCEDURE GetCommentaryDislikes
+ALTER PROCEDURE GetCommentaryDislikes
 @CommentId INT
 AS
 BEGIN
-	SELECT COUNT([dbo].[UserReactions].[Award])
+	SELECT COUNT([dbo].[UserReactions].[Award]) as DislikesCounter
 	FROM [dbo].[UserReactions]
 	WHERE [dbo].[UserReactions].[Award] = 0
 END
