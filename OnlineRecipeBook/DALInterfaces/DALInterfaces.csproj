@@ -41,13 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="ICommentaryDAL.cs" />
+    <Compile Include="IDALDependencyResolver.cs" />
     <Compile Include="IDataLayer.cs" />
     <Compile Include="IRecipeDAL.cs" />
     <Compile Include="IUserDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonInterfaces\CommonInterfaces.csproj">
+      <Project>{cc966cf9-7ffa-4422-9e1c-b044186118fb}</Project>
+      <Name>CommonInterfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{7758adee-3bd7-4c78-b61e-d16ef42d3d27}</Project>
       <Name>Entities</Name>

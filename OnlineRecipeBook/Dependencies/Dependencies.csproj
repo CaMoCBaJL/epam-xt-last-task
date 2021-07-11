@@ -44,5 +44,27 @@
     <Compile Include="DependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BL\BL.csproj">
+      <Project>{d067b6fa-02e5-4ea4-bf8c-631c1c60883d}</Project>
+      <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonInterfaces\CommonInterfaces.csproj">
+      <Project>{cc966cf9-7ffa-4422-9e1c-b044186118fb}</Project>
+      <Name>CommonInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DALInterfaces\DALInterfaces.csproj">
+      <Project>{6dfeef4f-14fe-4989-bd60-03508104bf98}</Project>
+      <Name>DALInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnlineRecipeBook\BLInterfaces.csproj">
+      <Project>{5cf78927-b4f7-40bb-8a5f-bab0c2455213}</Project>
+      <Name>BLInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlDAL\SqlDAL.csproj">
+      <Project>{1210c393-42df-486c-88df-e41eb9868715}</Project>
+      <Name>SqlDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

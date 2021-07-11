@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5CF78927-B4F7-40BB-8A5F-BAB0C2455213}</ProjectGuid>
+    <ProjectGuid>{FFAC7086-023C-4BC3-9EA5-50805C4F22DD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OnlineRecipeBook</RootNamespace>
-    <AssemblyName>OnlineRecipeBook</AssemblyName>
+    <RootNamespace>IdentityChecker</RootNamespace>
+    <AssemblyName>IdentityChecker</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,21 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IBLDependencyResolver.cs" />
-    <Compile Include="ICommentaryLogic.cs" />
-    <Compile Include="ILogicLayer.cs" />
-    <Compile Include="IRecipeLogic.cs" />
-    <Compile Include="IUserLogic.cs" />
+    <Compile Include="Authentificator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DALInterfaces\DALInterfaces.csproj">
-      <Project>{6dfeef4f-14fe-4989-bd60-03508104bf98}</Project>
-      <Name>DALInterfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Entities\Entities.csproj">
-      <Project>{7758adee-3bd7-4c78-b61e-d16ef42d3d27}</Project>
-      <Name>Entities</Name>
+    <ProjectReference Include="..\CommonInterfaces\CommonInterfaces.csproj">
+      <Project>{cc966cf9-7ffa-4422-9e1c-b044186118fb}</Project>
+      <Name>CommonInterfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

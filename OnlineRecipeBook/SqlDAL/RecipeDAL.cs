@@ -27,6 +27,11 @@ namespace SqlDAL
             throw new NotImplementedException();
         }
 
+        public int GetRecipeId(string recipeTitle)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool RemoveEntity(int entityId)
         {
             throw new NotImplementedException();

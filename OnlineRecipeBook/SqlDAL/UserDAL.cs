@@ -27,6 +27,11 @@ namespace SqlDAL
             throw new NotImplementedException();
         }
 
+        public int GetUserId(string userName)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Recipe> GetUserRecipes()
         {
             throw new NotImplementedException();

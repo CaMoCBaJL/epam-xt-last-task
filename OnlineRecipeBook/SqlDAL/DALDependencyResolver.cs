@@ -1,4 +1,5 @@
-﻿using DALInterfaces;
+﻿using CommonInterfaces;
+using DALInterfaces;
 
 namespace SqlDAL
 {
@@ -9,5 +10,7 @@ namespace SqlDAL
         public IRecipeDAL RecipeDAL => new RecipeDAL();
 
         public IUserDAL UserDAL => new UserDAL();
+
+        public IAuthentificator Authentificator => new SQLAuthentificator(UserDAL);
     }
 }

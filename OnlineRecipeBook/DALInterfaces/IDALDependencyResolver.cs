@@ -1,4 +1,6 @@
-﻿namespace DALInterfaces
+﻿using CommonInterfaces;
+
+namespace DALInterfaces
 {
     public interface IDALDependencyResolver
     {
@@ -7,5 +9,7 @@
         IRecipeDAL RecipeDAL { get; }
 
         IUserDAL UserDAL { get; }
+
+        IAuthentificator Authentificator { get; }
     }
 }
