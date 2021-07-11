@@ -1,11 +1,13 @@
-﻿using DALInterfaces;
-
-namespace BLInterfaces
+﻿namespace BLInterfaces
 {
-    public interface ICommentaryLogic : ILogicLayer
+    public interface ICommentLogic : ILogicLayer
     {
-        string CreateCommentary(int recipeId, int userId, string text);
+        string CreateComment(int recipeId, int userId, string text);
 
-        string UpdateCommentary(int commentaryId, string text);
+        string UpdateComment(int commentId, string text);
+
+        bool LikeTheComment(int commentId, int userId);
+
+        bool DislikeTheComment(int commentId, int userId);
     }
 }

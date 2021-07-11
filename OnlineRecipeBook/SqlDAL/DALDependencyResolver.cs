@@ -5,7 +5,7 @@ namespace SqlDAL
 {
     public class DALDependencyResolver : IDALDependencyResolver
     {
-        public ICommentaryDAL CommentaryDAL => new CommentDAL();
+        public ICommentDAL CommentDAL => new CommentDAL();
 
         public IRecipeDAL RecipeDAL => new RecipeDAL();
 

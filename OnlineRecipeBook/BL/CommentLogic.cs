@@ -5,27 +5,30 @@ using DataValidator;
 
 namespace BL
 {
-    class CommentLogic : ICommentaryLogic
+    class CommentLogic : ICommentLogic
     {
-        ICommentaryDAL _DAO;
+        ICommentDAL _DAO;
 
 
-        public CommentLogic(ICommentaryDAL commentaryDAL) => _DAO = commentaryDAL;
+        public CommentLogic(ICommentDAL CommentDAL) => _DAO = CommentDAL;
 
-        public string CreateCommentary(int recipeId, int userId, string text)
+        public string CreateComment(int recipeId, int userId, string text)
         {
-            var validator = new CommentaryValidator();
+            var validator = new CommentValidator();
 
-            if (validator.ValidateCommentary(text).ValidationPassed())
+            if (validator.ValidateComment(text).ValidationPassed())
             {
-                if (_DAO.CreateCommentary(recipeId, userId, text))
+                if (_DAO.CreateComment(recipeId, userId, text))
                     return Constants.allOk;
                 else
                     return Constants.serverError;
             }
             else
-                return validator.ValidateCommentary(text);
+                return validator.ValidateComment(text);
         }
+
+        public bool DislikeTheComment(int commentId, int userId)
+               => _DAO.DislikeTheComment(commentId, userId);
 
         public List<string> GetEntities()
         {
@@ -39,22 +42,25 @@ namespace BL
             return result;
         }
 
+        public bool LikeTheComment(int commentId, int userId)
+               => _DAO.LikeTheComment(commentId, userId);
+
         public bool RemoveEntity(int entityId)
                => _DAO.RemoveEntity(entityId);
 
-        public string UpdateCommentary(int commentaryId, string text)
+        public string UpdateComment(int CommentId, string text)
         {
-            var validator = new CommentaryValidator();
+            var validator = new CommentValidator();
 
-            if (validator.ValidateCommentary(text).ValidationPassed())
+            if (validator.ValidateComment(text).ValidationPassed())
             {
-                if (_DAO.UpdateCommentary(commentaryId, text))
+                if (_DAO.UpdateComment(CommentId, text))
                     return Constants.allOk;
                 else
                     return Constants.serverError;
             }
             else
-                return validator.ValidateCommentary(text);
+                return validator.ValidateComment(text);
         }
     }
 }

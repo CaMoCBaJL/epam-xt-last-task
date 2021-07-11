@@ -13,14 +13,12 @@ namespace DALInterfaces
 
         bool CreateUser(string userName, int age, string login, string password);
 
-        IEnumerable<Commentary> GetUserCommentaries(int userId);
+        IEnumerable<Comment> GetUserCommentaries(int userId);
 
         IEnumerable<Recipe> GetUserRecipes(int userId);
 
         bool UpdateUserInfo(int userId, string userName, int age);
 
         bool UpdateUserIdentity(int userId, string login, string password);
-
-        void CreateAdmin();
     }
 }

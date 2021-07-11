@@ -46,6 +46,8 @@ namespace SqlDAL
                 }
                 catch (Exception)
                 {
+                    //todo Add logger to each try-catch block.
+
                     return new List<User>();
                 }
             }
@@ -53,10 +55,9 @@ namespace SqlDAL
             return result;
         }
 
-        public void CreateAdmin()
-        {
-            CreateUser("Administrator", 0, "admin", "admin");
-        }
+        public bool CreateAdmin()
+        => CreateUser("Administrator", 0, "admin", "admin");
+        
 
         public bool CreateUser(string userName, int age, string login, string password)
         {
@@ -170,9 +171,9 @@ namespace SqlDAL
             }
         }
 
-        public IEnumerable<Commentary> GetUserCommentaries(int userId)
+        public IEnumerable<Comment> GetUserCommentaries(int userId)
         {
-            List<Commentary> result = new List<Commentary>();
+            List<Comment> result = new List<Comment>();
 
             using (SqlConnection connection = new SqlConnection(Common._connectionString))
             {
@@ -190,7 +191,7 @@ namespace SqlDAL
 
                     while (reader.Read())
                     {
-                        result.Add(new Commentary(
+                        result.Add(new Comment(
                             id: (int)reader["Id"],
                             text: reader["Text"] as string,
                             likesNum: new CommentDAL().GetCommentLikesCounter((int)reader["Id"]),
@@ -202,7 +203,7 @@ namespace SqlDAL
                 {
                     //todo Add logger to each try-catch block.
 
-                    return new List<Commentary>();
+                    return new List<Comment>();
                 }
             }
 

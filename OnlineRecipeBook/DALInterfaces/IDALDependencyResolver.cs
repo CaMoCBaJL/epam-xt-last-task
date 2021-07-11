@@ -4,7 +4,7 @@ namespace DALInterfaces
 {
     public interface IDALDependencyResolver
     {
-        ICommentaryDAL CommentaryDAL { get; }
+        ICommentDAL CommentDAL { get; }
 
         IRecipeDAL RecipeDAL { get; }
 

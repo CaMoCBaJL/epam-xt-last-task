@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Entities
 {
-    public class Commentary : CommonEntity
+    public class Comment : CommonEntity
     {
         string Text { get; set; }
 
@@ -15,7 +12,7 @@ namespace Entities
         int DislikesCounter { get; set; }
 
 
-        public Commentary(int id, string text, int likesNum, int dislikesNum) : base(id)
+        public Comment(int id, string text, int likesNum, int dislikesNum) : base(id)
         {
             Text = text;
 
@@ -23,10 +20,6 @@ namespace Entities
 
             DislikesCounter = dislikesNum;
         }
-
-        public void LikeTheComment() => LikesCounter++;
-
-        public void DislikeTheComment() => DislikesCounter++;
 
         public override string ToString()
         {

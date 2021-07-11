@@ -1,8 +1,8 @@
 ﻿namespace DataValidator
 {
-    public class CommentaryValidator
+    public class CommentValidator
     {
-        public string ValidateCommentary(string commentText)
+        public string ValidateComment(string commentText)
         => ValidateCommentText(commentText);
 
         string ValidateCommentText(string text)

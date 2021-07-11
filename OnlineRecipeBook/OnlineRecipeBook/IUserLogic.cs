@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
-using DALInterfaces;
 
 namespace BLInterfaces
 {
     public interface IUserLogic : ILogicLayer
     {
+        List<string> GetUserInfo(int userId);
+
         string CreateUser(string userName, int age, string login, string password);
 
         List<string> GetUserCommentaries(int userId);

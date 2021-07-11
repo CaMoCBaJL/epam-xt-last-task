@@ -332,7 +332,7 @@ BEGIN
 	WHERE [dbo].[Commentary].[Id] = @CommentId
 END
 
-CREATE PROCEDURE GetAllCommentRecipes
+CREATE PROCEDURE GetRecipeComments
 @RecipeId INT
 AS 
 BEGIN
@@ -340,11 +340,12 @@ BEGIN
 	ON [dbo].[Commentary].[Id] = [dbo].[RecipeComments].[CommentId]
 END
 
-CREATE PROCEDURE GetRecipeAward
+ALTER PROCEDURE GetRecipeAward
 @RecipeId INT
 AS
 BEGIN
-	SELECT SUM([dbo].[RecipeAwards].[AwardValue]) FROM [dbo].[RecipeAwards]
+	SELECT SUM([dbo].[RecipeAwards].[AwardValue]) / COUNT([dbo].[RecipeAwards].[AwardValue])
+	FROM [dbo].[RecipeAwards]
 	WHERE [dbo].[RecipeAwards].[RecipeId] = @RecipeId
 END
 

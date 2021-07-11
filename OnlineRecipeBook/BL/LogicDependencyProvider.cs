@@ -14,6 +14,6 @@ namespace BL
 
         public IRecipeLogic RecipeLogic => new RecipeLogic(_DAO.RecipeDAL);
 
-        public ICommentaryLogic CommentaryLogic => new CommentLogic(_DAO.CommentaryDAL);
+        public ICommentLogic CommentLogic => new CommentLogic(_DAO.CommentDAL);
     }
 }

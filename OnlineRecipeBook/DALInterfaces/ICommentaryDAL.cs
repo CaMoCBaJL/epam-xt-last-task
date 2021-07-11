@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace DALInterfaces
 {
-    public interface ICommentaryDAL : IDataLayer
+    public interface ICommentDAL : IDataLayer
     {
-        bool CreateCommentary(int recipeId, int userId, string text);
+        bool CreateComment(int recipeId, int userId, string text);
 
-        bool UpdateCommentary(int commentId, string text);
+        bool UpdateComment(int commentId, string text);
 
-        IEnumerable<Commentary> GetEntities();
+        IEnumerable<Comment> GetEntities();
 
         int GetCommentLikesCounter(int commentId);
 

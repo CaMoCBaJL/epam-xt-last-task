@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommentaryValidator.cs" />
+    <Compile Include="CommentValidator.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="PasswordValidator.cs" />
     <Compile Include="RecipeValidator.cs" />

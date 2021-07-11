@@ -38,7 +38,8 @@ namespace BL
 
             return result;
         }
-        public int GetRecipeAward(int recipeId)
+
+        public double GetRecipeAward(int recipeId)
         => _DAO.GetRecipeAward(recipeId);
 
         public List<string> GetRecipeCommentaries(int recipeId)
@@ -52,6 +53,9 @@ namespace BL
 
             return result;
         }
+
+        public bool RateTheRecipe(int recipeId, int userId, double recipeAward)
+                => _DAO.RateTheRecipe(recipeId, userId, recipeAward);
 
         public bool RemoveEntity(int entityId)
                => _DAO.RemoveEntity(entityId);

@@ -7,15 +7,20 @@ namespace DALInterfaces
 {
     public interface IRecipeDAL : IDataLayer
     {
-        bool CreateRecipe(int userId, string title, string ingridients, string cookingProcess);
+        bool CreateRecipe(int userId,
+            string title, string ingridients, string cookingProcess);
 
-        IEnumerable<Commentary> GetRecipeCommentaries(int recipeId);
+        bool RateTheRecipe(int recipeId, int userId, double award);
 
-        int GetRecipeAward(int recipeId);
+        IEnumerable<Comment> GetRecipeCommentaries(int recipeId);
 
-        bool UpdateRecipe(int recipeId, string title, string ingridients, string cookingProcess);
+        double GetRecipeAward(int recipeId);
+
+        bool UpdateRecipe(int recipeId,
+            string title, string ingridients, string cookingProcess);
 
         IEnumerable<Recipe> GetRecipes();
+
         int GetRecipeId(string recipeTitle);
     }
 }

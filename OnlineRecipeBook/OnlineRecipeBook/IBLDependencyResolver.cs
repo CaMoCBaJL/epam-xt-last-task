@@ -6,6 +6,6 @@
 
         IRecipeLogic RecipeLogic { get; }
 
-        ICommentaryLogic CommentaryLogic { get; }
+        ICommentLogic CommentLogic { get; }
     }
 }

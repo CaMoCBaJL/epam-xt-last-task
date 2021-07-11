@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using BLInterfaces;
 using DALInterfaces;
 using DataValidator;
@@ -50,6 +51,9 @@ namespace BL
 
             return result;
         }
+
+        public List<string> GetUserInfo(int userId)
+               => _DAO.GetUserInfo(userId).ToList();
 
         public List<string> GetUserRecipes(int userId)
         {

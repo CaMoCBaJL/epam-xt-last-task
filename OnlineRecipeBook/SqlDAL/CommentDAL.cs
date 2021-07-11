@@ -8,15 +8,15 @@ using Entities;
 
 namespace SqlDAL
 {
-    public class CommentDAL : ICommentaryDAL
+    public class CommentDAL : ICommentDAL
     {
-        public bool CreateCommentary(int recipeId, int userId, string text)
+        public bool CreateComment(int recipeId, int userId, string text)
         {
             using (SqlConnection connection = new SqlConnection(Common._connectionString))
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("AddCommentary", connection);
+                SqlCommand command = new SqlCommand("AddComment", connection);
 
                 command.Parameters.AddWithValue("@RecipeId", recipeId);
 
@@ -41,9 +41,9 @@ namespace SqlDAL
             return true;
         }
 
-        public IEnumerable<Commentary> GetEntities()
+        public IEnumerable<Comment> GetEntities()
         {
-            List<Commentary> result = new List<Commentary>();
+            List<Comment> result = new List<Comment>();
 
             using (SqlConnection connection = new SqlConnection(Common._connectionString))
             {
@@ -60,7 +60,7 @@ namespace SqlDAL
                     while (reader.Read())
                     {
                         result.Add(
-                             new Commentary(
+                             new Comment(
                                  id: (int)reader["ID"],
                                  text: reader["Text"] as string,
                                  likesNum: GetCommentLikesCounter((int)reader["ID"]),
@@ -70,7 +70,9 @@ namespace SqlDAL
                 }
                 catch (Exception)
                 {
-                    return new List<Commentary>();
+                    //todo Add logger to each try-catch block.
+
+                    return new List<Comment>();
                 }
             }
 
@@ -83,7 +85,7 @@ namespace SqlDAL
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("GetCommentaryDislikes", connection);
+                SqlCommand command = new SqlCommand("GetCommentDislikes", connection);
 
                 command.Parameters.AddWithValue("@CommentId", commentId);
 
@@ -102,6 +104,8 @@ namespace SqlDAL
                 }
                 catch (Exception)
                 {
+                    //todo Add logger to each try-catch block.
+
                     return -1;
                 }
             }
@@ -113,7 +117,7 @@ namespace SqlDAL
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("GetCommentaryLikes", connection);
+                SqlCommand command = new SqlCommand("GetCommentLikes", connection);
 
                 command.Parameters.AddWithValue("@CommentId", commentId);
 
@@ -132,6 +136,8 @@ namespace SqlDAL
                 }
                 catch (Exception)
                 {
+                    //todo Add logger to each try-catch block.
+
                     return -1;
                 }
             }
@@ -164,7 +170,7 @@ namespace SqlDAL
             return true;
         }
 
-        public bool UpdateCommentary(int commentId, string text)
+        public bool UpdateComment(int commentId, string text)
         {
             using (SqlConnection connection = new SqlConnection(Common._connectionString))
             {
@@ -186,6 +192,8 @@ namespace SqlDAL
                 }
                 catch (Exception)
                 {
+                    //todo Add logger to each try-catch block.
+
                     return false;
                 }
             }
@@ -213,6 +221,8 @@ namespace SqlDAL
                 }
                 catch (Exception)
                 {
+                    //todo Add logger to each try-catch block.
+
                     return false;
                 }
             }
@@ -240,6 +250,8 @@ namespace SqlDAL
                 }
                 catch (Exception)
                 {
+                    //todo Add logger to each try-catch block.
+
                     return false;
                 }
             }

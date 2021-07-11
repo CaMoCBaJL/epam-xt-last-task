@@ -8,17 +8,17 @@ namespace Entities
 {
     public class Recipe : CommonEntity
     {
-        string Title { get; }
+        public string Title { get; }
 
-        string Ingridients { get; set; }
+        public string Ingridients { get; set; }
 
-        string CookingProcess { get; set; }
+        public string CookingProcess { get; set; }
 
-        double RecipeRating { get; set; }
+        public double RecipeRating { get; set; }
 
 
         public Recipe(int id, string title, 
-            string ingridients, string cookingProcess, int recipeAward):base(id)
+            string ingridients, string cookingProcess, double recipeAward):base(id)
         {
             Title = title;
 
