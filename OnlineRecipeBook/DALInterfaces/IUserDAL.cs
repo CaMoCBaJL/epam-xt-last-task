@@ -7,13 +7,15 @@ namespace DALInterfaces
     {
         int GetUserId(string userName);
 
-        IEnumerable<User> GetEntities();
+        IEnumerable<User> GetUsers();
+
+        IEnumerable<string> GetUserInfo(int userId);
 
         bool CreateUser(string userName, int age, string login, string password);
 
-        IEnumerable<Commentary> GetUserCommentaries();
+        IEnumerable<Commentary> GetUserCommentaries(int userId);
 
-        IEnumerable<Recipe> GetUserRecipes();
+        IEnumerable<Recipe> GetUserRecipes(int userId);
 
         bool UpdateUserInfo(int userId, string userName, int age);
 

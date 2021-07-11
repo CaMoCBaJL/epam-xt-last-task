@@ -14,7 +14,7 @@ CREATE TABLE Recipe
 	[Id] INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	[Title] NVARCHAR(100),
 	[Ingridients] TEXT NOT NULL,
-	[CookingProgress] TEXT NOT NULL,
+	[CookingProcess] TEXT NOT NULL,
 )
 
 CREATE TABLE Commentary
@@ -65,16 +65,23 @@ CREATE TABLE RecipeComments
 	CONSTRAINT CommentsAreUnique UNIQUE (CommentId, RecipeId)
 )
 
+CREATE PROCEDURE GetAppUser
+@UserId INT
+AS
+BEGIN
+	SELECT * FROM [dbo].[AppUser] WHERE [dbo].[AppUser].[Id] = @UserId
+END
+
 CREATE PROCEDURE GetUsers
 AS
 BEGIN
-	SELECT* FROM [dbo].[AppUser]
+	SELECT * FROM [dbo].[AppUser]
 END
 
 CREATE PROCEDURE GetRecipes
 AS
 BEGIN
-	SELECT* FROM [dbo].[Recipe]
+	SELECT * FROM [dbo].[Recipe]
 END
 
 CREATE PROCEDURE GetUserComments

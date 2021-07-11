@@ -31,7 +31,7 @@ namespace BL
         {
             List<string> result = new List<string>();
 
-            foreach (var recipe in _DAO.GetEntities())
+            foreach (var recipe in _DAO.GetRecipes())
             {
                 result.Add(recipe.ToString());
             }

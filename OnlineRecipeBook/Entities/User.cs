@@ -8,9 +8,9 @@ namespace Entities
 {
     public class User : CommonEntity
     {
-        string UserName { get; }
+        public string UserName { get; }
 
-        int Age { get; }
+        public int Age { get; }
 
 
         public User(int id, string userName, int age) : base(id)

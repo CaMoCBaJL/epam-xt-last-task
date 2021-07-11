@@ -9,7 +9,10 @@ namespace Entities
         public string PasswordHashSum { get; set; }
 
 
-        public UserIdentity(int id, string login, string hashedPassword):base(id)
+
+        public UserIdentity() { }
+
+        public UserIdentity(int id, string login, string hashedPassword) : base(id)
         {
             Login = login;
 

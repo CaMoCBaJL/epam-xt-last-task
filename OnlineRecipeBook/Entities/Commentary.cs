@@ -15,13 +15,13 @@ namespace Entities
         int DislikesCounter { get; set; }
 
 
-        public Commentary(int id, string text) : base(id)
+        public Commentary(int id, string text, int likesNum, int dislikesNum) : base(id)
         {
             Text = text;
 
-            LikesCounter = 0;
+            LikesCounter = likesNum;
 
-            DislikesCounter = 0;
+            DislikesCounter = dislikesNum;
         }
 
         public void LikeTheComment() => LikesCounter++;

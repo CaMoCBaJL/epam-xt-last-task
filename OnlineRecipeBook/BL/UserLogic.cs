@@ -31,7 +31,7 @@ namespace BL
         {
             List<string> result = new List<string>();
 
-            foreach (var item in _DAO.GetEntities())
+            foreach (var item in _DAO.GetUsers())
             {
                 result.Add(item.ToString());
             }
@@ -39,11 +39,11 @@ namespace BL
             return result;
         }
 
-        public List<string> GetUserCommentaries()
+        public List<string> GetUserCommentaries(int userId)
         {
             List<string> result = new List<string>();
 
-            foreach (var item in _DAO.GetUserCommentaries())
+            foreach (var item in _DAO.GetUserCommentaries(userId))
             {
                 result.Add(item.ToString());
             }
@@ -51,11 +51,11 @@ namespace BL
             return result;
         }
 
-        public List<string> GetUserRecipes()
+        public List<string> GetUserRecipes(int userId)
         {
             List<string> result = new List<string>();
 
-            foreach (var item in _DAO.GetUserRecipes())
+            foreach (var item in _DAO.GetUserRecipes(userId))
             {
                 result.Add(item.ToString());
             }

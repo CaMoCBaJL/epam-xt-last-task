@@ -10,5 +10,9 @@ namespace DALInterfaces
         bool UpdateCommentary(int commentaryId, string text);
 
         IEnumerable<Commentary> GetEntities();
+
+        int GetRecipeLikesCounter(int recipeId);
+
+        int GetRecipeDislikesCounter(int recipeId);
     }
 }

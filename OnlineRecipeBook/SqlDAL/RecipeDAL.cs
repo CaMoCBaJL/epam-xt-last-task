@@ -12,7 +12,7 @@ namespace SqlDAL
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Recipe> GetEntities()
+        public IEnumerable<Recipe> GetRecipes()
         {
             throw new NotImplementedException();
         }

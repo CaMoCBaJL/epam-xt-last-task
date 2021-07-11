@@ -8,22 +8,25 @@ namespace Entities
 {
     public class Recipe : CommonEntity
     {
-        string Text { get; }
+        string Title { get; }
 
         string Ingridients { get; set; }
 
-        List<string> ImageNames { get; set; }
+        string CookingProcess { get; set; }
 
         double RecipeRating { get; set; }
 
 
-        public Recipe(int id, string text, string ingridients, List<string> images):base(id)
+        public Recipe(int id, string title, 
+            string ingridients, string cookingProcess, int recipeAward):base(id)
         {
-            Text = text;
+            Title = title;
+
+            CookingProcess = cookingProcess;
 
             Ingridients = ingridients;
 
-            ImageNames = images;
+            RecipeRating = recipeAward;
         }
 
         public override string ToString()

@@ -17,6 +17,16 @@ namespace SqlDAL
             throw new NotImplementedException();
         }
 
+        public int GetRecipeDislikesCounter(int recipeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetRecipeLikesCounter(int recipeId)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool RemoveEntity(int entityId)
         {
             throw new NotImplementedException();

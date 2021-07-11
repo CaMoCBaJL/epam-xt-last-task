@@ -7,9 +7,9 @@ namespace BLInterfaces
     {
         string CreateUser(string userName, int age, string login, string password);
 
-        List<string> GetUserCommentaries();
+        List<string> GetUserCommentaries(int userId);
 
-        List<string> GetUserRecipes();
+        List<string> GetUserRecipes(int userId);
 
         string UpdateUserInfo(int userId, string userName, int age);
 

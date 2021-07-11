@@ -8,10 +8,10 @@ namespace Dependencies
 {
     public class DependencyResolver
     {
-        IDALDependencyResolver _DAL => new DALDependencyResolver();
+        public IDALDependencyResolver DAL => new DALDependencyResolver();
 
-        IBLDependencyResolver _BL => new LogicDependencyProvider(_DAL);
+        public IBLDependencyResolver BL => new LogicDependencyProvider(DAL);
 
-        IAuthentificator Authentificator => _DAL.Authentificator;
+        public IAuthentificator Authentificator => DAL.Authentificator;
     }
 }
