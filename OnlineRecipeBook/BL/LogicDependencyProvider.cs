@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BLInterfaces;
+using DALInterfaces;
 
 namespace BL
 {
-    public class LogicDependencyProvider
+    public class LogicDependencyProvider : IBLDependencyResolver
     {
+        IDALDependencyResolver _DAO;
+
+
+        public LogicDependencyProvider(IDALDependencyResolver dependencyResolver) => _DAO = dependencyResolver;
+
+        public IUserLogic UserLogic => new UserLogic(_DAO.UserDAL);
+
+        public IRecipeLogic RecipeLogic => new RecipeLogic(_DAO.RecipeDAL);
+
+        public ICommentaryLogic CommentaryLogic => new CommentLogic(_DAO.CommentaryDAL);
     }
 }

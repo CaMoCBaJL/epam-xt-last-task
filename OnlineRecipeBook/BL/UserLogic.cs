@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using BLInterfaces;
 using DALInterfaces;
 using DataValidator;
-using System.Linq;
 
 namespace BL
 {

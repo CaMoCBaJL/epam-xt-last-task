@@ -309,7 +309,7 @@ BEGIN
 END
 
 CREATE PROCEDURE GetAllCommentRecipes
-@RecipeId
+@RecipeId INT
 AS 
 BEGIN
 	SELECT * FROM [dbo].[Commentary] JOIN [dbo].[RecipeComments]
@@ -317,10 +317,11 @@ BEGIN
 END
 
 CREATE PROCEDURE GetRecipeAward
-@RecipeId
+@RecipeId INT
 AS
 BEGIN
-
+	SELECT SUM([dbo].[RecipeAwards].[AwardValue]) FROM [dbo].[RecipeAwards]
+	WHERE [dbo].[RecipeAwards].[RecipeId] = @RecipeId
 END
 
 CREATE PROCEDURE CheckIdentity
