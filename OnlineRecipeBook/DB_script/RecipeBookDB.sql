@@ -344,7 +344,8 @@ ALTER PROCEDURE GetRecipeAward
 @RecipeId INT
 AS
 BEGIN
-	SELECT SUM([dbo].[RecipeAwards].[AwardValue]) / COUNT([dbo].[RecipeAwards].[AwardValue])
+	SELECT SUM([dbo].[RecipeAwards].[AwardValue]) /
+	COUNT([dbo].[RecipeAwards].[AwardValue]) AS Award
 	FROM [dbo].[RecipeAwards]
 	WHERE [dbo].[RecipeAwards].[RecipeId] = @RecipeId
 END
