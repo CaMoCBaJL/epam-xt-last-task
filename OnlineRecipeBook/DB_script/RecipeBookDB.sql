@@ -259,24 +259,28 @@ BEGIN
 		END
 END
 
-exec GetRecipeComments 1
+select * from UserReactions
 
-CREATE PROCEDURE GetCommentLikes
+exec GetCommentLikes 2
+
+exec LikeTheComment 1, 6
+
+ALTER PROCEDURE GetCommentLikes
 @CommentId INT
 AS
 BEGIN
 	SELECT COUNT([dbo].[UserReactions].[Award]) as LikesCounter
 	FROM [dbo].[UserReactions]
-	WHERE [dbo].[UserReactions].[Award] = 1
+	WHERE [dbo].[UserReactions].[Award] = 1 AND [dbo].[UserReactions].[CommentId] = @CommentId
 END
 
-CREATE PROCEDURE GetCommentDislikes
+ALTER PROCEDURE GetCommentDislikes
 @CommentId INT
 AS
 BEGIN
 	SELECT COUNT([dbo].[UserReactions].[Award]) as DislikesCounter
 	FROM [dbo].[UserReactions]
-	WHERE [dbo].[UserReactions].[Award] = 0
+	WHERE [dbo].[UserReactions].[Award] = 0 AND [dbo].[UserReactions].[CommentId] = @CommentId
 END
 
 CREATE PROCEDURE RateRecipe
