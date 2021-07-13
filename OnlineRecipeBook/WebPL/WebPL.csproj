@@ -89,10 +89,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Styles\ElemList.css" />
+    <Content Include="Styles\ErrorPageStyles.css" />
     <Content Include="Styles\Styles.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\DataToRoute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -101,7 +103,10 @@
     <Content Include="Pages\Layout\_BasicLayout.cshtml" />
     <Content Include="Pages\Common\Login.cshtml" />
     <Content Include="Pages\Registraition.cshtml" />
-    <Content Include="Pages\RecipeList.cshtml" />
+    <Content Include="Pages\Recipe.cshtml" />
+    <Content Include="Pages\UserPage.cshtml" />
+    <Content Include="Pages\AddRecipe.cshtml" />
+    <Content Include="Pages\Common\ErrorPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -109,9 +114,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CommonInterfaces\CommonInterfaces.csproj">
       <Project>{cc966cf9-7ffa-4422-9e1c-b044186118fb}</Project>
