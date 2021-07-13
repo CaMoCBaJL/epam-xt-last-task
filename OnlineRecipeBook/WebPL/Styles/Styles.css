@@ -21,7 +21,7 @@
 /* BASIC */
 
 html {
-    background-color: #56baed;
+    background-color: #262a2b;
 }
 
 body {
@@ -293,7 +293,6 @@ input[type=text] {
     .underlineHover:hover:after {
         width: 100%;
     }
-
 
 
 /* OTHERS */

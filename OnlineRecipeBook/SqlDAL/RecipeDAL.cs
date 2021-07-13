@@ -70,7 +70,7 @@ namespace SqlDAL
                             recipeAward: new RecipeDAL().GetRecipeAward((int)reader["Id"])));
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     //todo Add logger to each try-catch block.
 

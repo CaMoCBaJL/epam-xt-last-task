@@ -1,0 +1,75 @@
+﻿@using Dependencies;
+
+@{
+    if (IsPost)
+    {
+
+    }
+
+}
+
+@functions{
+    public List<string> recipeData;
+
+    public int counter = 0;
+
+
+    void ParseRecipeData(string recipe)
+    {
+        recipeData = (recipe.Split(new char[] { '\r', '\n' },
+                StringSplitOptions.RemoveEmptyEntries)).ToList();
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel=" stylesheet" href="~/Styles/ElemList.css" />
+    <title></title>
+</head>
+<body>
+    <div>
+        @if (User.Identity.IsAuthenticated)
+        {
+
+            <form action="~/Pages/UserPage.cshtml">
+                <button class="log_in_button"> User account</button>
+            </form>
+        }
+        else
+        {
+            <form action="~/Pages/Common/Login.cshtml">
+                <button class="log_in_button"> Log in</button>
+            </form>
+        }
+    </div>
+    <ul class="tilesWrap">
+        @foreach (var recipe in DependencyResolver.Instance.BL.RecipeLogic.GetEntities())
+        {
+            ParseRecipeData(recipe);
+
+            <li>
+                <h2>
+                    @counter
+                </h2>
+
+
+                <h3>
+                    @recipeData[0]
+                </h3>
+
+                <p>
+                    Recipe rating:
+                    @recipeData[1] / 5
+                </p>
+                <form method="post">
+                    <button name="@counter" type="submit"> Show more</button>
+                </form>
+            </li>
+            counter++;
+        }
+    </ul>
+</body>
+</html>

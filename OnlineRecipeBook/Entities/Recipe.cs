@@ -31,7 +31,17 @@ namespace Entities
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            StringBuilder result = new StringBuilder();
+
+            result.Append(Title + Environment.NewLine);
+
+            result.Append(RecipeRating.ToString() + Environment.NewLine);
+
+            result.Append(Ingridients + Environment.NewLine);
+
+            result.Append(CookingProcess + Environment.NewLine);
+
+            return result.ToString();
         }
     }
 }
