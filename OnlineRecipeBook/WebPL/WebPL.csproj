@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\DataToRoute.cs" />
+    <Compile Include="Models\UserReactionData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +109,7 @@
     <Content Include="Pages\UserPage.cshtml" />
     <Content Include="Pages\AddRecipe.cshtml" />
     <Content Include="Pages\Common\ErrorPage.cshtml" />
+    <Content Include="Pages\CommentReactionPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -115,11 +117,17 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonInterfaces\CommonInterfaces.csproj">
       <Project>{cc966cf9-7ffa-4422-9e1c-b044186118fb}</Project>
       <Name>CommonInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\CommonConstants.csproj">
+      <Project>{be523f35-4db6-4bb1-a86a-7071a26656cc}</Project>
+      <Name>CommonConstants</Name>
     </ProjectReference>
     <ProjectReference Include="..\Dependencies\Dependencies.csproj">
       <Project>{3114d44e-7f10-4617-aadb-35fee95ffb83}</Project>

@@ -1,0 +1,36 @@
+﻿@using WebPL.Models;
+@using Dependencies;
+
+@{
+    Layout = "~/Pages/Layout/_BasicLayout.cshtml";
+
+
+    if (!UserReactionData.IsDislike.GetValueOrDefault())
+    {
+        DependencyResolver.Instance.BL.CommentLogic.LikeTheComment(UserReactionData.Commentid, UserReactionData.UserId);
+    }
+    else
+    {
+        DependencyResolver.Instance.BL.CommentLogic.DislikeTheComment(UserReactionData.Commentid, UserReactionData.UserId);
+    }
+
+    UserReactionData.IsDislike = null;
+
+    Response.Redirect("~/Pages/Recipe.cshtml");
+}
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+
+    </div>
+</body>
+</html>

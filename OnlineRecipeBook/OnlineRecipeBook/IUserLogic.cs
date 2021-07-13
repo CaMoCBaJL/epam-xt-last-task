@@ -15,5 +15,11 @@ namespace BLInterfaces
         string UpdateUserInfo(int userId, string userName, int age);
 
         string UpdateUserIdentity(int userId, string login, string password);
+
+        string GetCommentAuthorName(int commentId);
+
+        int GetCommentAuthor(int commentId);
+
+        int GetUserId(string login);
     }
 }

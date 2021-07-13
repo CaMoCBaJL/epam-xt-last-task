@@ -208,16 +208,16 @@ BEGIN
 END
 
 ALTER PROCEDURE LikeTheComment
-@UserId int,
-@CommentaryId int
+@UserId INT,
+@CommentaryId INT
 AS
 BEGIN
 	EXEC CommentAwarding @CommentaryId, @UserId, 1
 END
 
 ALTER PROCEDURE DislikeTheComment
-@UserId int,
-@CommentaryId int
+@UserId INT,
+@CommentaryId INT
 AS
 BEGIN
 	EXEC CommentAwarding @CommentaryId, @UserId, 0
@@ -234,7 +234,7 @@ BEGIN
 	SELECT @AwardValue=[dbo].[UserReactions].[Award]
 	FROM [dbo].[UserReactions]
 	WHERE [dbo].[UserReactions].[CommentId] = @CommentId AND
-	[dbo].[UserReactions].[UserId] = @UserId
+	[dbo].[UserReactions].[UserId] = @UserId 
 
 	IF (@AwardValue = NULL)
 		BEGIN
@@ -259,7 +259,9 @@ BEGIN
 		END
 END
 
-ALTER PROCEDURE GetCommentaryLikes
+exec GetRecipeComments 1
+
+CREATE PROCEDURE GetCommentLikes
 @CommentId INT
 AS
 BEGIN
@@ -268,7 +270,7 @@ BEGIN
 	WHERE [dbo].[UserReactions].[Award] = 1
 END
 
-ALTER PROCEDURE GetCommentaryDislikes
+CREATE PROCEDURE GetCommentDislikes
 @CommentId INT
 AS
 BEGIN
@@ -386,6 +388,26 @@ BEGIN
 	ELSE
 		RETURN 0
 END
+
+exec LikeTheComment 1, 1
+
+CREATE PROCEDURE GetCommentAuthor
+@CommentId INT
+AS
+BEGIN
+	SELECT [dbo].[UserCommentaries].[UserId] FROM [dbo].[UserCommentaries]
+	WHERE [dbo].[UserCommentaries].[CommentId] = @CommentId
+END
+
+CREATE PROCEDURE GetUserAward
+@UserId INT
+AS
+BEGIN
+	SELECT [dbo].[RecipeAwards].[AwardValue] FROM [dbo].[RecipeAwards]
+	WHERE [dbo].[RecipeAwards].[UserId] = @UserId
+END
+
+exec AddCommentary 1, 'ляляля', 1
 
 IF ((SELECT [dbo].[UserReactions].[Award] FROM [dbo].[UserReactions]) = NULL)
 print 'NULL'

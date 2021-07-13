@@ -141,7 +141,7 @@ namespace SqlDAL
                             );
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     //todo Add logger to each try-catch block.
 
@@ -182,7 +182,7 @@ namespace SqlDAL
             return true;
         }
 
-        public bool UpdateRecipe(int recipeId, 
+        public bool UpdateRecipe(int recipeId,
             string title, string ingridients, string cookingProcess)
         {
             using (SqlConnection connection = new SqlConnection(Common._connectionString))
@@ -245,6 +245,36 @@ namespace SqlDAL
             }
 
             return true;
+        }
+
+        public int GetUserAward(int userId)
+        {
+            using (SqlConnection connection = new SqlConnection(Common._connectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("GetUserAward", connection);
+
+                command.Parameters.AddWithValue("@UserId", userId);
+
+                command.CommandType = CommandType.StoredProcedure;
+
+                try
+                {
+                    var reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                        return (int)reader["AwardValue"];
+
+                    return 0;
+                }
+                catch (Exception)
+                {
+                    //todo Add logger to each try-catch block.
+
+                    return 0;
+                }
+            }
         }
     }
 }

@@ -1,15 +1,65 @@
 ﻿@using Dependencies;
 @using WebPL.Models;
+@using CommonConstants;
 
 @{
     Layout = "~/Pages/Layout/_BasicLayout.cshtml";
 
-    DataToRoute.RecipeId = 0;
+    if (IsPost)
+    {
+        DefineClickTarget();
+    }
 }
 
 @functions{
+    int counter;
+
     List<string> recipeData = DependencyResolver.Instance.BL.RecipeLogic.GetEntities()[DataToRoute.RecipeId].Split(
-        new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+        new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries).ToList();
+
+    List<string> commentData;
+
+    void ParseCommentData(string comment)
+    {
+        commentData = comment.Split(
+                new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries).ToList();
+    }
+
+    void DefineClickTarget()
+    {
+        for (int i = 0; i < DependencyResolver.Instance.BL.RecipeLogic.GetRecipeCommentaries(DataToRoute.RecipeId + 1).Count; i++)
+        {
+            if (Request[i.ToString() + "like"] != null)
+            {
+                //I used additional response to Like
+
+                UserReactionData.UserId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name) + 1;
+
+                UserReactionData.Commentid = i + 1;
+
+                UserReactionData.IsDislike = false;
+
+                Response.Redirect("~/Pages/CommentReactionPage.cshtml");
+
+                break;
+            }
+
+            else if (Request[i.ToString() + "dislike"] != null)
+            {
+                UserReactionData.UserId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name) + 1;
+
+                UserReactionData.Commentid = i + 1;
+
+                UserReactionData.IsDislike = true;
+
+                Response.Redirect("~/Pages/CommentReactionPage.cshtml");
+
+                break;
+            }
+        }
+    }
+
+
 }
 
 <!DOCTYPE html>
@@ -25,77 +75,85 @@
     <h1>
         @recipeData[0] ★ @DependencyResolver.Instance.BL.RecipeLogic.GetRecipeAward(DataToRoute.RecipeId)
     </h1>
-    <div>
-        <h2>
-            @DependencyResolver.Instance.BL.RecipeLogic.GetRecipeCommentaries(DataToRoute.RecipeId).Count() awards
-        </h2>
-        <p>
-            <div class="rating-system1">
-                <input type="radio" name='rate' id="star5" checked />
-                <label for="star5"></label>
-
-                <input type="radio" name='rate' id="star4" />
-                <label for="star4"></label>
-
-                <input type="radio" name='rate' id="star3" />
-                <label for="star3"></label>
-
-                <input type="radio" name='rate' id="star2" />
-                <label for="star2"></label>
-
-                <input type="radio" name='rate' id="star1" />
-                <label for="star1"></label>
-            </div>
-        </p>
+    <div class="recipe_text">
         <p>
             <h2> Ingridients:</h2>
         </p>
         <p>
-            @foreach (var ingridient in recipeData[2].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
+            @foreach (var ingridient in recipeData[2].Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries))
             {
-                <h3>
+                <h3 class="recipe_text">
                     @ingridient
                 </h3>
             }
         </p>
         <h2> Cooking process</h2>
         <p>
-            @foreach (var cookingStep in recipeData[3].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
+            @foreach (var cookingStep in recipeData[3].Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries))
             {
                 <h3>
                     @cookingStep
                 </h3>
             }
         </p>
+
+        <p>
+            <h2> Comments:</h2>
+        </p>
         @if (DependencyResolver.Instance.BL.RecipeLogic.GetRecipeCommentaries(DataToRoute.RecipeId).Count > 0)
         {
             foreach (var comment in DependencyResolver.Instance.BL.RecipeLogic.GetRecipeCommentaries(DataToRoute.RecipeId))
             {
-                <p>
-                    @comment
-                </p>
+                ParseCommentData(comment);
+
+                <div class="comment">
+                    <p>
+                        @DependencyResolver.Instance.BL.UserLogic.GetCommentAuthorName(int.Parse(commentData[3]))
+                        ★ @DependencyResolver.Instance.BL.RecipeLogic.GetUserAward(DependencyResolver.Instance.BL.UserLogic.GetCommentAuthor(int.Parse(commentData[3])))
+                    </p>
+                    <p>
+                        @commentData[0]
+                    </p>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <form method="post">
+                            <p class="counters">
+                                <button onclick="this.setAttribute(value, null);" name="@counter.ToString()like" class="like" type="submit"> </button> @commentData[1]
+                                <button name="@counter.ToString()dislike" class="dislike" type="submit"> </button> @commentData[2]
+                            </p>
+                        </form>
+                    }
+                    else
+                    {
+                        <p class="counters">
+                            <a name="@counter.ToString()like" class="like" type="submit"> </a> @commentData[1]
+                            <a name="@counter.ToString()dislike" class="dislike" type="submit"> </a> @commentData[2]
+                        </p>
+                    }
+                </div>
+
+                counter++;
             }
         }
         else
         {
-            <div class="error_text">
-                <p>
-                    There is 0 comments now.
-                </p>
+            <p>
+                There is 0 comments now.
+            </p>
 
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <p>
-                        Add first.
-                    </p>
-                }
-                else
-                {
-                    <p>
-                        Log in to add comment.
-                    </p>
-                }
-            </div>
+            if (User.Identity.IsAuthenticated)
+            {
+                <p>
+                    Add first.
+                </p>
+            }
+            else
+            {
+                <p>
+                    Log in to add comment.
+                </p>
+            }
         }
     </div>
 </body>

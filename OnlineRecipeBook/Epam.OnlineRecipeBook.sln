@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityChecker", "Identity
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLogic", "CommonLogic\CommonLogic.csproj", "{AE9130F6-87A8-493C-88A4-7709F6610DEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonConstants", "Common\CommonConstants.csproj", "{BE523F35-4DB6-4BB1-A86A-7071A26656CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{AE9130F6-87A8-493C-88A4-7709F6610DEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE9130F6-87A8-493C-88A4-7709F6610DEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE9130F6-87A8-493C-88A4-7709F6610DEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE523F35-4DB6-4BB1-A86A-7071A26656CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE523F35-4DB6-4BB1-A86A-7071A26656CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE523F35-4DB6-4BB1-A86A-7071A26656CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE523F35-4DB6-4BB1-A86A-7071A26656CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +105,7 @@ Global
 		{CC966CF9-7FFA-4422-9E1C-B044186118FB} = {32901365-6216-4107-AAFB-2F6014008F2B}
 		{FFAC7086-023C-4BC3-9EA5-50805C4F22DD} = {32901365-6216-4107-AAFB-2F6014008F2B}
 		{AE9130F6-87A8-493C-88A4-7709F6610DEB} = {634E3949-549E-475A-8D13-0CA71F29224C}
+		{BE523F35-4DB6-4BB1-A86A-7071A26656CC} = {32901365-6216-4107-AAFB-2F6014008F2B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3AE244FA-24FC-4DEC-B2E7-BBBAAC3A2921}

@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Text;
+using CommonConstants;
+
 namespace Entities
 {
     public class Comment : CommonEntity
     {
-        string Text { get; set; }
+        public string Text { get; set; }
 
-        int LikesCounter { get; set; }
+        public int LikesCounter { get; set; }
 
-        int DislikesCounter { get; set; }
+        public int DislikesCounter { get; set; }
 
 
         public Comment(int id, string text, int likesNum, int dislikesNum) : base(id)
@@ -23,7 +23,17 @@ namespace Entities
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            StringBuilder result = new StringBuilder();
+
+            result.Append(Text + DelimiterConstant.myDelimiter);
+
+            result.Append(LikesCounter + DelimiterConstant.myDelimiter);
+
+            result.Append(DislikesCounter + DelimiterConstant.myDelimiter);
+
+            result.Append(Id + DelimiterConstant.myDelimiter);
+
+            return result.ToString();
         }
     }
 }

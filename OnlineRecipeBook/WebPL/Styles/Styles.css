@@ -1,9 +1,9 @@
 ﻿.body {
     margin-left: auto;
     margin-right: auto;
-    padding-top:15%; 
-    margin-bottom:5px;
-    color:black;
+    padding-top: 15%;
+    margin-bottom: 5px;
+    color: black;
 }
 
 
@@ -12,8 +12,8 @@
 }
 
 
-.labelPosition{
-    position:center;
+.labelPosition {
+    position: center;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Poppins');
@@ -335,3 +335,33 @@ input[type=text], input[type=password] {
     .closebtn:hover {
         color: black;
     }
+
+.comment {
+    color: #b7b7b7;
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.counters {
+    font-size: 28px;
+}
+
+.like {
+    border:none;
+    background-color: #262a2b;
+    background-image: url("https://img.icons8.com/color/24/000000/filled-like.png");
+    width: 24px;
+    height: 24px;
+}
+
+.dislike {
+    border: none;
+    background-color: #262a2b;
+    background-image: url("https://img.icons8.com/color/24/000000/dislike.png");
+    width: 24px;
+    height: 24px;
+}
+
+.recipe_text{
+    margin-left:10px;
+}

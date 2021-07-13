@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using CommonLogic;
 using DALInterfaces;
 using Entities;
 
@@ -207,7 +206,7 @@ namespace SqlDAL
 
                 SqlCommand command = new SqlCommand("LikeTheComment", connection);
 
-                command.Parameters.AddWithValue("@CommentId", commentId);
+                command.Parameters.AddWithValue("@CommentaryId", commentId);
 
                 command.Parameters.AddWithValue("@UserId", userId);
 
@@ -219,7 +218,7 @@ namespace SqlDAL
 
                     return true;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     //todo Add logger to each try-catch block.
 
@@ -236,7 +235,7 @@ namespace SqlDAL
 
                 SqlCommand command = new SqlCommand("DislikeTheComment", connection);
 
-                command.Parameters.AddWithValue("@CommentId", commentId);
+                command.Parameters.AddWithValue("@CommentaryId", commentId);
 
                 command.Parameters.AddWithValue("@UserId", userId);
 
@@ -248,7 +247,7 @@ namespace SqlDAL
 
                     return true;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     //todo Add logger to each try-catch block.
 
@@ -256,5 +255,7 @@ namespace SqlDAL
                 }
             }
         }
+
+
     }
 }

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Text;
+using CommonConstants;
 namespace Entities
 {
     public class Recipe : CommonEntity
@@ -33,13 +29,13 @@ namespace Entities
         {
             StringBuilder result = new StringBuilder();
 
-            result.Append(Title + Environment.NewLine);
+            result.Append(Title + DelimiterConstant.myDelimiter);
 
-            result.Append(RecipeRating.ToString() + Environment.NewLine);
+            result.Append(RecipeRating.ToString() + DelimiterConstant.myDelimiter);
 
-            result.Append(Ingridients + Environment.NewLine);
+            result.Append(Ingridients + DelimiterConstant.myDelimiter);
 
-            result.Append(CookingProcess + Environment.NewLine);
+            result.Append(CookingProcess + DelimiterConstant.myDelimiter);
 
             return result.ToString();
         }

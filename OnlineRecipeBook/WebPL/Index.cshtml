@@ -1,5 +1,6 @@
 ﻿@using Dependencies;
 @using WebPL.Models;
+@using CommonConstants;
 
 @{
     Layout = "~/Pages/Layout/_BasicLayout.cshtml";
@@ -26,7 +27,7 @@
 
     void ParseRecipeData(string recipe)
     {
-        recipeData = (recipe.Split(new char[] { '\r', '\n' },
+        recipeData = (recipe.Split(new string[] { DelimiterConstant.myDelimiter },
                 StringSplitOptions.RemoveEmptyEntries)).ToList();
     }
 
@@ -54,7 +55,7 @@
     <div>
 
     </div>
-    <ul class="tilesWrap">
+    <ul style="position:inherit;" class="tilesWrap">
         @foreach (var recipe in DependencyResolver.Instance.BL.RecipeLogic.GetEntities())
         {
             ParseRecipeData(recipe);

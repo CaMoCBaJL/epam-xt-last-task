@@ -22,5 +22,7 @@ namespace DALInterfaces
         IEnumerable<Recipe> GetRecipes();
 
         int GetRecipeId(string recipeTitle);
+
+        int GetUserAward(int userId);
     }
 }

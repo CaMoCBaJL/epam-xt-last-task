@@ -57,7 +57,7 @@ namespace SqlDAL
 
         public bool CreateAdmin()
         => CreateUser("Administrator", 0, "admin", "admin");
-        
+
 
         public bool CreateUser(string userName, int age, string login, string password)
         {
@@ -239,7 +239,7 @@ namespace SqlDAL
                     }
                 }
                 catch (Exception)
-                {           
+                {
                     //todo Add logger to each try-catch block.
 
                     return new List<Recipe>();
@@ -358,7 +358,7 @@ namespace SqlDAL
                 {
                     var reader = command.ExecuteReader();
 
-                    while(reader.Read())
+                    while (reader.Read())
                     {
                         result.Add(new UserIdentity((int)reader["UserId"],
                                                     reader["UserLogin"] as string,
@@ -375,6 +375,36 @@ namespace SqlDAL
                 }
             }
         }
+
+        public int GetCommentAuthor(int commentId)
+        {
+            using (SqlConnection connection = new SqlConnection(Common._connectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("GetCommentAuthor", connection);
+
+                command.Parameters.AddWithValue("@CommentId", commentId);
+
+                command.CommandType = CommandType.StoredProcedure;
+
+                try
+                {
+                    var reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                        return (int)reader["UserId"];
+
+                    return 0;
+                }
+                catch (Exception ex)
+                {
+                    //todo Add logger to each try-catch block.
+
+                    return 0;
+                }
+            }
+        }
     }
-    }
+}
 

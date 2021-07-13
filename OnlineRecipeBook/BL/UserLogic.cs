@@ -28,6 +28,17 @@ namespace BL
                 return validator.ValidateData(userName, login, password, age);
         }
 
+        public string GetCommentAuthorName(int commentId)
+        {
+            if (GetCommentAuthor(commentId) > 0)
+                return _DAO.GetUsers().ElementAt(GetCommentAuthor(commentId) - 1).UserName;
+
+            return string.Empty;
+        }
+
+        public int GetCommentAuthor(int commentId)
+               => _DAO.GetCommentAuthor(commentId);
+
         public List<string> GetEntities()
         {
             List<string> result = new List<string>();
@@ -51,6 +62,9 @@ namespace BL
 
             return result;
         }
+
+        public int GetUserId(string login)
+               => _DAO.GetUserId(login);
 
         public List<string> GetUserInfo(int userId)
                => _DAO.GetUserInfo(userId).ToList();

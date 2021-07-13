@@ -5,7 +5,7 @@ namespace DALInterfaces
 {
     public interface IUserDAL : IDataLayer
     {
-        int GetUserId(string userName);
+        int GetUserId(string login);
 
         IEnumerable<User> GetUsers();
 
@@ -20,5 +20,7 @@ namespace DALInterfaces
         bool UpdateUserInfo(int userId, string userName, int age);
 
         bool UpdateUserIdentity(int userId, string login, string password);
+
+        int GetCommentAuthor(int commentId);
     }
 }

@@ -13,5 +13,7 @@ namespace BLInterfaces
         double GetRecipeAward(int recipeId);
 
         string UpdateRecipe(int recipeId, string title, string ingridients, string cookingProcess);
+
+        int GetUserAward(int userId);
     }
 }

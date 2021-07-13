@@ -54,6 +54,10 @@ namespace BL
             return result;
         }
 
+        public int GetUserAward(int userId)
+            => _DAO.GetUserAward(userId);
+        
+
         public bool RateTheRecipe(int recipeId, int userId, double recipeAward)
                 => _DAO.RateTheRecipe(recipeId, userId, recipeAward);
 

@@ -30,6 +30,11 @@ namespace BL
         public bool DislikeTheComment(int commentId, int userId)
                => _DAO.DislikeTheComment(commentId, userId);
 
+        public string GetCommentAuthor(int userId)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public List<string> GetEntities()
         {
             List<string> result = new List<string>();
