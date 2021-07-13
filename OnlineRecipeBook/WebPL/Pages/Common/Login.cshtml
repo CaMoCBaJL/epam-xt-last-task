@@ -2,11 +2,9 @@
 @using CommonInterfaces;
 
 @{
-    Layout = "~/Pages/Layout/_BasicLayout.cshtml";
+    string login = null;
 
-    string login = string.Empty;
-
-    string password = string.Empty;
+    string password = null;
 
     if (IsPost)
     {
@@ -15,6 +13,7 @@
         password = Request["password"];
     }
 }
+
 
 <!doctype html>
 <html lang="en">
@@ -25,21 +24,22 @@
     <title>Login page</title>
 </head>
 <body>
-
-    @if (DependencyResolver.Instance.Authentificator.CheckUserIdentity(login, password))
+    @if (!string.IsNullOrEmpty(login))
     {
-        FormsAuthentication.SetAuthCookie(login, true);
-
-        Response.Redirect("~/Pages/RecipeList.cshtml");
-    }
-    else
-    {
-        if (!string.IsNullOrEmpty(login.Trim()))
+        if (DependencyResolver.Instance.Authentificator.CheckUserIdentity(login, password))
         {
+            FormsAuthentication.SetAuthCookie(login, true);
+
+            Response.Redirect("~/Index.cshtml");
+        }
+        else
+        {
+
             <div class="alert">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                 User with specified login/password doesn't exist.
             </div>
+
         }
     }
 
@@ -52,7 +52,7 @@
             <!-- Login Form -->
             <form method="post">
                 <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-                <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
+                <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
                 <input type="submit" class="fadeIn fourth" value="Log In">
             </form>
 

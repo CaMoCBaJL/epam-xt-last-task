@@ -7,13 +7,25 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="~/Styles/Styles.css" />
-
-    <title></title>
+    <link rel=" stylesheet" href="~/Styles/ElemList.css" />
 </head>
 <body>
     <div>
+        @if (User.Identity.IsAuthenticated)
+        {
+
+            <form action="~/Pages/UserPage.cshtml">
+                <button class="log_in_button"> User account</button>
+            </form>
+        }
+        else
+        {
+            <form action="~/Pages/Common/Login.cshtml">
+                <button class="log_in_button"> Log in</button>
+            </form>
+        }
         @RenderBody()
+
     </div>
 </body>
 </html>

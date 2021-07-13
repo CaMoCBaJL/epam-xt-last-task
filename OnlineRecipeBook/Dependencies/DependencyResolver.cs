@@ -24,7 +24,7 @@ namespace Dependencies
         }
         #endregion
 
-        public IDALDependencyResolver DAL => new DALDependencyResolver();
+        IDALDependencyResolver DAL => new DALDependencyResolver();
 
         public IBLDependencyResolver BL => new LogicDependencyProvider(DAL);
 

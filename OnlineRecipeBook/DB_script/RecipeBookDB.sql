@@ -9,6 +9,8 @@ CREATE TABLE AppUser
 	[Age] INT NOT NULL
 )
 
+drop table AppUser
+
 CREATE TABLE Recipe
 (
 	[Id] INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
@@ -37,18 +39,22 @@ CREATE TABLE UserRecipes
 	CONSTRAINT UserRecipesAreUnique UNIQUE (UserId, RecipeId)
 )
 
-CREATE TABLE UserIdentitiy
+CREATE TABLE UserIdentity
 (
 	[UserId] INT FOREIGN KEY REFERENCES AppUser(Id) ON DELETE CASCADE ON UPDATE CASCADE,
 	[UserLogin] NVARCHAR(100) NOT NULL,
-	[UserPassword] NVARCHAR(100) NOT NULL
+	[UserPassword] NVARCHAR(255) NOT NULL
 )
+
+select * from AppUser
+
+drop table RecipeAwards
 
 CREATE TABLE RecipeAwards
 (
 	[RecipeId] INT FOREIGN KEY REFERENCES Recipe(Id) ON DELETE CASCADE ON UPDATE CASCADE,
 	[UserId] INT FOREIGN KEY REFERENCES AppUser(Id) ON DELETE CASCADE ON UPDATE CASCADE,
-	[AwardValue] FLOAT
+	[AwardValue] INT
 )
 
 CREATE TABLE UserReactions
@@ -77,6 +83,19 @@ CREATE PROCEDURE GetUsers
 AS
 BEGIN
 	SELECT * FROM [dbo].[AppUser]
+END
+
+ALTER PROCEDURE GetUserIdentities
+AS
+BEGIN
+	SELECT * FROM [dbo].[UserIdentity]
+END
+
+ALTER PROCEDURE GetUserIdentity
+@UserId INT
+AS
+BEGIN
+	SELECT * FROM [dbo].[UserIdentitiy] WHERE [dbo].[UserIdentity].[UserId] = @UserId
 END
 
 CREATE PROCEDURE GetRecipes
@@ -109,7 +128,11 @@ BEGIN
 	WHERE [dbo].[UserRecipes].[RecipeId] = @UserId)
 END
 
-CREATE PROCEDURE AddUser
+select * from Recipe
+
+EXEC AddRecipe '–ÂˆÂÔÚ 3', '1:1 2:2', '¬¿–»“‹—ﬂ', 1
+
+ALTER PROCEDURE AddUser
 @UserName NVARCHAR(255),
 @UserAge int,
 @Login NVARCHAR(100),
@@ -123,7 +146,7 @@ BEGIN
 		IF (@@ERROR <> 0)
 		ROLLBACK
 
-		INSERT INTO [dbo].[UserIdentitiy] VALUES 
+		INSERT INTO [dbo].[UserIdentity] VALUES 
 		((SELECT COUNT([dbo].[AppUser].[Id]) FROM [dbo].[AppUser]),
 		@Login, @PasswordHashSum)
 
@@ -308,6 +331,8 @@ BEGIN
 	WHERE [dbo].[AppUser].[Id] = @UserId
 END
 
+select * from UserIdentitiy
+
 CREATE PROCEDURE ChangeRecipe
 @RecipeId INT,
 @RecipeTitle NVARCHAR(255),
@@ -350,12 +375,12 @@ BEGIN
 	WHERE [dbo].[RecipeAwards].[RecipeId] = @RecipeId
 END
 
-CREATE PROCEDURE CheckIdentity
+ALTER PROCEDURE CheckIdentity
 @UserId int,
 @PasswordHashSum nvarchar(255)
 AS
 BEGIN
-	IF (SELECT [dbo].[UserIdentitiy].[UserPassword] FROM [dbo].[UserIdentity]
+	IF (SELECT [dbo].[UserIdentity].[UserPassword] FROM [dbo].[UserIdentity]
 	WHERE @UserId = [dbo].[UserIdentity].[UserId]) = @PasswordHashSum
 		RETURN 1
 	ELSE

@@ -13,6 +13,8 @@ namespace Entities
         public int Age { get; }
 
 
+        public User() { }
+
         public User(int id, string userName, int age) : base(id)
         {
             UserName = userName;

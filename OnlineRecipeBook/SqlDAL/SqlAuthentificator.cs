@@ -24,7 +24,7 @@ namespace SqlDAL
 
                 SqlCommand command = new SqlCommand("CheckIdentity", connection);
 
-                command.Parameters.AddWithValue("@UserId", _DAO.GetUserId(userName));
+                command.Parameters.AddWithValue("@UserId", _DAO.GetUserId(userName) + 1);
                 command.Parameters.AddWithValue("@PasswordHashSum",
                     new PasswordHasher().HashThePassword(password));
 
@@ -42,7 +42,7 @@ namespace SqlDAL
                     else
                         return false;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     return false;
                 }

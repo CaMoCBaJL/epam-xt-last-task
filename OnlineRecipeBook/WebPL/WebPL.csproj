@@ -90,6 +90,7 @@
   <ItemGroup>
     <Content Include="Styles\ElemList.css" />
     <Content Include="Styles\ErrorPageStyles.css" />
+    <Content Include="Styles\RatingSystemStyles.css" />
     <Content Include="Styles\Styles.css" />
     <Content Include="Web.config" />
   </ItemGroup>

@@ -87,7 +87,6 @@ h2 {
     color: #C9FFBF;
 }
 
-
 /* TABS */
 
 h2.inactive {
@@ -125,7 +124,7 @@ input[type=button], input[type=submit], input[type=reset] {
     transition: all 0.3s ease-in-out;
 }
 
-    input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+    input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover, input[type=password]:hover, input[type=text]:hover {
         background-color: #39ace7;
     }
 
@@ -137,7 +136,7 @@ input[type=button], input[type=submit], input[type=reset] {
         transform: scale(0.95);
     }
 
-input[type=text] {
+input[type=text], input[type=password] {
     background-color: #f6f6f6;
     border: none;
     color: #0d0d0d;
@@ -158,14 +157,12 @@ input[type=text] {
     border-radius: 5px 5px 5px 5px;
 }
 
-    input[type=text]:focus {
+    input[type=text]:focus, input[type=password]:focus {
         background-color: #fff;
         border-bottom: 2px solid #5fbae9;
     }
 
-    input[type=text]:placeholder {
-        color: #cccccc;
-    }
+
 
 
 

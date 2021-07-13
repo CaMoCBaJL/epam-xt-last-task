@@ -17,7 +17,7 @@ namespace SqlDAL
                 CreateAdmin();
         }
 
-        bool AdminExists { get => GetUsers().ToList().FindIndex(user => user.UserName == "admin") > -1; }
+        bool AdminExists { get => GetUsers().ToList().FindIndex(user => user.UserName == "Administrator") != -1; }
 
         public IEnumerable<User> GetUsers()
         {
@@ -82,7 +82,7 @@ namespace SqlDAL
                 {
                     command.ExecuteNonQuery();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     //todo Add logger to each try-catch block.
 
@@ -148,7 +148,7 @@ namespace SqlDAL
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("GetAppUser", connection);
+                SqlCommand command = new SqlCommand("GetUserIdentity", connection);
 
                 command.Parameters.AddWithValue("@UserId", userId);
 
@@ -209,10 +209,6 @@ namespace SqlDAL
 
             return result;
         }
-
-        public int GetUserId(string userName)
-            => GetUsers().ToList().FindIndex(user => user.UserName == userName);
-
 
         public IEnumerable<Recipe> GetUserRecipes(int userId)
         {
@@ -343,5 +339,42 @@ namespace SqlDAL
             return true;
         }
 
+        public int GetUserId(string login)
+                => GetUserIdentities().ToList().FindIndex(user => user.Login == login);
+
+        List<UserIdentity> GetUserIdentities()
+        {
+            List<UserIdentity> result = new List<UserIdentity>();
+
+            using (SqlConnection connection = new SqlConnection(Common._connectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("GetUserIdentities", connection);
+
+                command.CommandType = CommandType.StoredProcedure;
+
+                try
+                {
+                    var reader = command.ExecuteReader();
+
+                    while(reader.Read())
+                    {
+                        result.Add(new UserIdentity((int)reader["UserId"],
+                                                    reader["UserLogin"] as string,
+                                                    reader["UserPassword"] as string));
+                    }
+
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    //todo Add logger to each try-catch block.
+
+                    return new List<UserIdentity>();
+                }
+            }
+        }
     }
-}
+    }
+

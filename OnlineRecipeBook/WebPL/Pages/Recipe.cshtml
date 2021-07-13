@@ -1,5 +1,15 @@
-﻿@{
-    Layout = null;
+﻿@using Dependencies;
+@using WebPL.Models;
+
+@{
+    Layout = "~/Pages/Layout/_BasicLayout.cshtml";
+
+    DataToRoute.RecipeId = 0;
+}
+
+@functions{
+    List<string> recipeData = DependencyResolver.Instance.BL.RecipeLogic.GetEntities()[DataToRoute.RecipeId].Split(
+        new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToList();
 }
 
 <!DOCTYPE html>
@@ -7,10 +17,86 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title></title>
+    <link href="~/Styles/RatingSystemStyles.css" rel=" stylesheet" />
+    <link rel="stylesheet" href="~/Styles/Styles.css" />
+    <title>Recipe</title>
 </head>
 <body>
+    <h1>
+        @recipeData[0] ★ @DependencyResolver.Instance.BL.RecipeLogic.GetRecipeAward(DataToRoute.RecipeId)
+    </h1>
     <div>
+        <h2>
+            @DependencyResolver.Instance.BL.RecipeLogic.GetRecipeCommentaries(DataToRoute.RecipeId).Count() awards
+        </h2>
+        <p>
+            <div class="rating-system1">
+                <input type="radio" name='rate' id="star5" checked />
+                <label for="star5"></label>
+
+                <input type="radio" name='rate' id="star4" />
+                <label for="star4"></label>
+
+                <input type="radio" name='rate' id="star3" />
+                <label for="star3"></label>
+
+                <input type="radio" name='rate' id="star2" />
+                <label for="star2"></label>
+
+                <input type="radio" name='rate' id="star1" />
+                <label for="star1"></label>
+            </div>
+        </p>
+        <p>
+            <h2> Ingridients:</h2>
+        </p>
+        <p>
+            @foreach (var ingridient in recipeData[2].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                <h3>
+                    @ingridient
+                </h3>
+            }
+        </p>
+        <h2> Cooking process</h2>
+        <p>
+            @foreach (var cookingStep in recipeData[3].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                <h3>
+                    @cookingStep
+                </h3>
+            }
+        </p>
+        @if (DependencyResolver.Instance.BL.RecipeLogic.GetRecipeCommentaries(DataToRoute.RecipeId).Count > 0)
+        {
+            foreach (var comment in DependencyResolver.Instance.BL.RecipeLogic.GetRecipeCommentaries(DataToRoute.RecipeId))
+            {
+                <p>
+                    @comment
+                </p>
+            }
+        }
+        else
+        {
+            <div class="error_text">
+                <p>
+                    There is 0 comments now.
+                </p>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <p>
+                        Add first.
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        Log in to add comment.
+                    </p>
+                }
+            </div>
+        }
     </div>
 </body>
 </html>

@@ -102,13 +102,13 @@ namespace SqlDAL
                     if (float.TryParse(reader["Award"] as string, out float result))
                         return Math.Round(result, 2);
 
-                    return -1;
+                    return 0;
                 }
                 catch (Exception)
                 {
                     //todo Add logger to each try-catch block.
 
-                    return -1;
+                    return 0;
                 }
             }
         }
