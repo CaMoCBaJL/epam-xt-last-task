@@ -22,7 +22,7 @@ namespace DataValidator
         public string ValidateUserInfo(string userName, int age)
         {
             if (userName.Length > 255)
-                return "UserName"+Constants.paramterTooLong;
+                return "UserName" + Constants.paramterTooLong;
 
             if (!ValidateParameter(age.ToString(), Constants.ageRegexPattern))
                 return Constants.wrongAge;

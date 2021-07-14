@@ -11,13 +11,13 @@ namespace DataValidator
             if (password.Length < 8)
                 return Constants.passwordIsShort;
 
-            if (!regex.IsMatch("\\d"))
+            if (!new Regex(@"\d{1,}").IsMatch(password))
                 return Constants.addNumberToPasswordMessage;
 
-            if (!regex.IsMatch("\\p{P}"))
+            if (!new Regex(@"[!\p{P}?.]").IsMatch(password))
                 return Constants.addPunctuantionToPasswordMessage;
 
-            if (!regex.IsMatch("A-Z"))
+            if (!new Regex(@"[A-Z]").IsMatch(password))
                 return Constants.addCapitalLetterToPasswordMessage;
 
             if (password.Length > 100)

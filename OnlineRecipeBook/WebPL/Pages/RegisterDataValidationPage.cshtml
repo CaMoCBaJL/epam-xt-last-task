@@ -1,0 +1,57 @@
+﻿@using Dependencies;
+@using DataValidator;
+@using WebPL.Models;
+
+@{
+    Layout = null;
+
+    FieldFillingChecker();
+
+    RegistrationData.DataValidationResult = DependencyResolver.Instance.BL.UserLogic.CreateUser(RegistrationData.UserName, int.Parse(RegistrationData.Age), RegistrationData.Login, RegistrationData.Password);
+
+    Response.Redirect("~/Pages/Registraition.cshtml");
+
+}
+
+
+@functions{
+    void FieldFillingChecker()
+    {
+        if (string.IsNullOrEmpty(RegistrationData.UserName))
+            RegistrationData.DataValidationResult = "Username field" + Constants.stringIsEmpty;
+
+        else if (string.IsNullOrEmpty(RegistrationData.Age))
+            RegistrationData.DataValidationResult = "Age field" + Constants.stringIsEmpty;
+
+        else if (string.IsNullOrEmpty(RegistrationData.Login))
+            RegistrationData.DataValidationResult = "Login field" + Constants.stringIsEmpty;
+
+        else if (string.IsNullOrEmpty(RegistrationData.Password))
+            RegistrationData.DataValidationResult = "Password field" + Constants.stringIsEmpty;
+
+        else
+        {
+            RegistrationData.DataValidationResult = Constants.allOk;
+
+            return;
+        }
+
+        RegistrationData.ResetFields();
+
+        Response.Redirect("~/Pages/Registraition.cshtml");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+
+    </div>
+</body>
+</html>

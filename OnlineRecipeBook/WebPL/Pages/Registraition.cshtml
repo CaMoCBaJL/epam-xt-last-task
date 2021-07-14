@@ -1,5 +1,23 @@
-﻿@{
+﻿@using WebPL.Models;
+@using DataValidator;
+
+@{
+    string creationResult = string.Empty;
+
     Layout = null;
+
+    if (IsPost)
+    {
+        RegistrationData.Age = Request["age"];
+
+        RegistrationData.UserName = Request["username"];
+
+        RegistrationData.Password = Request["password"];
+
+        RegistrationData.Login = Request["login"];
+
+        Response.Redirect("~/Pages/RegisterDataValidationPage.cshtml");
+    }
 }
 
 <!DOCTYPE html>
@@ -11,6 +29,29 @@
     <title></title>
 </head>
 <body>
+    @if (!string.IsNullOrEmpty(RegistrationData.DataValidationResult))
+    {
+        if (RegistrationData.DataValidationResult.ValidationPassed())
+        {
+            RegistrationData.DataValidationResult = null;
+
+            FormsAuthentication.SetAuthCookie(RegistrationData.Login, true);
+
+            RegistrationData.ResetFields();
+
+            Response.Redirect("~/Index.cshtml");
+        }
+        else
+        {
+            <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                @RegistrationData.DataValidationResult
+            </div>
+
+            RegistrationData.DataValidationResult = null;
+        }
+    }
+
     <div class="wrapper fadeInDown">
         <div id="formContent">
             <a href="~/Pages/Common/Login.cshtml">Sign In </a>
@@ -24,7 +65,7 @@
                 <input type="submit" class="fadeIn fourth" value="Confirm">
             </form>
         </div>
-
+    </div>
 
 </body>
 </html>
