@@ -110,8 +110,8 @@ input[type=button], input[type=submit], input[type=reset] {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    text-transform: uppercase;
-    font-size: 13px;
+    font-size: 16px;
+    font-weight:600;
     -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
     box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
     -webkit-border-radius: 5px 5px 5px 5px;
@@ -321,25 +321,37 @@ input[type=text], input[type=password] {
 
 /* The close button */
 .closebtn {
-    margin-left: 15px;
-    color: white;
+    color: #262a2b;
     font-weight: bold;
-    float: right;
     font-size: 22px;
     line-height: 20px;
     cursor: pointer;
     transition: 0.3s;
+    border:none;
 }
 
     /* When moving the mouse over the close button */
     .closebtn:hover {
-        color: black;
+        background-color: black;
+        color:white;
     }
+.textarea_style {
+    width: 350px;
+    height: 80px;
+    border-radius: 5px;
+    background-color: #b7b7b7;
+    font-size:16px;
+    font-family:Verdana;
+}
 
 .comment {
     color: #b7b7b7;
-    width: 50%;
-    margin-bottom: 10px;
+    width: 25%;
+    margin-top: 10px;
+    border-radius: 5px;
+    background: #8B008B;
+    background: -webkit-linear-gradient(to right, #8B008B, #f2709c);
+    background: linear-gradient(to right, #8B008B, #f2709c);
 }
 
 .counters {
@@ -347,8 +359,8 @@ input[type=text], input[type=password] {
 }
 
 .like {
-    border:none;
-    background-color: #262a2b;
+    border: none;
+    background-color: transparent;
     background-image: url("https://img.icons8.com/color/24/000000/filled-like.png");
     width: 24px;
     height: 24px;
@@ -356,7 +368,7 @@ input[type=text], input[type=password] {
 
 .dislike {
     border: none;
-    background-color: #262a2b;
+    background:transparent;
     background-image: url("https://img.icons8.com/color/24/000000/dislike.png");
     width: 24px;
     height: 24px;

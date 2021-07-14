@@ -9,8 +9,6 @@ CREATE TABLE AppUser
 	[Age] INT NOT NULL
 )
 
-drop table AppUser
-
 CREATE TABLE Recipe
 (
 	[Id] INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
@@ -283,10 +281,10 @@ BEGIN
 	WHERE [dbo].[UserReactions].[Award] = 0 AND [dbo].[UserReactions].[CommentId] = @CommentId
 END
 
-CREATE PROCEDURE RateRecipe
+ALTER PROCEDURE RateRecipe
 @RecipeId INT,
 @UserId INT,
-@Award FLOAT
+@Award INT
 AS 
 BEGIN
 	INSERT INTO [dbo].[RecipeAwards] VALUES (@RecipeId, @UserId, @Award)
@@ -363,12 +361,13 @@ BEGIN
 	WHERE [dbo].[Commentary].[Id] = @CommentId
 END
 
-CREATE PROCEDURE GetRecipeComments
+ALTER PROCEDURE GetRecipeComments
 @RecipeId INT
 AS 
 BEGIN
 	SELECT * FROM [dbo].[Commentary] JOIN [dbo].[RecipeComments]
 	ON [dbo].[Commentary].[Id] = [dbo].[RecipeComments].[CommentId]
+	WHERE [dbo].[RecipeComments].[RecipeId] = @RecipeId
 END
 
 ALTER PROCEDURE GetRecipeAward

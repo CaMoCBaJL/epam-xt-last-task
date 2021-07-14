@@ -99,7 +99,7 @@ namespace SqlDAL
 
                     reader.Read();
 
-                    if (float.TryParse(reader["Award"] as string, out float result))
+                    if (double.TryParse(reader["Award"].ToString(), out double result))
                         return Math.Round(result, 2);
 
                     return 0;
@@ -214,7 +214,7 @@ namespace SqlDAL
             return true;
         }
 
-        public bool RateTheRecipe(int recipeId, int userId, double award)
+        public bool RateTheRecipe(int recipeId, int userId, int award)
         {
             using (SqlConnection connection = new SqlConnection(Common._connectionString))
             {

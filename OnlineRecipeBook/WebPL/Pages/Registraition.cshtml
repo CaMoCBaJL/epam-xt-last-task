@@ -7,11 +7,24 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel=" stylesheet" href="~/Styles/Styles.css" />
     <title></title>
 </head>
 <body>
-    <div>
-    
-    </div>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <a href="~/Pages/Common/Login.cshtml">Sign In </a>
+            <h2 class="active"> Sign Up </h2>
+            <!-- Registration Form -->
+            <form method="post">
+                <input type="text" id="username_field" class="fadeIn third" name="username" placeholder="Username">
+                <input type="text" id="age_field" class="fadeIn third" name="age" placeholder="Age">
+                <input type="text" id="login_field" class="fadeIn second" name="login" placeholder="Login">
+                <input type="password" id="password_field" class="fadeIn third" name="password" placeholder="Password">
+                <input type="submit" class="fadeIn fourth" value="Confirm">
+            </form>
+        </div>
+
+
 </body>
 </html>

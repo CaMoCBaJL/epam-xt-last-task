@@ -58,7 +58,7 @@ namespace BL
             => _DAO.GetUserAward(userId);
         
 
-        public bool RateTheRecipe(int recipeId, int userId, double recipeAward)
+        public bool RateTheRecipe(int recipeId, int userId, int recipeAward)
                 => _DAO.RateTheRecipe(recipeId, userId, recipeAward);
 
         public bool RemoveEntity(int entityId)

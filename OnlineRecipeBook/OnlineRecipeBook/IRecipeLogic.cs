@@ -4,7 +4,7 @@ namespace BLInterfaces
 {
     public interface IRecipeLogic : ILogicLayer
     {
-        bool RateTheRecipe(int recipeId, int userId, double recipeAward);
+        bool RateTheRecipe(int recipeId, int userId, int recipeAward);
 
         string CreateRecipe(int userId, string title, string ingridients, string cookingProcess);
 
