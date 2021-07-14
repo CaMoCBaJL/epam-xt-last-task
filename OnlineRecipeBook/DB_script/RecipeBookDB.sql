@@ -44,7 +44,17 @@ CREATE TABLE UserIdentity
 	[UserPassword] NVARCHAR(255) NOT NULL
 )
 
-select * from AppUser
+exec AddRecipe '∆Œœ¿', 'ÃŒÀŒ◊ Œ', '«¿Ã»—»', 1
+
+exec GetUserRecipes 1
+
+DECLARE @variable INT
+
+exec @variable = CheckIdentity 3, '76 208 246 126 53 74 39 55 223 167 67 206 44 35 186 202 24 237 141 110 240 228 153 55 166 169 140 139 180 6 144 113'
+
+print @variable
+
+select * from UserIdentity
 
 drop table RecipeAwards
 
@@ -117,18 +127,22 @@ BEGIN
 	WHERE [dbo].[UserCommentaries].[UserId] = @UserId)
 END
 
-CREATE PROCEDURE GetUserRecipes
+ALTER PROCEDURE GetUserRecipes
 @UserId INT
 AS
 BEGIN
 	SELECT * FROM [dbo].[Recipe] WHERE [dbo].[Recipe].[Id] IN
 	(SELECT [dbo].[UserRecipes].[RecipeId] FROM [dbo].[UserRecipes] 
-	WHERE [dbo].[UserRecipes].[RecipeId] = @UserId)
+	WHERE [dbo].[UserRecipes].[UserId] = @UserId)
 END
 
 select * from Recipe
 
 EXEC AddRecipe '–ÂˆÂÔÚ 3', '1:1 2:2', '¬¿–»“‹—ﬂ', 1
+
+EXEC GetUserRecipes 1
+
+select * from UserRecipes
 
 ALTER PROCEDURE AddUser
 @UserName NVARCHAR(255),
@@ -154,7 +168,7 @@ BEGIN
 	COMMIT
 END
 
-CREATE PROCEDURE AddRecipe
+ALTER PROCEDURE AddRecipe
 @RecipeTitle NVARCHAR(100),
 @Ingridients TEXT,
 @CookingProcess TEXT,

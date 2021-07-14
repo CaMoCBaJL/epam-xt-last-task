@@ -1,4 +1,6 @@
 ﻿using System;
+using CommonConstants;
+using System.Text;
 
 namespace Entities
 {
@@ -20,9 +22,7 @@ namespace Entities
         }
 
         public override string ToString()
-        {
-            throw new NotImplementedException();
-        }
+        => Login;
 
     }
 }

@@ -61,15 +61,15 @@
 
             if (award != 0)
             {
-                DependencyResolver.Instance.BL.RecipeLogic.RateTheRecipe(DataToRoute.RecipeId, DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name) + 1, award);
+                DependencyResolver.Instance.BL.RecipeLogic.RateTheRecipe(DataToRoute.RecipeId, DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name), award);
             }
 
-            DependencyResolver.Instance.BL.CommentLogic.CreateComment(DataToRoute.RecipeId, DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name) + 1, Request["text"]);
+            DependencyResolver.Instance.BL.CommentLogic.CreateComment(DataToRoute.RecipeId, DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name), Request["text"]);
         }
 
         for (int i = 0; i < DependencyResolver.Instance.BL.RecipeLogic.GetRecipeCommentaries(DataToRoute.RecipeId).Count; i++)
         {
-            UserReactionData.UserId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name) + 1;
+            UserReactionData.UserId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name);
 
             UserReactionData.Commentid = int.Parse(DependencyResolver.Instance.BL.RecipeLogic.GetRecipeCommentaries(DataToRoute.RecipeId)[i].Split(
             new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries).ToList()[3]);
@@ -141,7 +141,7 @@
         <form method="post">
             @if (User.Identity.IsAuthenticated)
             {
-                if (DependencyResolver.Instance.BL.RecipeLogic.GetUserAward(DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name) + 1) < 1)
+                if (DependencyResolver.Instance.BL.RecipeLogic.GetUserAward(DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name)) < 1)
                 {
                     <div class="rating-system1">
                         <h3>Give your Respect</h3>
@@ -166,7 +166,7 @@
                 else
                 {
                     <p class="recipe_text">
-                        <h3>You rated this recipe with @DependencyResolver.Instance.BL.RecipeLogic.GetUserAward(DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name) + 1)★</h3>
+                        <h3>You rated this recipe with @DependencyResolver.Instance.BL.RecipeLogic.GetUserAward(DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name))★</h3>
                     </p>
                 }
                 <p>

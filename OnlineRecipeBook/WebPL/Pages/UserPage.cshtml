@@ -26,6 +26,13 @@
 </head>
 <body>
     <div>
+        Welcome
+        @foreach (var item in DependencyResolver.Instance.BL.UserLogic.GetUserInfo(DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name)))
+            {
+                <p>
+                    @item
+                </p>
+            }
         <form method="post">
             <button type="submit" class="closebtn"> Sign Out</button>
         </form>

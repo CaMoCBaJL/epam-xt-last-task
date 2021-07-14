@@ -64,7 +64,7 @@ namespace BL
         }
 
         public int GetUserId(string login)
-               => _DAO.GetUserId(login);
+               => _DAO.GetUserId(login) + 1;
 
         public List<string> GetUserInfo(int userId)
                => _DAO.GetUserInfo(userId).ToList();

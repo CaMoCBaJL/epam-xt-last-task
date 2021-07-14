@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommonConstants;
 
 namespace Entities
 {
@@ -24,7 +25,13 @@ namespace Entities
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            StringBuilder result = new StringBuilder();
+
+            result.Append(UserName + DelimiterConstant.myDelimiter);
+
+            result.Append(Age + DelimiterConstant.myDelimiter);
+
+            return result.ToString();
         }
     }
 }
