@@ -1,0 +1,42 @@
+﻿@using WebPL.Models;
+
+@{
+    if (string.IsNullOrEmpty(EntityToDeleteData.SourcePage))
+    {
+        Response.Redirect("~/Index.cshtml");
+    }
+
+    Layout = "~/Pages/Layout/_BasicLayout.cshtml";
+
+    if (IsPost)
+    {
+        if (Request["delete"] != null)
+        {
+            EntityToDeleteData.ConfirmationResult = true;
+        }
+
+        Response.Redirect(EntityToDeleteData.SourcePage);
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <form method="post">
+        <div class="confirmation_window">
+            <h1>
+                Are you sure you want to delete @EntityToDeleteData.EntityName?
+            </h1>
+            <p>
+                <button class="confirmation_button cancel_button"> Cancel</button>
+                <button class="confirmation_button delete_button" name="delete"> Delete</button>
+            </p>
+        </div>
+    </form>
+</body>
+</html>

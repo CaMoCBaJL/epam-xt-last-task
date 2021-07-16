@@ -163,3 +163,35 @@
     cursor: pointer;
     transition: 0.3s;
 }
+
+.confirmation_button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.delete_button {
+    background-color: #f44336;
+}
+
+/* Float cancel and delete buttons and add an equal width */
+.cancel_button, .delete_button {
+    float: left;
+    width: 50%;
+}
+
+/* Add a color to the cancel button */
+.cancel_button {
+    background-color: #ccc;
+    color: black;
+}
+
+.confirmation_window{
+    font-size:32px;
+    text-align:center;
+}

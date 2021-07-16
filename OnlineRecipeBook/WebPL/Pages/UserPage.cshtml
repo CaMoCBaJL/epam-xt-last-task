@@ -53,6 +53,17 @@
             Response.Redirect("~/Pages/ChangeUserData.cshtml");
         }
 
+        if (Request["delete"] != null)
+        {
+            EntityToDeleteData.EntityName = "User";
+
+            EntityToDeleteData.EntityId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name);
+
+            EntityToDeleteData.SourcePage = "~/Pages/UserPage.cshtml";
+
+            Response.Redirect("~/Pages/Common/EntityDeleteConfirmation.cshtml");
+        }
+
         for (int i = 2; i < userData.Count; i++)
         {
             if (Request[i.ToString() + "rec"] != null)
@@ -154,6 +165,9 @@
                     <button type="submit" class="button sign_out_button" name="changeIdentity"> Change login/password</button>
                 </p>
                 <button type="submit" class="button sign_out_button" name="changeUserData"> Change UserName/Age</button>
+                <p>
+                    <button type="submit" class="button sign_out_button" name="delete"> Delete account</button>
+                </p>
             </div>
         </form>
     </div>
