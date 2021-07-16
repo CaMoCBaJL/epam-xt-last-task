@@ -37,6 +37,8 @@ namespace Entities
 
             result.Append(CookingProcess + DelimiterConstant.myDelimiter);
 
+            result.Append(Id + DelimiterConstant.myDelimiter);
+
             return result.ToString();
         }
     }

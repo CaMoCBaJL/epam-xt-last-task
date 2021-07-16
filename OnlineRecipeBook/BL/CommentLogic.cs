@@ -30,6 +30,9 @@ namespace BL
         public bool DislikeTheComment(int commentId, int userId)
                => _DAO.DislikeTheComment(commentId, userId);
 
+        public int FindCommentLocation(int commentId)
+               => _DAO.FindCommentLocation(commentId);
+
         public string GetCommentAuthor(int userId)
         {
             throw new System.NotImplementedException();

@@ -376,3 +376,54 @@ input[type=text], input[type=password] {
 .recipe_text{
     margin-left:10px;
 }
+
+.button {
+    transition-duration: 0.4s;
+    font-weight: bold;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+}
+
+    .button:hover {
+        background-color: #262a2b;
+        color: white;
+    }
+
+.recipe_button {
+    background: #f2709c;
+    background: -webkit-linear-gradient(to right, #ff9472, #f2709c);
+    background: linear-gradient(to right, #ff9472, #f2709c);
+}
+
+.comment_button {
+    background: #c21500;
+    background: -webkit-linear-gradient(to right, #ffc500, #c21500);
+    background: linear-gradient(to right, #ffc500, #c21500);
+}
+
+.user_info {
+    font-size: 20px;
+    color: #f6f6f6;
+}
+
+.user_data_list {
+    float: left;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 3px;
+    border: none;
+    text-align:center;
+}
+
+.sign_out{
+    position:fixed;
+    right:15px;
+    top:15px;
+}
+
+.sign_out_button{
+    font-size:32px;
+    border-radius:3px;
+}

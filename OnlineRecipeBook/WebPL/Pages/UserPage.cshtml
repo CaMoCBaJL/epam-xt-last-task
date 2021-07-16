@@ -1,17 +1,77 @@
 ﻿@using WebPL.Models;
 @using Dependencies;
+@using CommonConstants;
 
 @{
-    Layout = "~/Pages/Layout/_BasicLayout.cshtml";
+    if (userData.Count < 2)
+    {
+        DataToRoute.UserId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name);
 
-    if(!User.Identity.IsAuthenticated)
+        Response.Redirect("~/Index.cshtml");
+    }
+
+    DataToRoute.UserId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name);
+
+    if (!User.Identity.IsAuthenticated)
     {
         Response.Redirect("~/Index.cshtml");
     }
 
     if (IsPost)
     {
-        FormsAuthentication.SignOut();
+        DefineClickTarget();
+    }
+
+    localDataToShow = userData[i].Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries).ToList();
+}
+
+@functions{
+    List<string> userData = DependencyResolver.Instance.BL.UserLogic.GetUserInfo(DataToRoute.UserId);
+
+    public List<string> localDataToShow = new List<string>();
+
+    public int i = 2;
+
+    public int recipeCounter = DependencyResolver.Instance.BL.UserLogic.GetUserRecipes(DataToRoute.UserId).Count;
+
+    void DefineClickTarget()
+    {
+        if (Request["signOut"] != null)
+        {
+            FormsAuthentication.SignOut();
+
+            Response.Redirect("~/Index.cshtml");
+        }
+
+        if (Request["changeidentity"] != null)
+        {
+            Response.Redirect("~/Pages/ChangeIdentity.cshtml");
+        }
+
+        if (Request["changeUserData"] != null)
+        {
+            Response.Redirect("~/Pages/ChangeUserData.cshtml");
+        }
+
+        for (int i = 2; i < userData.Count; i++)
+        {
+            if (Request[i.ToString() + "rec"] != null)
+            {
+                DataToRoute.RecipeId = int.Parse(DependencyResolver.Instance.BL.UserLogic.GetUserRecipes(DataToRoute.UserId)[i - 2]
+                    .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[4]);
+
+                Response.Redirect("~/Pages/Recipe.cshtml");
+            }
+
+            if (Request[i.ToString() + "com"] != null)
+            {
+                DataToRoute.RecipeId = DependencyResolver.Instance.BL.CommentLogic.FindCommentLocation(
+                    int.Parse(DependencyResolver.Instance.BL.UserLogic.GetUserCommentaries(DataToRoute.UserId)[i - 2 - recipeCounter]
+                    .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[3]));
+
+                Response.Redirect("~/Pages/Recipe.cshtml");
+            }
+        }
     }
 }
 
@@ -25,16 +85,76 @@
     <title></title>
 </head>
 <body>
-    <div>
-        Welcome
-        @foreach (var item in DependencyResolver.Instance.BL.UserLogic.GetUserInfo(DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name)))
-            {
-                <p>
-                    @item
-                </p>
-            }
+    <div class="user_info">
+        Welcome,
+
+        @userData[0].Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[0]
+
+        <p>
+            User information:
+        </p>
+        <p>
+            Age: @userData[0].Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[1]
+        </p>
         <form method="post">
-            <button type="submit" class="closebtn"> Sign Out</button>
+            <div class="user_data_list ">
+                @if (localDataToShow.Count == 5)
+                {
+                    <p>My Recipes:</p>
+
+                    while (localDataToShow.Count == 5)
+                    {
+                        <p>
+                            <button class="recipe_button button" name="@i.ToString()rec" type="submit"> @localDataToShow[0]</button>
+
+                        </p>
+                        i++;
+
+                        localDataToShow = userData[i].Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries).ToList();
+                    }
+                }
+                else
+                {
+                    <p>
+                        There are no recipes.
+                        <a href="~/Pages/AddRecipe.cshtml"> Add Some </a>
+                    </p>
+                }
+
+            </div>
+            <div class="user_data_list">
+                @if (localDataToShow.Count == 4)
+                {
+                    <p> My Comments:</p>
+
+                    while (localDataToShow.Count == 4 && i + 1 < userData.Count)
+                    {
+                        <p>
+                            <button class="comment_button button" name="@i.ToString()com" type="submit"> @localDataToShow[0]</button>
+                        </p>
+
+                        i++;
+
+                        localDataToShow = userData[i].Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries).ToList();
+
+                    }
+                }
+                else
+                {
+                    <p>
+                        There are no comments.
+                    </p>
+                }
+            </div>
+            <div class="sign_out">
+                <p>
+                    <button name="signOut" type="submit" class="button sign_out_button"> Sign Out</button>
+                </p>
+                <p>
+                    <button type="submit" class="button sign_out_button" name="changeIdentity"> Change login/password</button>
+                </p>
+                <button type="submit" class="button sign_out_button" name="changeUserData"> Change UserName/Age</button>
+            </div>
         </form>
     </div>
 </body>

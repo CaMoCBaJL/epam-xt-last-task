@@ -158,11 +158,13 @@ namespace SqlDAL
                 {
                     var reader = command.ExecuteReader();
 
+                    reader.Read();
+
                     return new UserIdentity(id: userId,
                                             login: reader["UserLogin"] as string,
                                             hashedPassword: reader["UserPassword"] as string);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     //todo Add logger to each try-catch block.
 

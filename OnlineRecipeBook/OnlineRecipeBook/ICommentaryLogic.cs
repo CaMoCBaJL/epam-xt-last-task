@@ -9,5 +9,7 @@
         bool LikeTheComment(int commentId, int userId);
 
         bool DislikeTheComment(int commentId, int userId);
+
+        int FindCommentLocation(int commentId);
     }
 }

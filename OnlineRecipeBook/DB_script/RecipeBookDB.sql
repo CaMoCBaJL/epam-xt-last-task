@@ -325,16 +325,16 @@ BEGIN
 	DELETE FROM [dbo].[Recipe] WHERE [dbo].[Recipe].[Id] = @RecipeId
 END
 
-CREATE PROCEDURE ChangeUserIdentity
+ALTER PROCEDURE ChangeUserIdentity
 @UserId INT,
 @Login NVARCHAR(100),
 @Password NVARCHAR(100)
 AS
 BEGIN
-	UPDATE [dbo].[UserIdentitiy]
-	SET [dbo].[UserIdentitiy].[UserLogin] = @Login,
-	[dbo].[UserIdentitiy].[UserPassword] = @Password
-	WHERE [dbo].[UserIdentitiy].[UserId] = @UserId
+	UPDATE [dbo].[UserIdentity]
+	SET [dbo].[UserIdentity].[UserLogin] = @Login,
+	[dbo].[UserIdentity].[UserPassword] = @Password
+	WHERE [dbo].[UserIdentity].[UserId] = @UserId
 END
 
 CREATE PROCEDURE ChangeAppUser
@@ -348,8 +348,6 @@ BEGIN
 	[dbo].[AppUser].[Age] = @UserAge
 	WHERE [dbo].[AppUser].[Id] = @UserId
 END
-
-select * from UserIdentitiy
 
 CREATE PROCEDURE ChangeRecipe
 @RecipeId INT,

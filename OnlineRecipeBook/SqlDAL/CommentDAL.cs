@@ -256,6 +256,35 @@ namespace SqlDAL
             }
         }
 
+        public int FindCommentLocation(int commentId)
+        {
+            using (SqlConnection connection = new SqlConnection(Common._connectionString))
+            {
+                connection.Open();
 
+                SqlCommand command = new SqlCommand("FindRecipeWithUserComment", connection);
+
+                command.Parameters.AddWithValue("@CommentId", commentId);
+
+                command.CommandType = CommandType.StoredProcedure;
+
+                try
+                {
+                    var reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                        return (int)reader["RecipeId"];
+
+                    return -1;
+                    
+                }
+                catch (Exception)
+                {
+                    //todo Add logger to each try-catch block.
+
+                    return -1;
+                }
+            }
+        }
     }
 }

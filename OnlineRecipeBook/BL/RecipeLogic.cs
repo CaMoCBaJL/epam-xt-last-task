@@ -54,15 +54,17 @@ namespace BL
             return result;
         }
 
-        public int GetUserAward(int userId)
-            => _DAO.GetUserAward(userId);
-        
+        public int GetRecipeId(string recipeTitle)
+                => _DAO.GetRecipeId(recipeTitle) + 1;
 
+        public int GetUserAward(int userId)
+                => _DAO.GetUserAward(userId);
+        
         public bool RateTheRecipe(int recipeId, int userId, int recipeAward)
                 => _DAO.RateTheRecipe(recipeId, userId, recipeAward);
 
         public bool RemoveEntity(int entityId)
-               => _DAO.RemoveEntity(entityId);
+                => _DAO.RemoveEntity(entityId);
 
         public string UpdateRecipe(int recipeId, string title, string ingridients, string cookingProcess)
         {
