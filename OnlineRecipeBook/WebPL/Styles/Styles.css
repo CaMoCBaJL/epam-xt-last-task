@@ -380,6 +380,21 @@ input[type=text], input[type=password] {
     background-image: url("https://img.icons8.com/material-sharp/24/000000/remove-message.png");
 }
 
+.change_comment {
+    background-image: url("https://img.icons8.com/material-sharp/24/000000/edit--v1.png");
+}
+
+.recipe_block{
+    margin:10px auto;
+}
+
+.delete_recipe {
+    background-position-y: 3.5px;
+    width: 32px;
+    height: 32px;
+    background-image: url("https://img.icons8.com/nolan/32/delete-sign.png");
+}
+
 .recipe_text{
     margin-left:10px;
 }

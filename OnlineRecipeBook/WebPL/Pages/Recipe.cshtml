@@ -25,6 +25,8 @@
 @functions{
     int counter;
 
+    string commentText = null;
+
     List<string> recipeData = DependencyResolver.Instance.BL.RecipeLogic.GetEntities()[DataToRoute.RecipeId - 1].Split(
         new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
@@ -38,7 +40,12 @@
 
     void DefineClickTarget()
     {
-        if (Request["addComment"] != null)
+        if (Request["changeComment"] != null)
+        {
+
+        }
+
+        else if (Request["addComment"] != null)
         {
             int award = 0;
 
@@ -114,6 +121,12 @@
                 EntityToDeleteData.EntityName = "comment";
 
                 Response.Redirect("~/Pages/Common/EntityDeleteConfirmation.cshtml");
+            }
+
+            else if (Request[i.ToString() + "ch"] != null)
+            {
+                commentText = DependencyResolver.Instance.BL.CommentLogic.GetEntities()[i]
+                    .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[0];
             }
         }
     }
@@ -230,10 +243,22 @@
                         <h3>You rated this recipe with @DependencyResolver.Instance.BL.RecipeLogic.GetUserAward(DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name))★</h3>
                     </p>
                 }
-                <p>
-                    <textarea name="text" class="textarea_style"></textarea>
-                </p>
-                <button name="addComment" class="closebtn" type="submit">Add Comment</button>
+                @if (commentText != null)
+                {
+                    <p>
+                        <textarea name="text" class="textarea_style"> @commentText</textarea>
+                    </p>
+
+                    <button name="addComment" class="closebtn" type="submit">Add Comment</button>
+                }
+                else
+                {
+                    <p>
+                        <textarea name="text" class="textarea_style"></textarea>
+                    </p>
+
+                    <button name="changeComment" class="closebtn" type="submit">Change Comment</button>
+                }
             }
             else
             {
@@ -267,6 +292,7 @@
                                 @if (DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name) == DependencyResolver.Instance.BL.UserLogic.GetCommentAuthor(int.Parse(commentData[3])))
                                 {
                                     <button type="submit" class="button_params delete_comment" name="@counter.ToString()del"> </button>
+                                    <button type="submit" class="button_params change_comment" name="@counter.ToString()ch"> </button>
                                 }
                             </p>
                         </form>

@@ -4,8 +4,8 @@
 @{
     Layout = "~/Pages/Layout/_BasicLayout.cshtml";
 
-    DataToAddComment.AddingResult = DependencyResolver.Instance.BL.CommentLogic.CreateComment(DataToAddComment.RecipeId,
-        DataToAddComment.UserId, DataToAddComment.Text);
+    DataToAddAndUpdateComment.OperationResult = DependencyResolver.Instance.BL.CommentLogic.CreateComment(DataToAddAndUpdateComment.RecipeId,
+        DataToAddAndUpdateComment.UserId, DataToAddAndUpdateComment.Text);
 
     Response.Redirect("~/Pages/Recipe.cshtml");
 }

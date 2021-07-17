@@ -1,6 +1,7 @@
 ﻿@using WebPL.Models;
 @using Dependencies;
 @using CommonConstants;
+@using DataValidator;
 
 @{
     if (DataToRoute.UserId == 0)
@@ -10,7 +11,14 @@
 
     if (EntityToDeleteData.ConfirmationResult)
     {
-        Response.Redirect("~/Pages/DeletePages/DeleteUser.cshtml");
+        if (EntityToDeleteData.EntityName == "user")
+        {
+            Response.Redirect("~/Pages/DeletePages/DeleteUser.cshtml");
+        }
+        else
+        {
+            Response.Redirect("~/Pages/DeletePages/DeleteRecipe.cshtml");
+        }
     }
 
     if (!User.Identity.IsAuthenticated)
@@ -75,13 +83,25 @@
                 Response.Redirect("~/Pages/Recipe.cshtml");
             }
 
-            if (Request[i.ToString() + "com"] != null)
+            else if (Request[i.ToString() + "com"] != null)
             {
                 DataToRoute.RecipeId = DependencyResolver.Instance.BL.CommentLogic.FindCommentLocation(
                     int.Parse(DependencyResolver.Instance.BL.UserLogic.GetUserCommentaries(DataToRoute.UserId)[i - 2 - recipeCounter]
                     .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[3]));
 
                 Response.Redirect("~/Pages/Recipe.cshtml");
+            }
+
+            else if (Request[i.ToString() + "del"] != null)
+            {
+                EntityToDeleteData.EntityId = int.Parse(DependencyResolver.Instance.BL.UserLogic.GetUserRecipes(DataToRoute.UserId)[i - 2]
+                    .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[4]);
+
+                EntityToDeleteData.SourcePage = "~/Pages/UserPage.cshtml";
+
+                EntityToDeleteData.EntityName = "recipe";
+
+                Response.Redirect("~/Pages/Common/EntityDeleteConfirmation.cshtml");
             }
         }
     }
@@ -97,6 +117,26 @@
     <title></title>
 </head>
 <body>
+    @if (!string.IsNullOrEmpty(EntityToDeleteData.DeletionResult))
+    {
+        if (EntityToDeleteData.DeletionResult.ValidationPassed())
+        {
+            <div class="succsess_operation alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';"> &times; </span>
+                Recipe successfully deleted!
+            </div>
+        }
+        else
+        {
+            <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                @EntityToDeleteData.DeletionResult
+            </div>
+        }
+
+        EntityToDeleteData.Reset();
+    }
+
     <div class="user_info">
         Welcome,
 
@@ -116,10 +156,10 @@
 
                     while (localDataToShow.Count == 5)
                     {
-                        <p>
+                        <div class="recipe_block">
                             <button class="recipe_button button" name="@i.ToString()rec" type="submit"> @localDataToShow[0]</button>
-
-                        </p>
+                            <button type="submit" class="delete_recipe button_params" name="@i.ToString()del"></button>
+                        </div>
                         i++;
 
                         localDataToShow = userData[i].Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries).ToList();

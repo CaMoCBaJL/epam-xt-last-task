@@ -1,8 +1,10 @@
 ﻿namespace WebPL.Models
 {
-    public static class DataToAddComment
+    public static class DataToAddAndUpdateComment
     {
-        public static string AddingResult { get; set; }
+        public static int CommentId { get; set; }
+
+        public static string OperationResult { get; set; }
 
         public static int UserId { get; set; }
 
@@ -12,7 +14,7 @@
 
         public static void Reset()
         {
-            AddingResult = null;
+            OperationResult = null;
 
             UserId = 0;
 

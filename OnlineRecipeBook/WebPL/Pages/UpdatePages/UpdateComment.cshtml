@@ -1,0 +1,32 @@
+﻿@using Dependencies;
+@using WebPL.Models;
+@using DataValidator;
+
+@{
+    Layout = null;
+
+    if (DependencyResolver.Instance.BL.CommentLogic.UpdateComment(DataToAddAndUpdateComment.CommentId, DataToAddAndUpdateComment.Text).ValidationPassed())
+    {
+        DataToAddAndUpdateComment.OperationResult = Constants.allOk;
+    }
+    else
+    {
+        DataToAddAndUpdateComment.OperationResult = DependencyResolver.Instance.BL.CommentLogic.UpdateComment(DataToAddAndUpdateComment.CommentId, DataToAddAndUpdateComment.Text);
+    }
+
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+    
+    </div>
+</body>
+</html>
