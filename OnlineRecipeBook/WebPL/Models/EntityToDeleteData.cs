@@ -12,5 +12,18 @@ namespace WebPL.Models
         public static string EntityName { get; set; }
 
         public static string DeletionResult { get; set; }
+
+        public static void Reset()
+        {
+            SourcePage = null;
+
+            EntityId = 0;
+
+            ConfirmationResult = false;
+
+            EntityName = null;
+
+            DeletionResult = null;
+        }
     }
 }

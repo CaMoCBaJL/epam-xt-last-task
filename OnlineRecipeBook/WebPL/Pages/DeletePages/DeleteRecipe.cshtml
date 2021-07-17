@@ -1,0 +1,34 @@
+﻿@using WebPL.Models;
+@using Dependencies;
+@using DataValidator;
+
+@{
+    Layout = "~/Pages/Layout/_BasicLayout.cshtml";
+
+    if (DependencyResolver.Instance.BL.RecipeLogic.RemoveEntity(EntityToDeleteData.EntityId))
+    {
+        EntityToDeleteData.DeletionResult = Constants.allOk;
+
+        FormsAuthentication.SignOut();
+    }
+    else
+    {
+        EntityToDeleteData.DeletionResult = Constants.serverError;
+    }
+
+    Response.Redirect("~/Index.cshtml");
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+    
+    </div>
+</body>
+</html>

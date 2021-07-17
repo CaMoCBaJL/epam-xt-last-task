@@ -164,15 +164,16 @@
     transition: 0.3s;
 }
 
+
 .confirmation_button {
+    margin-left:15%;
     background-color: #04AA6D;
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
     opacity: 0.9;
+    width:25%;
 }
 
 .delete_button {
@@ -182,7 +183,6 @@
 /* Float cancel and delete buttons and add an equal width */
 .cancel_button, .delete_button {
     float: left;
-    width: 50%;
 }
 
 /* Add a color to the cancel button */
@@ -191,7 +191,37 @@
     color: black;
 }
 
-.confirmation_window{
-    font-size:32px;
-    text-align:center;
+.confirmation_window {
+    font-size: 32px;
+    text-align: center;
+    color: #b7b7b7;
 }
+
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+    border-radius: 9px;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+}
+
+.succsess_operation {
+    background-color: #006400;
+}
+
+.closebtn {
+    color: #262a2b;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+}
+
+    /* When moving the mouse over the close button */
+    .closebtn:hover {
+        background-color: black;
+        color: white;
+    }

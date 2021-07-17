@@ -117,6 +117,8 @@
     <Content Include="Pages\ChangeUserData.cshtml" />
     <Content Include="Pages\Common\EntityDeleteConfirmation.cshtml" />
     <Content Include="Pages\DeletePages\DeleteUser.cshtml" />
+    <Content Include="Pages\DeletePages\DeleteComment.cshtml" />
+    <Content Include="Pages\DeletePages\DeleteRecipe.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

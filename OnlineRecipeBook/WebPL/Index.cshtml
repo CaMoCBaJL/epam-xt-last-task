@@ -1,6 +1,7 @@
 ﻿@using Dependencies;
 @using WebPL.Models;
 @using CommonConstants;
+@using DataValidator;
 
 @{
     Layout = "~/Pages/Layout/_BasicLayout.cshtml";
@@ -54,10 +55,27 @@
     <title>Main page</title>
 </head>
 <body>
-    <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        @EntityToDeleteData.DeletionResult
-    </div>
+    @if (!string.IsNullOrEmpty(EntityToDeleteData.DeletionResult))
+    {
+        if (EntityToDeleteData.DeletionResult.ValidationPassed())
+        {
+            <div class="succsess_operation alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                @EntityToDeleteData.DeletionResult
+            </div>
+
+            EntityToDeleteData.Reset();
+
+
+        }
+        else
+        {
+            <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                @EntityToDeleteData.DeletionResult
+            </div>
+        }
+    }
     <ul style="position:inherit;" class="tilesWrap">
         @foreach (var recipe in DependencyResolver.Instance.BL.RecipeLogic.GetEntities())
         {
