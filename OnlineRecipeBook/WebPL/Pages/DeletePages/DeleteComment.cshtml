@@ -5,18 +5,18 @@
 @{
     Layout = "~/Pages/Layout/_BasicLayout.cshtml";
 
+    EntityToDeleteData.ConfirmationResult = false;
+
     if (DependencyResolver.Instance.BL.CommentLogic.RemoveEntity(EntityToDeleteData.EntityId))
     {
         EntityToDeleteData.DeletionResult = Constants.allOk;
-
-        FormsAuthentication.SignOut();
     }
     else
     {
         EntityToDeleteData.DeletionResult = Constants.serverError;
     }
 
-    Response.Redirect("~/Index.cshtml");
+    Response.Redirect(EntityToDeleteData.SourcePage);
 }
 <!DOCTYPE html>
 

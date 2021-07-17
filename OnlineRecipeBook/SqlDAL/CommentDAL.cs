@@ -15,7 +15,7 @@ namespace SqlDAL
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("AddComment", connection);
+                SqlCommand command = new SqlCommand("AddCommentary", connection);
 
                 command.Parameters.AddWithValue("@RecipeId", recipeId);
 
@@ -29,7 +29,7 @@ namespace SqlDAL
                 {
                     command.ExecuteNonQuery();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     //todo Add logger to each try-catch block.
 

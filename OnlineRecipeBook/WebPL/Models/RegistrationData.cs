@@ -22,6 +22,8 @@
             Age = null;
 
             UserName = null;
+
+            DataValidationResult = null;
         }
     }
 }

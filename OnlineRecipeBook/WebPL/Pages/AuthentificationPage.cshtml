@@ -1,0 +1,41 @@
+﻿@using WebPL.Models;
+@using DataValidator;
+@using Dependencies;
+
+@{
+    Layout = "~/Pages/Layout/_BasicLayout.cshtml";
+
+    if (!string.IsNullOrEmpty(RegistrationData.Login))
+    {
+        if (DependencyResolver.Instance.Authentificator.CheckUserIdentity(RegistrationData.Login, RegistrationData.Password))
+        {
+            FormsAuthentication.SetAuthCookie(RegistrationData.Login, true);
+
+            Response.Redirect("~/Index.cshtml");
+        }
+        else
+        {
+            RegistrationData.DataValidationResult = Constants.stringIsEmpty;
+        }
+    }
+    else
+    {
+        RegistrationData.DataValidationResult = Constants.stringIsEmpty;
+    }
+
+    Response.Redirect("~/Pages/Common/Login.cshtml");
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+
+    </div>
+</body>
+</html>

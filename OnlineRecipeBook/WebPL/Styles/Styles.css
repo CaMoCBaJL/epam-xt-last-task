@@ -357,20 +357,27 @@ input[type=text], input[type=password] {
     font-size: 28px;
 }
 
-.like {
+.succsess_operation {
+    background-color: #006400;
+}
+
+.button_params {
     border: none;
     background-color: transparent;
-    background-image: url("https://img.icons8.com/color/24/000000/filled-like.png");
     width: 24px;
     height: 24px;
 }
 
+.like {
+    background-image: url("https://img.icons8.com/color/24/000000/filled-like.png");
+}
+
 .dislike {
-    border: none;
-    background:transparent;
     background-image: url("https://img.icons8.com/color/24/000000/dislike.png");
-    width: 24px;
-    height: 24px;
+}
+
+.delete_comment {
+    background-image: url("https://img.icons8.com/material-sharp/24/000000/remove-message.png");
 }
 
 .recipe_text{

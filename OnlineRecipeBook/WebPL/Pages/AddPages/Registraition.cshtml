@@ -2,6 +2,11 @@
 @using DataValidator;
 
 @{
+    if (User.Identity.IsAuthenticated)
+    {
+        Response.Redirect("~/Pages/UserPage.cshtml");
+    }
+
     string creationResult = string.Empty;
 
     if (IsPost)
@@ -14,7 +19,7 @@
 
         RegistrationData.Login = Request["login"];
 
-        Response.Redirect("~/Pages/RegisterDataValidationPage.cshtml");
+        Response.Redirect("~/Pages/AddPages/RegisterDataValidationPage.cshtml");
     }
 }
 

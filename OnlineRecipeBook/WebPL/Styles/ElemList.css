@@ -222,6 +222,6 @@
 
     /* When moving the mouse over the close button */
     .closebtn:hover {
-        background-color: black;
+        background-color: transparent;
         color: white;
     }

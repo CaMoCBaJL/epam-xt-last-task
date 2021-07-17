@@ -1,0 +1,25 @@
+﻿@using WebPL.Models;
+@using Dependencies;
+
+@{
+    Layout = "~/Pages/Layout/_BasicLayout.cshtml";
+
+    DataToAddComment.AddingResult = DependencyResolver.Instance.BL.CommentLogic.CreateComment(DataToAddComment.RecipeId,
+        DataToAddComment.UserId, DataToAddComment.Text);
+
+    Response.Redirect("~/Pages/Recipe.cshtml");
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+    
+    </div>
+</body>
+</html>

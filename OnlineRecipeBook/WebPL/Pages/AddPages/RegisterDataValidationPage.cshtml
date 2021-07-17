@@ -3,14 +3,11 @@
 @using WebPL.Models;
 
 @{
-    Layout = null;
-
     FieldFillingChecker();
 
     RegistrationData.DataValidationResult = DependencyResolver.Instance.BL.UserLogic.CreateUser(RegistrationData.UserName, int.Parse(RegistrationData.Age), RegistrationData.Login, RegistrationData.Password);
 
-    Response.Redirect("~/Pages/Registraition.cshtml");
-
+    Response.Redirect("~/Pages/AddPages/Registraition.cshtml");
 }
 
 
@@ -38,7 +35,7 @@
 
         RegistrationData.ResetFields();
 
-        Response.Redirect("~/Pages/Registraition.cshtml");
+        Response.Redirect("~/Pages/AddPages/Registraition.cshtml");
     }
 }
 

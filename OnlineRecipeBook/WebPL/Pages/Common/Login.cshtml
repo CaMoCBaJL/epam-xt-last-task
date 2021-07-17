@@ -1,16 +1,19 @@
 ﻿@using Dependencies;
-@using CommonInterfaces;
+@using WebPL.Models;
 
 @{
-    string login = null;
-
-    string password = null;
+    if (User.Identity.IsAuthenticated)
+    {
+        Response.Redirect("~/Pages/UserPage.cshtml");
+    }
 
     if (IsPost)
     {
-        login = Request["login"];
+        RegistrationData.Login = Request["login"];
 
-        password = Request["password"];
+        RegistrationData.Password = Request["password"];
+
+        Response.Redirect("~/Pages/AuthentificationPage.cshtml");
     }
 }
 
@@ -24,23 +27,15 @@
     <title>Login page</title>
 </head>
 <body>
-    @if (!string.IsNullOrEmpty(login))
+
+    @if (!string.IsNullOrEmpty(RegistrationData.DataValidationResult))
     {
-        if (DependencyResolver.Instance.Authentificator.CheckUserIdentity(login, password))
-        {
-            FormsAuthentication.SetAuthCookie(login, true);
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            User with specified login/password doesn't exist.
+        </div>
 
-            Response.Redirect("~/Index.cshtml");
-        }
-        else
-        {
-
-            <div class="alert">
-                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                User with specified login/password doesn't exist.
-            </div>
-
-        }
+        RegistrationData.ResetFields();
     }
 
     <div class="wrapper fadeInDown">

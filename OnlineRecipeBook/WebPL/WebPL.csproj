@@ -95,6 +95,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\DataToAddComment.cs" />
     <Compile Include="Models\DataToRoute.cs" />
     <Compile Include="Models\EntityToDeleteData.cs" />
     <Compile Include="Models\RegistrationData.cs" />
@@ -106,19 +107,21 @@
     <None Include="packages.config" />
     <Content Include="Pages\Layout\_BasicLayout.cshtml" />
     <Content Include="Pages\Common\Login.cshtml" />
-    <Content Include="Pages\Registraition.cshtml" />
+    <Content Include="Pages\AddPages\Registraition.cshtml" />
     <Content Include="Pages\Recipe.cshtml" />
     <Content Include="Pages\UserPage.cshtml" />
-    <Content Include="Pages\AddRecipe.cshtml" />
+    <Content Include="Pages\AddPages\AddRecipe.cshtml" />
     <Content Include="Pages\Common\ErrorPage.cshtml" />
     <Content Include="Pages\CommentReactionPage.cshtml" />
-    <Content Include="Pages\RegisterDataValidationPage.cshtml" />
+    <Content Include="Pages\AddPages\RegisterDataValidationPage.cshtml" />
     <Content Include="Pages\ChangeIdentity.cshtml" />
     <Content Include="Pages\ChangeUserData.cshtml" />
     <Content Include="Pages\Common\EntityDeleteConfirmation.cshtml" />
     <Content Include="Pages\DeletePages\DeleteUser.cshtml" />
     <Content Include="Pages\DeletePages\DeleteComment.cshtml" />
     <Content Include="Pages\DeletePages\DeleteRecipe.cshtml" />
+    <Content Include="Pages\AuthentificationPage.cshtml" />
+    <Content Include="Pages\AddPages\AddComment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

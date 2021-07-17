@@ -1,9 +1,15 @@
 ﻿@using Dependencies;
 @using WebPL.Models;
 @using CommonConstants;
+@using DataValidator;
 
 @{
     Layout = "~/Pages/Layout/_BasicLayout.cshtml";
+
+    if (EntityToDeleteData.ConfirmationResult)
+    {
+        Response.Redirect("~/Pages/DeletePages/DeleteComment.cshtml");
+    }
 
     if (DataToRoute.RecipeId < 1)
     {
@@ -34,8 +40,6 @@
     {
         if (Request["addComment"] != null)
         {
-            var commentText = Request["text"];
-
             int award = 0;
 
             if (Request["rate5"] != null)
@@ -64,7 +68,13 @@
                 DependencyResolver.Instance.BL.RecipeLogic.RateTheRecipe(DataToRoute.RecipeId, DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name), award);
             }
 
-            DependencyResolver.Instance.BL.CommentLogic.CreateComment(DataToRoute.RecipeId, DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name), Request["text"]);
+            DataToAddComment.RecipeId = DataToRoute.RecipeId;
+
+            DataToAddComment.Text = Request["text"];
+
+            DataToAddComment.UserId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name);
+
+            Response.Redirect("~/Pages/AddPages/AddComment.cshtml");
         }
 
         for (int i = 0; i < DependencyResolver.Instance.BL.RecipeLogic.GetRecipeCommentaries(DataToRoute.RecipeId).Count; i++)
@@ -94,6 +104,17 @@
 
                 break;
             }
+
+            else if (Request[i.ToString() + "del"] != null)
+            {
+                EntityToDeleteData.EntityId = UserReactionData.Commentid;
+
+                EntityToDeleteData.SourcePage = "~/Pages/Recipe.cshtml";
+
+                EntityToDeleteData.EntityName = "comment";
+
+                Response.Redirect("~/Pages/Common/EntityDeleteConfirmation.cshtml");
+            }
         }
     }
 
@@ -110,6 +131,46 @@
     <title>Recipe</title>
 </head>
 <body>
+
+    @if (!string.IsNullOrEmpty(EntityToDeleteData.DeletionResult))
+    {
+        if (EntityToDeleteData.DeletionResult.ValidationPassed())
+        {
+            <div class="succsess_operation alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';"> &times; </span>
+                Comment successfully deleted!
+            </div>
+        }
+        else
+        {
+            <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                @EntityToDeleteData.DeletionResult
+            </div>
+        }
+
+        EntityToDeleteData.Reset();
+    }
+
+    @if (!string.IsNullOrEmpty(DataToAddComment.AddingResult))
+    {
+        if (DataToAddComment.AddingResult.ValidationPassed())
+        {
+            <div class="succsess_operation alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';"> &times; </span>
+                Comment successfully added!
+            </div>
+        }
+        else
+        {
+            <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                @DataToAddComment.AddingResult
+            </div>
+        }
+
+        DataToAddComment.Reset();
+    }
     <h1>
         @recipeData[0] ★ @DependencyResolver.Instance.BL.RecipeLogic.GetRecipeAward(DataToRoute.RecipeId)
     </h1>
@@ -200,16 +261,21 @@
                     {
                         <form method="post">
                             <p class="counters">
-                                <button onclick="this.setAttribute(value, null);" name="@counter.ToString()like" class="like" type="submit"> </button> @commentData[1]
-                                <button name="@counter.ToString()dislike" class="dislike" type="submit"> </button> @commentData[2]
+                                <button onclick="this.setAttribute(value, null);" name="@counter.ToString()like" class="button_params like" type="submit"> </button> @commentData[1]
+                                <button name="@counter.ToString()dislike" class="button_params dislike" type="submit"> </button> @commentData[2]
+
+                                @if (DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name) == DependencyResolver.Instance.BL.UserLogic.GetCommentAuthor(int.Parse(commentData[3])))
+                                {
+                                    <button type="submit" class="button_params delete_comment" name="@counter.ToString()del"> </button>
+                                }
                             </p>
                         </form>
                     }
                     else
                     {
                         <p class="counters">
-                            <a name="@counter.ToString()like" class="like" type="submit"> </a> @commentData[1]
-                            <a name="@counter.ToString()dislike" class="dislike" type="submit"> </a> @commentData[2]
+                            <a name="@counter.ToString()like" class="like"> </a> @commentData[1]
+                            <a name="@counter.ToString()dislike" class="dislike"> </a> @commentData[2]
                         </p>
                     }
                 </div>

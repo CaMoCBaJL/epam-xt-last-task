@@ -31,7 +31,7 @@ namespace BL
         public string GetCommentAuthorName(int commentId)
         {
             if (GetCommentAuthor(commentId) > 0)
-                return _DAO.GetUsers().ElementAt(GetCommentAuthor(commentId) - 1).UserName;
+                return _DAO.GetUsers().ToList().Find(user => user.Id == _DAO.GetCommentAuthor(commentId)).UserName;
 
             return string.Empty;
         }
