@@ -5,6 +5,8 @@
 @{
     Layout = "~/Pages/Layout/_BasicLayout.cshtml";
 
+    DataToRoute.UserId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name);
+
     DataToRoute.RecipeId = -1;
 
     if (IsPost)
@@ -52,8 +54,9 @@
     <title>Main page</title>
 </head>
 <body>
-    <div>
-
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        @EntityToDeleteData.DeletionResult
     </div>
     <ul style="position:inherit;" class="tilesWrap">
         @foreach (var recipe in DependencyResolver.Instance.BL.RecipeLogic.GetEntities())

@@ -3,14 +3,16 @@
 @using CommonConstants;
 
 @{
-    if (userData.Count < 2)
+    if (DataToRoute.UserId == 0)
     {
-        DataToRoute.UserId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name);
-
         Response.Redirect("~/Index.cshtml");
+
     }
 
-    DataToRoute.UserId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name);
+    if (EntityToDeleteData.ConfirmationResult)
+    {
+        Response.Redirect("~/Pages/DeletePages/DeleteUser.cshtml");
+    }
 
     if (!User.Identity.IsAuthenticated)
     {

@@ -9,6 +9,8 @@ CREATE TABLE AppUser
 	[Age] INT NOT NULL
 )
 
+select * from AppUser
+
 CREATE TABLE Recipe
 (
 	[Id] INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
@@ -37,11 +39,13 @@ CREATE TABLE UserRecipes
 	CONSTRAINT UserRecipesAreUnique UNIQUE (UserId, RecipeId)
 )
 
+drop table UserIdentity
+
 CREATE TABLE UserIdentity
 (
 	[UserId] INT FOREIGN KEY REFERENCES AppUser(Id) ON DELETE CASCADE ON UPDATE CASCADE,
 	[UserLogin] NVARCHAR(100) NOT NULL,
-	[UserPassword] NVARCHAR(255) NOT NULL
+	[UserPassword] NVARCHAR(400) NOT NULL
 )
 
 exec AddRecipe '∆Œœ¿', 'ÃŒÀŒ◊ Œ', '«¿Ã»—»', 1
@@ -55,6 +59,8 @@ exec @variable = CheckIdentity 3, '76 208 246 126 53 74 39 55 223 167 67 206 44 
 print @variable
 
 select * from UserIdentity
+
+delete from UserIdentity
 
 drop table RecipeAwards
 
@@ -99,11 +105,13 @@ BEGIN
 	SELECT * FROM [dbo].[UserIdentity]
 END
 
-ALTER PROCEDURE GetUserIdentity
+exec GetUserIdentity 1
+
+ALTER PROCEDURE	GetUserIdentity
 @UserId INT
 AS
 BEGIN
-	SELECT * FROM [dbo].[UserIdentitiy] WHERE [dbo].[UserIdentity].[UserId] = @UserId
+	SELECT * FROM [dbo].[UserIdentity] WHERE [dbo].[UserIdentity].[UserId] = @UserId
 END
 
 CREATE PROCEDURE GetRecipes
@@ -136,13 +144,20 @@ BEGIN
 	WHERE [dbo].[UserRecipes].[UserId] = @UserId)
 END
 
+CREATE PROCEDURE FindRecipeWithUserComment
+@CommentId INT
+AS
+BEGIN
+	SELECT [dbo].[RecipeComments].[RecipeId] FROM [dbo].[RecipeComments] WHERE [dbo].[RecipeComments].[CommentId] = @CommentId
+END
+
 select * from Recipe
 
 EXEC AddRecipe '–ÂˆÂÔÚ 3', '1:1 2:2', '¬¿–»“‹—ﬂ', 1
 
 EXEC GetUserRecipes 1
 
-select * from UserRecipes
+select * from UserIdentity
 
 ALTER PROCEDURE AddUser
 @UserName NVARCHAR(255),
@@ -159,7 +174,7 @@ BEGIN
 		ROLLBACK
 
 		INSERT INTO [dbo].[UserIdentity] VALUES 
-		((SELECT COUNT([dbo].[AppUser].[Id]) FROM [dbo].[AppUser]),
+		((SELECT MAX([dbo].[AppUser].[Id]) FROM [dbo].[AppUser]),
 		@Login, @PasswordHashSum)
 
 		IF (@@ERROR <> 0)
@@ -394,7 +409,7 @@ END
 
 ALTER PROCEDURE CheckIdentity
 @UserId int,
-@PasswordHashSum nvarchar(255)
+@PasswordHashSum nvarchar(400)
 AS
 BEGIN
 	IF (SELECT [dbo].[UserIdentity].[UserPassword] FROM [dbo].[UserIdentity]

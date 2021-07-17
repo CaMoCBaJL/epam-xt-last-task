@@ -10,5 +10,7 @@ namespace WebPL.Models
         public static bool ConfirmationResult { get; set; }
 
         public static string EntityName { get; set; }
+
+        public static string DeletionResult { get; set; }
     }
 }

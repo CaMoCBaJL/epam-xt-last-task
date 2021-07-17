@@ -133,10 +133,16 @@ namespace SqlDAL
                 result.Add(recipe.ToString());
             }
 
+            if (GetUserRecipes(userId).Count() == 0)
+                result.Add("User has 0 recipes.");
+
             foreach (var comment in GetUserCommentaries(userId))
             {
                 result.Add(comment.ToString());
             }
+
+            if (GetUserCommentaries(userId).Count() == 0)
+                result.Add("User has 0 comments.");
 
             return result;
 
@@ -342,7 +348,14 @@ namespace SqlDAL
         }
 
         public int GetUserId(string login)
-                => GetUserIdentities().ToList().FindIndex(user => user.Login == login);
+        {
+            int indx = GetUserIdentities().ToList().FindIndex(user => user.Login == login);
+
+            if (indx > -1)
+                return GetUserIdentities().ElementAt(indx).Id;
+
+            return indx;
+        }
 
         List<UserIdentity> GetUserIdentities()
         {
