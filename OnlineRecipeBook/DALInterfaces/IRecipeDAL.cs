@@ -26,5 +26,7 @@ namespace DALInterfaces
         int GetUserAward(int userId);
 
         Recipe GetRecipe(int recipeId);
+
+        int GetRecipeAuthor(int recipeId);
     }
 }

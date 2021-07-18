@@ -9,7 +9,7 @@ CREATE TABLE AppUser
 	[Age] INT NOT NULL
 )
 
-select * from AppUser
+select * from Recipe
 
 CREATE TABLE Recipe
 (
@@ -366,7 +366,7 @@ BEGIN
 	WHERE [dbo].[AppUser].[Id] = @UserId
 END
 
-CREATE PROCEDURE ChangeRecipe
+ALTER PROCEDURE ChangeRecipe
 @RecipeId INT,
 @RecipeTitle NVARCHAR(255),
 @CookingProcess TEXT,
@@ -375,7 +375,7 @@ AS
 BEGIN
 	UPDATE [dbo].[Recipe]
 	SET [dbo].[Recipe].[Title] = @RecipeTitle,
-	[dbo].[Recipe].[CookingProgress] = @CookingProcess,
+	[dbo].[Recipe].[CookingProcess] = @CookingProcess,
 	[dbo].[Recipe].[Ingridients] = @Ingridients
 	WHERE [dbo].[Recipe].[Id] = @RecipeId
 END
@@ -437,6 +437,14 @@ AS
 BEGIN
 	SELECT [dbo].[RecipeAwards].[AwardValue] FROM [dbo].[RecipeAwards]
 	WHERE [dbo].[RecipeAwards].[UserId] = @UserId
+END
+
+CREATE PROCEDURE GetRecipeAuthor
+@RecipeId INT
+AS
+BEGIN
+	SELECT [dbo].[UserRecipes].[UserId] FROM [dbo].[UserRecipes]
+	WHERE [dbo].[UserRecipes].[RecipeId] = @RecipeId
 END
 
 exec AddCommentary 1, 'ляляля', 1

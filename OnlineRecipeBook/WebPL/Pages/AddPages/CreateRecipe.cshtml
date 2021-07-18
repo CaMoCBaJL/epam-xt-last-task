@@ -7,7 +7,6 @@
 
     if (IsPost)
     {
-        DataToAddAndUpdateRecipe.RecipeTitle = Request["title"];
 
         DataToAddAndUpdateRecipe.RecipeIngridients = Request["ingridients"];
 
@@ -15,7 +14,16 @@
 
         DataToAddAndUpdateRecipe.CookingProcess = Request["cookingProcess"];
 
-        Response.Redirect("~/Pages/AddPages/AddRecipeToDAO.cshtml");
+        DataToAddAndUpdateRecipe.RecipeTitle = Request["title"];
+
+        if (Request["addRecipe"] != null)
+        {
+            Response.Redirect("~/Pages/AddPages/AddRecipeToDAO.cshtml");
+        }
+        else if (Request["changeRecipe"] != null)
+        {
+            Response.Redirect("~/Pages/UpdatePages/UpdateRecipe");
+        }
     }
 }
 
@@ -48,21 +56,28 @@
 
             DataToAddAndUpdateRecipe.Reset();
         }
-        <form method="post">
-            Insert recipe's title:
-            <p>
-                <input type="text" id="recipeTitle" class="fadeIn second" name="title" placeholder="Recipe title">
-            </p>
-            Insert ingridients used by recipe:
-            <p>
-                <textarea name="ingridients" class="textarea_style"></textarea>
-            </p>
-            Insert cooking process:
-            <p>
-                <textarea name="cookingProcess" class="textarea_style"></textarea>
-            </p>
-            <button type="submit" class="button"> Add Recipe</button>
-        </form>
+    <form method="post">
+        Insert recipe's title:
+        <p>
+            <input type="text" id="recipeTitle" class="fadeIn second" name="title" value="@DataToAddAndUpdateRecipe.RecipeTitle" placeholder="Recipe title">
+        </p>
+        Insert ingridients used by recipe:
+        <p>
+            <textarea name="ingridients" class="textarea_style">@DataToAddAndUpdateRecipe.RecipeIngridients</textarea>
+        </p>
+        Insert cooking process:
+        <p>
+            <textarea name="cookingProcess" class="textarea_style">@DataToAddAndUpdateRecipe.CookingProcess</textarea>
+        </p>
+        @if (string.IsNullOrEmpty(DataToAddAndUpdateRecipe.CookingProcess))
+        {
+            <button type="submit" name="addRecipe" class="button"> Add Recipe</button>
+        }
+        else
+        {
+            <button type="submit" name="changeRecipe" class="button"> Change Recipe</button>
+        }
+    </form>
     </div>
 </body>
 </html>

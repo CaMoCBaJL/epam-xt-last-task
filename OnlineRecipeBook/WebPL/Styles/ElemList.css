@@ -180,6 +180,8 @@
     background-color: #f44336;
 }
 
+
+
 /* Float cancel and delete buttons and add an equal width */
 .cancel_button, .delete_button {
     float: left;

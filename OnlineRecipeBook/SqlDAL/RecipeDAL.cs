@@ -191,6 +191,8 @@ namespace SqlDAL
 
                 SqlCommand command = new SqlCommand("ChangeRecipe", connection);
 
+                command.Parameters.AddWithValue("@RecipeId", recipeId);
+
                 command.Parameters.AddWithValue("@RecipeTitle", title);
 
                 command.Parameters.AddWithValue("@Ingridients", ingridients);
@@ -203,7 +205,7 @@ namespace SqlDAL
                 {
                     command.ExecuteNonQuery();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     //todo Add logger to each try-catch block.
 
@@ -285,6 +287,36 @@ namespace SqlDAL
                 return new Recipe();
 
             return result;
+        }
+
+        public int GetRecipeAuthor(int recipeId)
+        {
+            using (SqlConnection connection = new SqlConnection(Common._connectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("GetRecipeAuthor", connection);
+
+                command.Parameters.AddWithValue("@RecipeId", recipeId);
+
+                command.CommandType = CommandType.StoredProcedure;
+
+                try
+                {
+                    var reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                        return (int)reader["UserId"];
+
+                    return 0;
+                }
+                catch (Exception)
+                {
+                    //todo Add logger to each try-catch block.
+
+                    return 0;
+                }
+            }
         }
     }
 }

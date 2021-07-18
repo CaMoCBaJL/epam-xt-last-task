@@ -1,0 +1,35 @@
+﻿@using WebPL.Models;
+@using DataValidator;
+@using Dependencies;
+
+@{
+    Layout = null;
+
+    if (string.IsNullOrEmpty(DataToAddAndUpdateRecipe.RecipeTitle))
+    {
+        Response.Redirect("~/Pages/UserPage.cshtml");
+    }
+
+    DataToAddAndUpdateRecipe.OperationResult = DependencyResolver.Instance.BL.RecipeLogic.UpdateRecipe(
+                      DataToRoute.RecipeId,
+                      DataToAddAndUpdateRecipe.RecipeTitle,
+                      DataToAddAndUpdateRecipe.RecipeIngridients,
+                      DataToAddAndUpdateRecipe.CookingProcess);
+
+    Response.Redirect("~/Pages/Recipe.cshtml");
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+    
+    </div>
+</body>
+</html>

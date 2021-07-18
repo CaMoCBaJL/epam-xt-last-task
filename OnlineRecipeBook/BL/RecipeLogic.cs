@@ -42,6 +42,9 @@ namespace BL
         public string GetRecipe(int recipeId)
                => _DAO.GetRecipe(recipeId).ToString();
 
+        public int GetRecipeAuthor(int recipeId)
+               => _DAO.GetRecipeAuthor(recipeId);
+
         public double GetRecipeAward(int recipeId)
         => _DAO.GetRecipeAward(recipeId);
 
