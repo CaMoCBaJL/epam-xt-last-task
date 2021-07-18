@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using DALInterfaces;
 using Entities;
+using NLog;
 
 namespace SqlDAL
 {
@@ -32,10 +33,13 @@ namespace SqlDAL
                 try
                 {
                     command.ExecuteNonQuery();
+
+                    LogManager.GetCurrentClassLogger().Info($"User (ID:{userId}) created new recipe.");
+
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while user(ID:{userId}) tried to create a new comment.");
 
                     return false;
                 }
@@ -69,10 +73,12 @@ namespace SqlDAL
                             cookingProcess: reader["CookingProcess"] as string,
                             recipeAward: new RecipeDAL().GetRecipeAward((int)reader["Id"])));
                     }
+
+                    LogManager.GetCurrentClassLogger().Info($"All DB recipes have been received.");
                 }
                 catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to receive all DB recipes.");
 
                     return new List<Recipe>();
                 }
@@ -100,13 +106,19 @@ namespace SqlDAL
                     reader.Read();
 
                     if (double.TryParse(reader["Award"].ToString(), out double result))
+                    {
+                        LogManager.GetCurrentClassLogger().Info($"Received recip's (ID:{recipeId}) award.");
+
                         return Math.Round(result, 2);
+                    }
+
+                    LogManager.GetCurrentClassLogger().Warn($"Receiving recipe's (ID:{recipeId}) award ({result}) led to worng result. Please find out what's wrong.");
 
                     return 0;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to receive recipe's (ID:{recipeId}) award.");
 
                     return 0;
                 }
@@ -140,10 +152,12 @@ namespace SqlDAL
                             dislikesNum: new CommentDAL().GetCommentDislikesCounter((int)reader["Id"]))
                             );
                     }
+
+                    LogManager.GetCurrentClassLogger().Info($"Recipe's (ID:{recipeId}).");
                 }
                 catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to delete comment (ID:{recipeId}).");
 
                     return new List<Comment>();
                 }
@@ -170,10 +184,12 @@ namespace SqlDAL
                 try
                 {
                     command.ExecuteNonQuery();
+
+                    LogManager.GetCurrentClassLogger().Info($"Recipe (ID:{entityId}) has been deleted.");
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to delete recipe (ID:{entityId}).");
 
                     return false;
                 }
@@ -204,10 +220,12 @@ namespace SqlDAL
                 try
                 {
                     command.ExecuteNonQuery();
+
+                    LogManager.GetCurrentClassLogger().Info($"Recipe (ID:{recipeId}) has been updated.");
                 }
                 catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to update the recipe (ID:{recipeId}).");
 
                     return false;
                 }
@@ -222,8 +240,6 @@ namespace SqlDAL
             {
                 connection.Open();
 
-                //todo add recipe award validation to recipe logic.
-
                 SqlCommand command = new SqlCommand("RateRecipe", connection);
 
                 command.Parameters.AddWithValue("@RecipeId", recipeId);
@@ -237,10 +253,12 @@ namespace SqlDAL
                 try
                 {
                     command.ExecuteNonQuery();
+
+                    LogManager.GetCurrentClassLogger().Info($"Recipe (ID:{recipeId}) has been awarded by user (ID:{userId}) with mark(Value:{award}).");
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while user (ID:{userId}) tried to rate the recipe (ID:{recipeId}) with mark(Value:{award}).");
 
                     return false;
                 }
@@ -249,7 +267,7 @@ namespace SqlDAL
             return true;
         }
 
-        public int GetUserAward(int userId)
+        public int GetUserAward(int userId, int recipeId)
         {
             using (SqlConnection connection = new SqlConnection(Common._connectionString))
             {
@@ -259,6 +277,8 @@ namespace SqlDAL
 
                 command.Parameters.AddWithValue("@UserId", userId);
 
+                command.Parameters.AddWithValue("@RecipeId", recipeId);
+
                 command.CommandType = CommandType.StoredProcedure;
 
                 try
@@ -266,13 +286,19 @@ namespace SqlDAL
                     var reader = command.ExecuteReader();
 
                     if (reader.Read())
+                    {
+                        LogManager.GetCurrentClassLogger().Info($"User's (ID:{userId}) award for recipe (ID:{recipeId}) has been received.");
+
                         return (int)reader["AwardValue"];
+                    }
+
+                    LogManager.GetCurrentClassLogger().Error($"User's (ID:{userId}) award for recipe (ID:{recipeId}) has not been received. Find out what's wrong.");
 
                     return 0;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to receive user's (ID:{userId}) award for recipe (ID:{recipeId}).");
 
                     return 0;
                 }
@@ -284,7 +310,13 @@ namespace SqlDAL
             var result = GetRecipes().ToList().Find(recipe => recipe.Id == recipeId);
 
             if (result == null)
+            {
+                LogManager.GetCurrentClassLogger().Error($"Recipe (ID:{recipeId}) has not been received. Find out what's wrong.");
+
                 return new Recipe();
+            }
+
+            LogManager.GetCurrentClassLogger().Info($"Recipe (ID:{recipeId}) has been received.");
 
             return result;
         }
@@ -306,13 +338,18 @@ namespace SqlDAL
                     var reader = command.ExecuteReader();
 
                     if (reader.Read())
+                    {
+                        LogManager.GetCurrentClassLogger().Info($"Recipe's (ID:{recipeId}) author has been received.");
+
+
                         return (int)reader["UserId"];
+                    }
 
                     return 0;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to recieve recipe's (ID:{recipeId}) author.");
 
                     return 0;
                 }

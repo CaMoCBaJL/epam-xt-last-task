@@ -23,7 +23,7 @@ namespace DALInterfaces
 
         int GetRecipeId(string recipeTitle);
 
-        int GetUserAward(int userId);
+        int GetUserAward(int userId, int recipeId);
 
         Recipe GetRecipe(int recipeId);
 

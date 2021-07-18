@@ -236,7 +236,7 @@
         <form method="post">
             @if (User.Identity.IsAuthenticated)
             {
-                if (DependencyResolver.Instance.BL.RecipeLogic.GetUserAward(DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name)) < 1)
+                if (DependencyResolver.Instance.BL.RecipeLogic.GetUserAward(DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name), DataToRoute.RecipeId) < 1)
                 {
                     <div class="rating-system1">
                         <h3>Give your Respect</h3>
@@ -261,7 +261,7 @@
                 else
                 {
                     <p class="recipe_text">
-                        <h3>You rated this recipe with @DependencyResolver.Instance.BL.RecipeLogic.GetUserAward(DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name))★</h3>
+                        <h3>You rated this recipe with @DependencyResolver.Instance.BL.RecipeLogic.GetUserAward(DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name), DataToRoute.RecipeId)★</h3>
                     </p>
                 }
 
@@ -298,7 +298,7 @@
                 <div class="comment">
                     <p>
                         @DependencyResolver.Instance.BL.UserLogic.GetCommentAuthorName(int.Parse(commentData[3]))
-                        ★ @DependencyResolver.Instance.BL.RecipeLogic.GetUserAward(DependencyResolver.Instance.BL.UserLogic.GetCommentAuthor(int.Parse(commentData[3])))
+                        ★ @DependencyResolver.Instance.BL.RecipeLogic.GetUserAward(DependencyResolver.Instance.BL.UserLogic.GetCommentAuthor(int.Parse(commentData[3])), DataToRoute.RecipeId)
                     </p>
                     <p>
                         @commentData[0]

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Data.SqlClient;
 using System.Data;
 using CommonLogic;
+using NLog;
 
 namespace SqlDAL
 {
@@ -43,10 +44,13 @@ namespace SqlDAL
                                  userName: reader["UserName"] as string,
                                  age: (int)reader["Age"]));
                     }
+
+                    LogManager.GetCurrentClassLogger().Info($"All useres have been received from DB.");
+
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to all users from DB.");
 
                     return new List<User>();
                 }
@@ -81,10 +85,12 @@ namespace SqlDAL
                 try
                 {
                     command.ExecuteNonQuery();
+
+                    LogManager.GetCurrentClassLogger().Info($"New user has been created.");
                 }
                 catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to create a new user.");
 
                     return false;
                 }
@@ -117,10 +123,11 @@ namespace SqlDAL
                             userName: reader["UserName"] as string,
                             age: (int)reader["Age"]).ToString());
                     }
+
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to receive full user data (ID:{userId}).");
 
                     return new List<string>();
                 }
@@ -144,6 +151,8 @@ namespace SqlDAL
             if (GetUserCommentaries(userId).Count() == 0)
                 result.Add("User has 0 comments.");
 
+            LogManager.GetCurrentClassLogger().Info($"Full user's (ID:{userId}) data has been received.");
+
             return result;
 
         }
@@ -166,13 +175,17 @@ namespace SqlDAL
 
                     reader.Read();
 
+                    LogManager.GetCurrentClassLogger().Info($"User's (ID:{userId}) identity has been received.");
+
                     return new UserIdentity(id: userId,
                                             login: reader["UserLogin"] as string,
                                             hashedPassword: reader["UserPassword"] as string);
+
+
                 }
                 catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to receive user's (ID:{userId}) identity.");
 
                     return new UserIdentity();
                 }
@@ -205,11 +218,14 @@ namespace SqlDAL
                             likesNum: new CommentDAL().GetCommentLikesCounter((int)reader["Id"]),
                             dislikesNum: new CommentDAL().GetCommentDislikesCounter((int)reader["Id"]))
                             );
+
+                        LogManager.GetCurrentClassLogger().Info($"All user's (ID:{userId}) comments have been received.");
+
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to receive all user's (ID:{userId}) comments.");
 
                     return new List<Comment>();
                 }
@@ -245,10 +261,12 @@ namespace SqlDAL
                             cookingProcess: reader["CookingProcess"] as string,
                             recipeAward: new RecipeDAL().GetRecipeAward((int)reader["Id"])));
                     }
+
+                    LogManager.GetCurrentClassLogger().Info($"User's (ID:{userId}) recipes has been received.");
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to receive all user's (ID:{userId}) recipes.");
 
                     return new List<Recipe>();
                 }
@@ -272,10 +290,13 @@ namespace SqlDAL
                 try
                 {
                     command.ExecuteNonQuery();
+
+                    LogManager.GetCurrentClassLogger().Info($"User (ID:{entityId}) has been deleted.");
+
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to delete user (ID:{entityId}).");
 
                     return false;
                 }
@@ -309,10 +330,13 @@ namespace SqlDAL
                 try
                 {
                     command.ExecuteNonQuery();
+
+                    LogManager.GetCurrentClassLogger().Info($"User's (ID:{userId}) identity has been changed.");
+
                 }
                 catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to change user's (ID:{userId}) identity.");
 
                     return false;
                 }
@@ -340,10 +364,13 @@ namespace SqlDAL
                 try
                 {
                     command.ExecuteNonQuery();
+
+                    LogManager.GetCurrentClassLogger().Info($"User's (ID:{userId}) additional data has been received.");
+
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to recieve user's (ID:{userId}) additional data.");
 
                     return false;
                 }
@@ -357,7 +384,13 @@ namespace SqlDAL
             int indx = GetUserIdentities().ToList().FindIndex(user => user.Login == login);
 
             if (indx > -1)
+            {
+                LogManager.GetCurrentClassLogger().Info($"User's (Login:{login}) ID has been received.");
+
                 return GetUserIdentities().ElementAt(indx).Id;
+            }
+
+            LogManager.GetCurrentClassLogger().Error($"User's (Login:{login}) ID has not been received. Find out what's wrong.");
 
             return indx;
         }
@@ -385,11 +418,14 @@ namespace SqlDAL
                                                     reader["UserPassword"] as string));
                     }
 
+
+                    LogManager.GetCurrentClassLogger().Info($"All user identities have been received.");
+
                     return result;
                 }
                 catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to receive all user identities.");
 
                     return new List<UserIdentity>();
                 }
@@ -413,13 +449,18 @@ namespace SqlDAL
                     var reader = command.ExecuteReader();
 
                     if (reader.Read())
-                        return (int)reader["UserId"];
+                    {
+                        LogManager.GetCurrentClassLogger().Info($"Comment's(ID:{commentId}) author has been received.");
 
+                        return (int)reader["UserId"];
+                    }
+
+                        LogManager.GetCurrentClassLogger().Error($"Comment's(ID:{commentId}) author has not been received.");
                     return 0;
                 }
                 catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Info($"Error occured while programm tried to receive comment's(ID:{commentId}) author.");
 
                     return 0;
                 }

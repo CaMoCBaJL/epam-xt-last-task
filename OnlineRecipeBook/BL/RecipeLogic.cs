@@ -63,8 +63,8 @@ namespace BL
         public int GetRecipeId(string recipeTitle)
                 => _DAO.GetRecipeId(recipeTitle) + 1;
 
-        public int GetUserAward(int userId)
-                => _DAO.GetUserAward(userId);
+        public int GetUserAward(int userId, int recipeId)
+                => _DAO.GetUserAward(userId, recipeId);
         
         public bool RateTheRecipe(int recipeId, int userId, int recipeAward)
                 => _DAO.RateTheRecipe(recipeId, userId, recipeAward);

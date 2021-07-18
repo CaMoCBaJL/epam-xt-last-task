@@ -356,7 +356,7 @@ BEGIN
 	SET [dbo].[UserIdentity].[UserLogin] = @Login
 	WHERE [dbo].[UserIdentity].[UserId] = @UserId
 
-	IF(@Password <> null)
+	IF(@Password IS NOT NULL)
 		UPDATE [dbo].[UserIdentity]
 		SET [dbo].[UserIdentity].[UserPassword] = @Password
 		WHERE [dbo].[UserIdentity].[UserId] = @UserId
@@ -440,12 +440,13 @@ BEGIN
 	WHERE [dbo].[UserCommentaries].[CommentId] = @CommentId
 END
 
-CREATE PROCEDURE GetUserAward
-@UserId INT
+ALTER PROCEDURE GetUserAward
+@UserId INT,
+@RecipeId INT
 AS
 BEGIN
 	SELECT [dbo].[RecipeAwards].[AwardValue] FROM [dbo].[RecipeAwards]
-	WHERE [dbo].[RecipeAwards].[UserId] = @UserId
+	WHERE [dbo].[RecipeAwards].[UserId] = @UserId AND [dbo].[RecipeAwards].[RecipeId] = @RecipeId
 END
 
 CREATE PROCEDURE GetRecipeAuthor

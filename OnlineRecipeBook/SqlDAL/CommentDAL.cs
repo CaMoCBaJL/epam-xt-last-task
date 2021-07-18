@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using DALInterfaces;
 using Entities;
+using NLog;
 
 namespace SqlDAL
 {
@@ -28,10 +29,12 @@ namespace SqlDAL
                 try
                 {
                     command.ExecuteNonQuery();
+
+                    LogManager.GetCurrentClassLogger().Info($"User (ID:{userId}) created a comment in recipe (ID:{recipeId}).");
                 }
                 catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"User (ID:{userId}) got this error while he tried to add a recipe(ID:{recipeId}).");
 
                     return false;
                 }
@@ -66,10 +69,12 @@ namespace SqlDAL
                                  dislikesNum: GetCommentDislikesCounter(
                                      (int)reader["ID"])));
                     }
+
+                    LogManager.GetCurrentClassLogger().Info($"All DB comments have been received.");
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to receive the all comments from DB.");
 
                     return new List<Comment>();
                 }
@@ -96,14 +101,18 @@ namespace SqlDAL
 
                     if (reader.Read())
                     {
+                        LogManager.GetCurrentClassLogger().Info($"Comment's (ID:{commentId}) dislikeCounter has been received.");
+
                         return (int)reader["DislikesCounter"];
                     }
 
+                    LogManager.GetCurrentClassLogger().Error($"Comment's (ID:{commentId}) dislikeCounter has not been received. Find out what's wrong.");
+
                     return -1;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to get comment's (ID:{commentId}) dislikeCounter.");
 
                     return -1;
                 }
@@ -128,14 +137,16 @@ namespace SqlDAL
 
                     if (reader.Read())
                     {
+                        LogManager.GetCurrentClassLogger().Info($"Comment's (ID:{commentId}) likeCounter has been received.");
+
                         return (int)reader["LikesCounter"];
                     }
 
                     return -1;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to get comment's (ID:{commentId}) likeCounter.");
 
                     return -1;
                 }
@@ -157,10 +168,13 @@ namespace SqlDAL
                 try
                 {
                     command.ExecuteNonQuery();
+
+                    LogManager.GetCurrentClassLogger().Info($"Comment(ID:{entityId}) has been deleted.");
+
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to delete comment (ID:{entityId}).");
 
                     return false;
                 }
@@ -187,11 +201,13 @@ namespace SqlDAL
                 {
                     var reader = command.ExecuteReader();
 
+                    LogManager.GetCurrentClassLogger().Info($"Comment (ID:{commentId}) has been updated.");
+
                     return true;
                 }
                 catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to update the comment (ID:{commentId}).");
 
                     return false;
                 }
@@ -216,11 +232,12 @@ namespace SqlDAL
                 {
                     var reader = command.ExecuteReader();
 
+                    LogManager.GetCurrentClassLogger().Info($"Comment (ID:{commentId}) has been liked.");
                     return true;
                 }
                 catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to like the comment (ID:{commentId}).");
 
                     return false;
                 }
@@ -245,11 +262,13 @@ namespace SqlDAL
                 {
                     var reader = command.ExecuteReader();
 
+                    LogManager.GetCurrentClassLogger().Info($"Comment (ID:{commentId}) has been disliked.");
+
                     return true;
                 }
                 catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to dislike the comment (ID:{commentId}).");
 
                     return false;
                 }
@@ -273,14 +292,19 @@ namespace SqlDAL
                     var reader = command.ExecuteReader();
 
                     if (reader.Read())
+                    {
+                        LogManager.GetCurrentClassLogger().Info($"Comment's (ID:{commentId}) location (RecipeId) has been received.");
+
                         return (int)reader["RecipeId"];
+                    }
+
+                    LogManager.GetCurrentClassLogger().Error($"Comment's (ID:{commentId}) location (RecipeId) has not been received. Find out what's wrong.");
 
                     return -1;
-                    
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    //todo Add logger to each try-catch block.
+                    LogManager.GetCurrentClassLogger().Error(ex, $"Error occured while programm tried to receive comment's (ID:{commentId}) location.");
 
                     return -1;
                 }

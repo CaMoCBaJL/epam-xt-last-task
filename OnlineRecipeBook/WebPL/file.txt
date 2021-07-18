@@ -1,0 +1,782 @@
+2021-07-18 21:34:33.9231|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:33.9380|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:33.9380|ERROR|SqlDAL.UserDAL|User's (Login:) ID has not been received. Find out what's wrong.
+2021-07-18 21:34:33.9380|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9380|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:33.9380|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:3) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9380|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9380|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9380|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9380|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9380|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9527|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9527|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9527|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9527|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9527|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9527|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9527|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9527|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9527|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9527|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9527|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9527|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9527|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9527|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9527|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9527|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9527|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:33.9527|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:41.9106|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:41.9106|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:41.9106|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:41.9106|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:41.9275|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:41.9275|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:41.9275|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:41.9275|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:41.9275|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9275|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:41.9275|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:3) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9275|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9275|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9275|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9275|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9275|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9275|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9275|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9275|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9275|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9275|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9275|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9275|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9275|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9275|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9375|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9375|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9375|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9375|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9375|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9375|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9375|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9375|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:41.9375|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:44.2742|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:44.2742|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:44.2742|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:44.2742|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:44.2742|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2742|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:44.2742|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:3) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:3) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2812|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:3) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.2971|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:3) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3121|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:44.3400|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3400|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:44.3400|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:3) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3400|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3400|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3400|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3400|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3400|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:44.3440|INFO|SqlDAL.RecipeDAL|Recipe (ID:3) has been received.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:3) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3440|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3589|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3589|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3589|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3589|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3589|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3589|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3589|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3589|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3589|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3589|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3589|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3589|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3589|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3589|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:44.3589|INFO|SqlDAL.RecipeDAL|Recipe (ID:3) has been received.
+2021-07-18 21:34:44.3589|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:3) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:44.3589|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:44.3589|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:44.3589|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:44.3589|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:44.3589|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:44.3589|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:44.3589|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:44.3589|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:44.3589|ERROR|SqlDAL.RecipeDAL|User's (ID:20) award for recipe (ID:3) has not been received. Find out what's wrong.
+2021-07-18 21:34:44.3763|INFO|SqlDAL.RecipeDAL|Recipe's (ID:3).
+2021-07-18 21:34:52.3214|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3214|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:52.3214|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:3) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3214|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3214|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3214|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3214|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3214|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3214|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3214|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3214|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3214|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3214|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:52.3284|INFO|SqlDAL.RecipeDAL|Recipe (ID:3) has been received.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:3) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3284|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3434|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3434|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3434|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3434|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3434|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3434|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.3434|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:52.3434|INFO|SqlDAL.RecipeDAL|Recipe (ID:3) has been received.
+2021-07-18 21:34:52.3434|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:52.3434|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:52.3434|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:52.3434|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:52.3434|INFO|SqlDAL.RecipeDAL|Recipe (ID:3) has been awarded by user (ID:20) with mark(Value:5).
+2021-07-18 21:34:52.3434|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:52.3434|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:52.3434|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:52.3434|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:52.7038|INFO|SqlDAL.CommentDAL|User (ID:20) created a comment in recipe (ID:3).
+2021-07-18 21:34:52.7038|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7038|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:52.7038|INFO|SqlDAL.RecipeDAL|Received recip's (ID:3) award.
+2021-07-18 21:34:52.7038|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7038|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7038|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7038|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7038|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:52.7188|INFO|SqlDAL.RecipeDAL|Recipe (ID:3) has been received.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:52.7188|INFO|SqlDAL.RecipeDAL|Received recip's (ID:3) award.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7188|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7347|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7347|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7347|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7347|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7347|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7347|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7347|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7347|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7347|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7347|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7347|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7347|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7347|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7347|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:52.7347|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:52.7347|INFO|SqlDAL.RecipeDAL|Recipe (ID:3) has been received.
+2021-07-18 21:34:52.7347|INFO|SqlDAL.RecipeDAL|Received recip's (ID:3) award.
+2021-07-18 21:34:52.7347|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:52.7347|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:52.7347|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:52.7347|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:52.7347|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:52.7347|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:52.7347|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:52.7347|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:52.7347|INFO|SqlDAL.RecipeDAL|User's (ID:20) award for recipe (ID:3) has been received.
+2021-07-18 21:34:52.7347|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.RecipeDAL|User's (ID:20) award for recipe (ID:3) has been received.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.CommentDAL|Comment's (ID:31) likeCounter has been received.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.CommentDAL|Comment's (ID:31) dislikeCounter has been received.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.RecipeDAL|Recipe's (ID:3).
+2021-07-18 21:34:52.7497|INFO|SqlDAL.CommentDAL|Comment's (ID:31) likeCounter has been received.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.CommentDAL|Comment's (ID:31) dislikeCounter has been received.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.RecipeDAL|Recipe's (ID:3).
+2021-07-18 21:34:52.7497|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.UserDAL|Comment's(ID:31) author has been received.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.UserDAL|Comment's(ID:31) author has been received.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.UserDAL|Comment's(ID:31) author has been received.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.RecipeDAL|User's (ID:20) award for recipe (ID:3) has been received.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:52.7497|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:52.7656|INFO|SqlDAL.UserDAL|Comment's(ID:31) author has been received.
+2021-07-18 21:34:55.3865|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3865|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:55.3865|INFO|SqlDAL.RecipeDAL|Received recip's (ID:3) award.
+2021-07-18 21:34:55.3865|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3865|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3865|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:55.3904|INFO|SqlDAL.RecipeDAL|Recipe (ID:3) has been received.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:55.3904|INFO|SqlDAL.RecipeDAL|Received recip's (ID:3) award.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.3904|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.4064|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.4064|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.4064|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.4064|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.4064|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.4064|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.4064|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.4064|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.4064|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.4064|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.4064|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.4064|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.RecipeDAL|Recipe (ID:3) has been received.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.RecipeDAL|Received recip's (ID:3) award.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.RecipeDAL|User's (ID:20) award for recipe (ID:3) has been received.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.RecipeDAL|User's (ID:20) award for recipe (ID:3) has been received.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.CommentDAL|Comment's (ID:31) likeCounter has been received.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.CommentDAL|Comment's (ID:31) dislikeCounter has been received.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.RecipeDAL|Recipe's (ID:3).
+2021-07-18 21:34:55.4064|INFO|SqlDAL.CommentDAL|Comment's (ID:31) likeCounter has been received.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.CommentDAL|Comment's (ID:31) dislikeCounter has been received.
+2021-07-18 21:34:55.4064|INFO|SqlDAL.RecipeDAL|Recipe's (ID:3).
+2021-07-18 21:34:55.4064|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:55.4223|INFO|SqlDAL.UserDAL|Comment's(ID:31) author has been received.
+2021-07-18 21:34:55.4223|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:55.4223|INFO|SqlDAL.UserDAL|Comment's(ID:31) author has been received.
+2021-07-18 21:34:55.4223|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:55.4223|INFO|SqlDAL.UserDAL|Comment's(ID:31) author has been received.
+2021-07-18 21:34:55.4223|INFO|SqlDAL.RecipeDAL|User's (ID:20) award for recipe (ID:3) has been received.
+2021-07-18 21:34:55.4223|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:55.4223|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:55.4223|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:55.4223|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:55.4223|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:55.4223|INFO|SqlDAL.UserDAL|Comment's(ID:31) author has been received.
+2021-07-18 21:34:56.9433|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:56.9433|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:56.9433|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:56.9433|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:56.9433|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9433|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:56.9433|INFO|SqlDAL.RecipeDAL|Received recip's (ID:3) award.
+2021-07-18 21:34:56.9433|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9433|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9433|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9433|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9433|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9433|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9433|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9433|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9433|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9433|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9433|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9433|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9433|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9433|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9532|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9532|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9532|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9532|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9532|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9532|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9532|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9532|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:56.9532|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:58.2576|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.2576|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.2576|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:58.2576|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.2576|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2576|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:58.2576|INFO|SqlDAL.RecipeDAL|Received recip's (ID:3) award.
+2021-07-18 21:34:58.2576|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2576|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2576|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2576|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2576|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2576|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2576|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2576|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2576|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:58.2656|INFO|SqlDAL.RecipeDAL|Received recip's (ID:3) award.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2656|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2816|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2816|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2816|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2816|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2816|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2816|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2816|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2816|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:58.2816|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2816|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:58.2816|INFO|SqlDAL.RecipeDAL|Received recip's (ID:3) award.
+2021-07-18 21:34:58.2816|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2816|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2816|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2816|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2816|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2816|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2816|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:58.2965|INFO|SqlDAL.RecipeDAL|Recipe (ID:1) has been received.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|INFO|SqlDAL.RecipeDAL|Received recip's (ID:2) award.
+2021-07-18 21:34:58.2965|INFO|SqlDAL.RecipeDAL|Received recip's (ID:3) award.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:4) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:5) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:6) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:7) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:8) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:9) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:10) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:11) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:12) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:13) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:14) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:15) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:16) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:17) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:18) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:19) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:20) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.2965|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:21) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.3125|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:22) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.3125|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:23) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.3125|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:24) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.3125|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:25) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.RecipeDAL|All DB recipes have been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.RecipeDAL|Recipe (ID:1) has been received.
+2021-07-18 21:34:58.3125|WARN|SqlDAL.RecipeDAL|Receiving recipe's (ID:1) award (0) led to worng result. Please find out what's wrong.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3125|ERROR|SqlDAL.RecipeDAL|User's (ID:20) award for recipe (ID:1) has not been received. Find out what's wrong.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:2) likeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:2) dislikeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:3) likeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:3) dislikeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:4) likeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:4) dislikeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:5) likeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:5) dislikeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:6) likeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:6) dislikeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:7) likeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:7) dislikeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:8) likeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:8) dislikeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:9) likeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:9) dislikeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:29) likeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:29) dislikeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:30) likeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.CommentDAL|Comment's (ID:30) dislikeCounter has been received.
+2021-07-18 21:34:58.3125|INFO|SqlDAL.RecipeDAL|Recipe's (ID:1).
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:2) likeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:2) dislikeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:3) likeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:3) dislikeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:4) likeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:4) dislikeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:5) likeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:5) dislikeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:6) likeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:6) dislikeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:7) likeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:7) dislikeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:8) likeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:8) dislikeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:9) likeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:9) dislikeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:29) likeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:29) dislikeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:30) likeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.CommentDAL|Comment's (ID:30) dislikeCounter has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.RecipeDAL|Recipe's (ID:1).
+2021-07-18 21:34:58.3284|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3284|ERROR|SqlDAL.UserDAL|Comment's(ID:2) author has not been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3284|ERROR|SqlDAL.UserDAL|Comment's(ID:2) author has not been received.
+2021-07-18 21:34:58.3284|ERROR|SqlDAL.RecipeDAL|User's (ID:0) award for recipe (ID:1) has not been received. Find out what's wrong.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3284|ERROR|SqlDAL.UserDAL|Comment's(ID:2) author has not been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3284|ERROR|SqlDAL.UserDAL|Comment's(ID:3) author has not been received.
+2021-07-18 21:34:58.3284|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3434|ERROR|SqlDAL.UserDAL|Comment's(ID:3) author has not been received.
+2021-07-18 21:34:58.3434|ERROR|SqlDAL.RecipeDAL|User's (ID:0) award for recipe (ID:1) has not been received. Find out what's wrong.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3434|ERROR|SqlDAL.UserDAL|Comment's(ID:3) author has not been received.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3434|ERROR|SqlDAL.UserDAL|Comment's(ID:4) author has not been received.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3434|ERROR|SqlDAL.UserDAL|Comment's(ID:4) author has not been received.
+2021-07-18 21:34:58.3434|ERROR|SqlDAL.RecipeDAL|User's (ID:0) award for recipe (ID:1) has not been received. Find out what's wrong.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3434|ERROR|SqlDAL.UserDAL|Comment's(ID:4) author has not been received.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3434|ERROR|SqlDAL.UserDAL|Comment's(ID:5) author has not been received.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3434|ERROR|SqlDAL.UserDAL|Comment's(ID:5) author has not been received.
+2021-07-18 21:34:58.3434|ERROR|SqlDAL.RecipeDAL|User's (ID:0) award for recipe (ID:1) has not been received. Find out what's wrong.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3434|ERROR|SqlDAL.UserDAL|Comment's(ID:5) author has not been received.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3434|ERROR|SqlDAL.UserDAL|Comment's(ID:6) author has not been received.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3434|ERROR|SqlDAL.UserDAL|Comment's(ID:6) author has not been received.
+2021-07-18 21:34:58.3434|ERROR|SqlDAL.RecipeDAL|User's (ID:0) award for recipe (ID:1) has not been received. Find out what's wrong.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3434|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:58.3594|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3594|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3594|ERROR|SqlDAL.UserDAL|Comment's(ID:6) author has not been received.
+2021-07-18 21:34:58.3594|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3594|ERROR|SqlDAL.UserDAL|Comment's(ID:7) author has not been received.
+2021-07-18 21:34:58.3594|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3594|ERROR|SqlDAL.UserDAL|Comment's(ID:7) author has not been received.
+2021-07-18 21:34:58.3594|ERROR|SqlDAL.RecipeDAL|User's (ID:0) award for recipe (ID:1) has not been received. Find out what's wrong.
+2021-07-18 21:34:58.3594|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3594|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3594|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:58.3594|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3594|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3594|ERROR|SqlDAL.UserDAL|Comment's(ID:7) author has not been received.
+2021-07-18 21:34:58.3594|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3594|ERROR|SqlDAL.UserDAL|Comment's(ID:8) author has not been received.
+2021-07-18 21:34:58.3594|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3594|ERROR|SqlDAL.UserDAL|Comment's(ID:8) author has not been received.
+2021-07-18 21:34:58.3594|ERROR|SqlDAL.RecipeDAL|User's (ID:0) award for recipe (ID:1) has not been received. Find out what's wrong.
+2021-07-18 21:34:58.3594|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3594|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3594|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:58.3594|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3594|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3594|ERROR|SqlDAL.UserDAL|Comment's(ID:8) author has not been received.
+2021-07-18 21:34:58.3594|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3594|ERROR|SqlDAL.UserDAL|Comment's(ID:9) author has not been received.
+2021-07-18 21:34:58.3594|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3594|ERROR|SqlDAL.UserDAL|Comment's(ID:9) author has not been received.
+2021-07-18 21:34:58.3594|ERROR|SqlDAL.RecipeDAL|User's (ID:0) award for recipe (ID:1) has not been received. Find out what's wrong.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3755|ERROR|SqlDAL.UserDAL|Comment's(ID:9) author has not been received.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|Comment's(ID:29) author has been received.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|Comment's(ID:29) author has been received.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|Comment's(ID:29) author has been received.
+2021-07-18 21:34:58.3755|ERROR|SqlDAL.RecipeDAL|User's (ID:20) award for recipe (ID:1) has not been received. Find out what's wrong.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|Comment's(ID:29) author has been received.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|Comment's(ID:30) author has been received.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|Comment's(ID:30) author has been received.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|Comment's(ID:30) author has been received.
+2021-07-18 21:34:58.3755|ERROR|SqlDAL.RecipeDAL|User's (ID:20) award for recipe (ID:1) has not been received. Find out what's wrong.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|User's (Login:admin) ID has been received.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|All user identities have been received.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|All useres have been received from DB.
+2021-07-18 21:34:58.3755|INFO|SqlDAL.UserDAL|Comment's(ID:30) author has been received.
