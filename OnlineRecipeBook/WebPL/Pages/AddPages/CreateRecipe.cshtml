@@ -1,0 +1,68 @@
+﻿@using WebPL.Models;
+@using Dependencies;
+@using DataValidator;
+
+@{
+    Layout = null;
+
+    if (IsPost)
+    {
+        DataToAddAndUpdateRecipe.RecipeTitle = Request["title"];
+
+        DataToAddAndUpdateRecipe.RecipeIngridients = Request["ingridients"];
+
+        DataToAddAndUpdateRecipe.CreatorId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name);
+
+        DataToAddAndUpdateRecipe.CookingProcess = Request["cookingProcess"];
+
+        Response.Redirect("~/Pages/AddPages/AddRecipeToDAO.cshtml");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Styles/Styles.css" />
+    <title></title>
+</head>
+<body>
+    <div>
+        @if (!string.IsNullOrEmpty(DataToAddAndUpdateRecipe.OperationResult))
+        {
+            if (DataToAddAndUpdateRecipe.OperationResult.ValidationPassed())
+            {
+                <div class="succsess_operation alert">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';"> &times; </span>
+                    Operation succesfully executed!
+                </div>
+            }
+            else
+            {
+                <div class="alert">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    @DataToAddAndUpdateRecipe.OperationResult
+                </div>
+            }
+
+            DataToAddAndUpdateRecipe.Reset();
+        }
+        <form method="post">
+            Insert recipe's title:
+            <p>
+                <input type="text" id="recipeTitle" class="fadeIn second" name="title" placeholder="Recipe title">
+            </p>
+            Insert ingridients used by recipe:
+            <p>
+                <textarea name="ingridients" class="textarea_style"></textarea>
+            </p>
+            Insert cooking process:
+            <p>
+                <textarea name="cookingProcess" class="textarea_style"></textarea>
+            </p>
+            <button type="submit" class="button"> Add Recipe</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -13,6 +13,8 @@ namespace Entities
         public double RecipeRating { get; set; }
 
 
+        public Recipe() { }
+
         public Recipe(int id, string title, 
             string ingridients, string cookingProcess, double recipeAward):base(id)
         {

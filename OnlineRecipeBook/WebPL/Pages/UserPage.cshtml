@@ -45,6 +45,11 @@
 
     void DefineClickTarget()
     {
+        if(Request["addRecipe"] != null)
+        {
+            Response.Redirect("~/Pages/AddPages/CreateRecipe.cshtml");
+        }
+
         if (Request["signOut"] != null)
         {
             FormsAuthentication.SignOut();
@@ -169,10 +174,10 @@
                 {
                     <p>
                         There are no recipes.
-                        <a href="~/Pages/AddRecipe.cshtml"> Add Some </a>
                     </p>
                 }
 
+                <button class="recipe_button button" type="submit" name="addRecipe"> Add Recipe</button>
             </div>
             <div class="user_data_list">
                 @if (localDataToShow.Count == 4)

@@ -39,6 +39,9 @@ namespace BL
             return result;
         }
 
+        public string GetRecipe(int recipeId)
+               => _DAO.GetRecipe(recipeId).ToString();
+
         public double GetRecipeAward(int recipeId)
         => _DAO.GetRecipeAward(recipeId);
 

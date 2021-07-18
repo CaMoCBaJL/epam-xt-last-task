@@ -16,6 +16,14 @@
         Response.Redirect("~/Index.cshtml");
     }
 
+    if (DependencyResolver.Instance.BL.RecipeLogic.GetRecipe(DataToRoute.RecipeId).Length == 2)
+    {
+        Response.Redirect("~Index.cshtml");
+    }
+
+    List<string> recipeData = DependencyResolver.Instance.BL.RecipeLogic.GetRecipe(DataToRoute.RecipeId).Split(
+        new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries).ToList();
+
     if (IsPost)
     {
         DefineClickTarget();
@@ -26,9 +34,6 @@
     int counter;
 
     string commentText = null;
-
-    List<string> recipeData = DependencyResolver.Instance.BL.RecipeLogic.GetEntities()[DataToRoute.RecipeId - 1].Split(
-        new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
     List<string> commentData;
 

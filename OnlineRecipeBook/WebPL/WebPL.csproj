@@ -111,7 +111,7 @@
     <Content Include="Pages\AddPages\Registraition.cshtml" />
     <Content Include="Pages\Recipe.cshtml" />
     <Content Include="Pages\UserPage.cshtml" />
-    <Content Include="Pages\AddPages\AddRecipe.cshtml" />
+    <Content Include="Pages\AddPages\CreateRecipe.cshtml" />
     <Content Include="Pages\Common\ErrorPage.cshtml" />
     <Content Include="Pages\CommentReactionPage.cshtml" />
     <Content Include="Pages\AddPages\RegisterDataValidationPage.cshtml" />
@@ -124,6 +124,7 @@
     <Content Include="Pages\AuthentificationPage.cshtml" />
     <Content Include="Pages\AddPages\AddComment.cshtml" />
     <Content Include="Pages\UpdatePages\UpdateComment.cshtml" />
+    <Content Include="Pages\AddPages\AddRecipeToDAO.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -276,5 +276,15 @@ namespace SqlDAL
                 }
             }
         }
+
+        public Recipe GetRecipe(int recipeId)
+        {
+            var result = GetRecipes().ToList().Find(recipe => recipe.Id == recipeId);
+
+            if (result == null)
+                return new Recipe();
+
+            return result;
+        }
     }
 }
