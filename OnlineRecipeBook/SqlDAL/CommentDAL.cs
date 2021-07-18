@@ -179,7 +179,7 @@ namespace SqlDAL
 
                 command.Parameters.AddWithValue("@CommentId", commentId);
 
-                command.Parameters.AddWithValue("@Text", commentId);
+                command.Parameters.AddWithValue("@Text", text);
 
                 command.CommandType = CommandType.StoredProcedure;
 
@@ -189,7 +189,7 @@ namespace SqlDAL
 
                     return true;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     //todo Add logger to each try-catch block.
 

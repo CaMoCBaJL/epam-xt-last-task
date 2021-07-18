@@ -39,13 +39,15 @@ CREATE TABLE UserRecipes
 	CONSTRAINT UserRecipesAreUnique UNIQUE (UserId, RecipeId)
 )
 
-drop table UserIdentity
+exec AddRecipe 'Кашка наташка', 'жопа-попа, крюк-хук', 'Берем берем берем берем', 16
+
+ select * from UserRecipes
 
 CREATE TABLE UserIdentity
 (
 	[UserId] INT FOREIGN KEY REFERENCES AppUser(Id) ON DELETE CASCADE ON UPDATE CASCADE,
 	[UserLogin] NVARCHAR(100) NOT NULL,
-	[UserPassword] NVARCHAR(400) NOT NULL
+	[UserPassword] NVARCHAR(255) NOT NULL
 )
 
 exec AddRecipe 'ЖОПА', 'МОЛОЧКО', 'ЗАМИСИ', 1
@@ -153,7 +155,7 @@ END
 
 select * from Recipe
 
-EXEC AddRecipe 'Рецепт 3', '1:1 2:2', 'ВАРИТЬСЯ', 1
+EXEC AddRecipe 'Рецепт 3', '1:1 2:2', 'ВАРИТЬСЯ', 15
 
 EXEC GetUserRecipes 1
 
@@ -163,7 +165,7 @@ ALTER PROCEDURE AddUser
 @UserName NVARCHAR(255),
 @UserAge int,
 @Login NVARCHAR(100),
-@PasswordHashSum NVARCHAR(100)
+@PasswordHashSum NVARCHAR(255)
 AS
 BEGIN
 	BEGIN TRANSACTION
@@ -200,7 +202,7 @@ BEGIN
 
 		INSERT INTO [dbo].[UserRecipes] VALUES 
 		(@UserId, 
-		(SELECT COUNT([dbo].[Recipe].[Id]) FROM [dbo].[Recipe]))
+		(SELECT MAX([dbo].[Recipe].[Id]) FROM [dbo].[Recipe]))
 
 		IF (@@ERROR <> 0)
 		ROLLBACK
@@ -221,13 +223,13 @@ BEGIN
 
 		INSERT INTO [dbo].[UserCommentaries] VALUES 
 		(@UserId, 
-		(SELECT COUNT([dbo].[Commentary].[Id]) FROM [dbo].[Commentary]))
+		(SELECT MAX([dbo].[Commentary].[Id]) FROM [dbo].[Commentary]))
 
 		IF (@@ERROR <> 0)
 		ROLLBACK
 
 		INSERT INTO [dbo].[RecipeComments] VALUES
-		((SELECT COUNT([dbo].[Commentary].[Id]) FROM [dbo].[Commentary]),
+		((SELECT MAX([dbo].[Commentary].[Id]) FROM [dbo].[Commentary]),
 		@RecipeId)
 
 		IF (@@ERROR <> 0)
@@ -409,7 +411,7 @@ END
 
 ALTER PROCEDURE CheckIdentity
 @UserId int,
-@PasswordHashSum nvarchar(400)
+@PasswordHashSum nvarchar(255)
 AS
 BEGIN
 	IF (SELECT [dbo].[UserIdentity].[UserPassword] FROM [dbo].[UserIdentity]

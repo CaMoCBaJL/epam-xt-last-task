@@ -95,7 +95,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\DataToAddComment.cs" />
+    <Compile Include="Models\DataToAddAndUpdateComment.cs" />
+    <Compile Include="Models\DataToAddAndUpdateRecipe.cs" />
     <Compile Include="Models\DataToRoute.cs" />
     <Compile Include="Models\EntityToDeleteData.cs" />
     <Compile Include="Models\RegistrationData.cs" />
@@ -122,6 +123,7 @@
     <Content Include="Pages\DeletePages\DeleteRecipe.cshtml" />
     <Content Include="Pages\AuthentificationPage.cshtml" />
     <Content Include="Pages\AddPages\AddComment.cshtml" />
+    <Content Include="Pages\UpdatePages\UpdateComment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

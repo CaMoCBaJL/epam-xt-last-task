@@ -42,7 +42,11 @@
     {
         if (Request["changeComment"] != null)
         {
+            DataToAddAndUpdateComment.Text = Request["text"];
 
+            commentText = null;
+
+            Response.Redirect("~/Pages/UpdatePages/UpdateComment.cshtml");
         }
 
         else if (Request["addComment"] != null)
@@ -75,11 +79,11 @@
                 DependencyResolver.Instance.BL.RecipeLogic.RateTheRecipe(DataToRoute.RecipeId, DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name), award);
             }
 
-            DataToAddComment.RecipeId = DataToRoute.RecipeId;
+            DataToAddAndUpdateComment.RecipeId = DataToRoute.RecipeId;
 
-            DataToAddComment.Text = Request["text"];
+            DataToAddAndUpdateComment.Text = Request["text"];
 
-            DataToAddComment.UserId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name);
+            DataToAddAndUpdateComment.UserId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name);
 
             Response.Redirect("~/Pages/AddPages/AddComment.cshtml");
         }
@@ -89,7 +93,7 @@
             UserReactionData.UserId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name);
 
             UserReactionData.Commentid = int.Parse(DependencyResolver.Instance.BL.RecipeLogic.GetRecipeCommentaries(DataToRoute.RecipeId)[i].Split(
-            new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries).ToList()[3]);
+            new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[3]);
 
             if (Request[i.ToString() + "like"] != null)
             {
@@ -125,8 +129,11 @@
 
             else if (Request[i.ToString() + "ch"] != null)
             {
-                commentText = DependencyResolver.Instance.BL.CommentLogic.GetEntities()[i]
-                    .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[0];
+                DataToAddAndUpdateComment.CommentId = int.Parse(DependencyResolver.Instance.BL.RecipeLogic.GetRecipeCommentaries(DataToRoute.RecipeId)[i]
+                    .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[3]);
+
+                commentText = DependencyResolver.Instance.BL.RecipeLogic.GetRecipeCommentaries(DataToRoute.RecipeId)[i]
+                .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[0];
             }
         }
     }
@@ -165,24 +172,24 @@
         EntityToDeleteData.Reset();
     }
 
-    @if (!string.IsNullOrEmpty(DataToAddComment.AddingResult))
+    @if (!string.IsNullOrEmpty(DataToAddAndUpdateComment.OperationResult))
     {
-        if (DataToAddComment.AddingResult.ValidationPassed())
+        if (DataToAddAndUpdateComment.OperationResult.ValidationPassed())
         {
             <div class="succsess_operation alert">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';"> &times; </span>
-                Comment successfully added!
+                Operation succesfully executed!
             </div>
         }
         else
         {
             <div class="alert">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                @DataToAddComment.AddingResult
+                @DataToAddAndUpdateComment.OperationResult
             </div>
         }
 
-        DataToAddComment.Reset();
+        DataToAddAndUpdateComment.Reset();
     }
     <h1>
         @recipeData[0] ★ @DependencyResolver.Instance.BL.RecipeLogic.GetRecipeAward(DataToRoute.RecipeId)
@@ -243,10 +250,11 @@
                         <h3>You rated this recipe with @DependencyResolver.Instance.BL.RecipeLogic.GetUserAward(DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name))★</h3>
                     </p>
                 }
-                @if (commentText != null)
+
+                if (string.IsNullOrEmpty(commentText))
                 {
                     <p>
-                        <textarea name="text" class="textarea_style"> @commentText</textarea>
+                        <textarea name="text" class="textarea_style"> </textarea>
                     </p>
 
                     <button name="addComment" class="closebtn" type="submit">Add Comment</button>
@@ -254,7 +262,7 @@
                 else
                 {
                     <p>
-                        <textarea name="text" class="textarea_style"></textarea>
+                        <textarea name="text" class="textarea_style">@commentText</textarea>
                     </p>
 
                     <button name="changeComment" class="closebtn" type="submit">Change Comment</button>

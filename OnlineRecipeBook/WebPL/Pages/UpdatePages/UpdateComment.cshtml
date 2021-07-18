@@ -14,7 +14,7 @@
         DataToAddAndUpdateComment.OperationResult = DependencyResolver.Instance.BL.CommentLogic.UpdateComment(DataToAddAndUpdateComment.CommentId, DataToAddAndUpdateComment.Text);
     }
 
-
+    Response.Redirect("~/Pages/Recipe.cshtml");
 }
 
 <!DOCTYPE html>
