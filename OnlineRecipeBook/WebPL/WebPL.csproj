@@ -108,7 +108,7 @@
     <None Include="packages.config" />
     <Content Include="Pages\Layout\_BasicLayout.cshtml" />
     <Content Include="Pages\Common\Login.cshtml" />
-    <Content Include="Pages\AddPages\Registraition.cshtml" />
+    <Content Include="Pages\AddPages\Registration.cshtml" />
     <Content Include="Pages\Recipe.cshtml" />
     <Content Include="Pages\UserPage.cshtml" />
     <Content Include="Pages\AddPages\CreateRecipe.cshtml" />
@@ -126,6 +126,8 @@
     <Content Include="Pages\UpdatePages\UpdateComment.cshtml" />
     <Content Include="Pages\AddPages\AddRecipeToDAO.cshtml" />
     <Content Include="Pages\UpdatePages\UpdateRecipe.cshtml" />
+    <Content Include="Pages\UpdatePages\UpdateUserPage.cshtml" />
+    <Content Include="Pages\UpdatePages\UpdateDataValidationPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

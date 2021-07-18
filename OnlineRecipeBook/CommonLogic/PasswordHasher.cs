@@ -7,6 +7,9 @@ namespace CommonLogic
     {
         public string HashThePassword(string password)
         {
+            if (password == null)
+                return null;
+
             HashAlgorithm sha = SHA256.Create();
 
             StringBuilder result = new StringBuilder();

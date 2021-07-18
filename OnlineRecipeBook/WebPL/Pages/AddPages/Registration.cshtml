@@ -1,0 +1,108 @@
+﻿@using WebPL.Models;
+@using DataValidator;
+@using Dependencies;
+
+@{
+    //if (User.Identity.IsAuthenticated)
+    //{
+    //    Response.Redirect("~/Pages/UserPage.cshtml");
+    //}
+
+    string creationResult = string.Empty;
+
+    if (IsPost)
+    {
+        RegistrationData.Age = Request["age"];
+
+        RegistrationData.UserName = Request["username"];
+
+        if (Request["addUser"] != null)
+        {
+            RegistrationData.Password = Request["password"];
+
+            RegistrationData.Login = Request["login"];
+
+            Response.Redirect("~/Pages/AddPages/RegisterDataValidationPage.cshtml");
+        }
+        else if (Request["changeUser"] != null)
+        {
+            if (!string.IsNullOrEmpty(Request["password"]) && !string.IsNullOrEmpty(Request["newPassword"]))
+            {
+                if (DependencyResolver.Instance.Authentificator.CheckUserIdentity(RegistrationData.Login, Request["password"]))
+                {
+                    RegistrationData.Password = Request["newPassword"];
+                }
+            }
+
+            RegistrationData.Login = Request["login"];
+
+            Response.Redirect("~/Pages/UpdatePages/UpdateDataValidationPage.cshtml");
+        }
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel=" stylesheet" href="~/Styles/Styles.css" />
+    <title></title>
+</head>
+<body>
+    @if (!string.IsNullOrEmpty(RegistrationData.DataValidationResult))
+    {
+        if (RegistrationData.DataValidationResult.ValidationPassed())
+        {
+            RegistrationData.DataValidationResult = null;
+
+            FormsAuthentication.SetAuthCookie(RegistrationData.Login, true);
+
+            RegistrationData.Reset();
+
+            Response.Redirect("~/Index.cshtml");
+        }
+        else
+        {
+            <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                @RegistrationData.DataValidationResult
+            </div>
+
+            RegistrationData.DataValidationResult = null;
+        }
+    }
+
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <a href="~/Pages/Common/Login.cshtml">Sign In </a>
+                <h2 class="active"> Sign Up </h2>
+            }
+            else
+            {
+                <h2 class="active"> Change user data</h2>
+            }
+            <!-- Registration Form -->
+            <form method="post">
+                <input value="@RegistrationData.UserName" type="text" id="username_field" class="fadeIn third" name="username" placeholder="Username">
+                <input value="@RegistrationData.Age" type="text" id="age_field" class="fadeIn third" name="age" placeholder="Age">
+                <input value="@RegistrationData.Login" type="text" id="login_field" class="fadeIn second" name="login" placeholder="Login">
+                @if (string.IsNullOrEmpty(RegistrationData.Login))
+                {
+                    <input type="password" id="password_field" class="fadeIn third" name="password" placeholder="Password">
+                    <input type="submit" class="fadeIn fourth" name="addUser" value="Add User">
+                }
+                else
+                {
+                    <input type="password" id="password_field" class="fadeIn third" name="password" placeholder="Old password">
+                    <input type="password" id="password_field" class="fadeIn third" name="newPassword" placeholder="New password">
+                    <input type="submit" class="fadeIn fourth" name="changeUser" value="Change User">
+                }
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

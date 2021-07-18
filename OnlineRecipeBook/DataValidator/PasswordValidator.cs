@@ -6,7 +6,8 @@ namespace DataValidator
     {
         public string ValidatePassword(string password)
         {
-            var regex = new Regex(password);
+            if (password == Constants.emptyPasswordConstant)
+                return Constants.allOk;
 
             if (password.Length < 8)
                 return Constants.passwordIsShort;

@@ -12,8 +12,9 @@
 
         public static string DataValidationResult { get; set; }
 
+        public static string OperationResult { get; set; }
 
-        public static void ResetFields()
+        public static void Reset()
         {
             Password = null;
 
@@ -24,6 +25,8 @@
             UserName = null;
 
             DataValidationResult = null;
+
+            OperationResult = null;
         }
     }
 }

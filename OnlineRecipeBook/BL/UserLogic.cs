@@ -84,34 +84,22 @@ namespace BL
         public bool RemoveEntity(int entityId)
                 => _DAO.RemoveEntity(entityId);
 
-        public string UpdateUserIdentity(int userId, string login, string password)
+        public string UpdateUser(int userId, string userName, int age, string login, string password)
         {
-            var validator = new UserValidator();
+            string validationResult = new UserValidator().ValidateData(userName, login, password, age);
 
-            if (validator.ValidateUserIdentity(login, password).StartsWith(Constants.sucResult))
+            if (validationResult.ValidationPassed())
             {
-                if (_DAO.UpdateUserIdentity(userId, login, password))
-                    return Constants.allOk;
-                else
-                    return Constants.serverError;
-            }
-            else
-                return validator.ValidateUserIdentity(login, password);
-        }
+                if (password == Constants.emptyPasswordConstant)
+                    password = null;
 
-        public string UpdateUserInfo(int userId, string userName, int age)
-        {
-            var validator = new UserValidator();
-
-            if (validator.ValidateUserInfo(userName, age).StartsWith(Constants.sucResult))
-            {
-                if (_DAO.UpdateUserInfo(userId, userName, age))
+                if (_DAO.UpdateUser(userId, login, password, userName, age))
                     return Constants.allOk;
-                else
-                    return Constants.serverError;
+
+                return Constants.serverError;
             }
-            else
-                return validator.ValidateUserInfo(userName, age);
+
+            return validationResult;
         }
     }
 }

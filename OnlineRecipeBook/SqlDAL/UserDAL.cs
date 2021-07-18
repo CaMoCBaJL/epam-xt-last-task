@@ -284,7 +284,7 @@ namespace SqlDAL
             return true;
         }
 
-        public bool UpdateUserIdentity(int userId, string login, string password)
+        bool UpdateUserIdentity(int userId, string login, string password)
         {
             using (SqlConnection connection = new SqlConnection(Common._connectionString))
             {
@@ -292,12 +292,17 @@ namespace SqlDAL
 
                 SqlCommand command = new SqlCommand("ChangeUserIdentity", connection);
 
+                string passwordHashSum = new PasswordHasher().HashThePassword(password);
+
+                if (passwordHashSum == null)
+                    command.Parameters.AddWithValue("@Password", DBNull.Value);
+                else
+                    command.Parameters.AddWithValue("@Password", passwordHashSum);
+
                 command.Parameters.AddWithValue("@UserId", userId);
 
                 command.Parameters.AddWithValue("@Login", login);
 
-                command.Parameters.AddWithValue("@PasswordHashSum",
-                    new PasswordHasher().HashThePassword(password));
 
                 command.CommandType = CommandType.StoredProcedure;
 
@@ -305,7 +310,7 @@ namespace SqlDAL
                 {
                     command.ExecuteNonQuery();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     //todo Add logger to each try-catch block.
 
@@ -316,7 +321,7 @@ namespace SqlDAL
             return true;
         }
 
-        public bool UpdateUserInfo(int userId, string userName, int age)
+        bool UpdateUserInfo(int userId, string userName, int age)
         {
             using (SqlConnection connection = new SqlConnection(Common._connectionString))
             {
@@ -419,6 +424,14 @@ namespace SqlDAL
                     return 0;
                 }
             }
+        }
+
+        public bool UpdateUser(int userId, string login, string password, string userName, int age)
+        {
+            if (UpdateUserIdentity(userId, login, password))
+                return UpdateUserInfo(userId, userName, age);
+
+            return false;
         }
     }
 }

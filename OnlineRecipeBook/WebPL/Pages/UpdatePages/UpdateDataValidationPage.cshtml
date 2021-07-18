@@ -5,9 +5,10 @@
 @{
     FieldFillingChecker();
 
-    RegistrationData.DataValidationResult = DependencyResolver.Instance.BL.UserLogic.CreateUser(RegistrationData.UserName, int.Parse(RegistrationData.Age), RegistrationData.Login, RegistrationData.Password);
+    RegistrationData.OperationResult = DependencyResolver.Instance.BL.UserLogic.UpdateUser(DependencyResolver.Instance.BL.UserLogic.GetUserId(RegistrationData.Login),
+        RegistrationData.UserName, int.Parse(RegistrationData.Age), RegistrationData.Login, RegistrationData.Password);
 
-    Response.Redirect("~/Pages/AddPages/Registraition.cshtml");
+    Response.Redirect("~/Pages/UserPage.cshtml");
 }
 
 
@@ -23,19 +24,26 @@
         else if (string.IsNullOrEmpty(RegistrationData.Login))
             RegistrationData.DataValidationResult = "Login field" + Constants.stringIsEmpty;
 
-        else if (string.IsNullOrEmpty(RegistrationData.Password))
-            RegistrationData.DataValidationResult = "Password field" + Constants.stringIsEmpty;
-
-        else
+        else if (RegistrationData.Password != null)
         {
-            RegistrationData.DataValidationResult = Constants.allOk;
+            if (string.Empty == RegistrationData.Password.Trim())
+                RegistrationData.DataValidationResult = "Password field" + Constants.stringIsEmpty;
+            else
+            {
+                return;
+            }
+        }
+
+        else if(RegistrationData.Password == null)
+        {
+            RegistrationData.Password = Constants.emptyPasswordConstant;
 
             return;
         }
 
         RegistrationData.Reset();
 
-        Response.Redirect("~/Pages/AddPages/Registraition.cshtml");
+        Response.Redirect("~/Pages/UserPage.cshtml");
     }
 }
 

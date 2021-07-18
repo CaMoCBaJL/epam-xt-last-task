@@ -17,10 +17,8 @@ namespace DALInterfaces
 
         IEnumerable<Recipe> GetUserRecipes(int userId);
 
-        bool UpdateUserInfo(int userId, string userName, int age);
-
-        bool UpdateUserIdentity(int userId, string login, string password);
-
         int GetCommentAuthor(int commentId);
+
+        bool UpdateUser(int userId, string login, string password, string userName, int age);
     }
 }

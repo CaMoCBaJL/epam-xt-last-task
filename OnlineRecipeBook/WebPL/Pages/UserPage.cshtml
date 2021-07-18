@@ -4,6 +4,8 @@
 @using DataValidator;
 
 @{
+    string operationResult = EntityToDeleteData.DeletionResult ?? RegistrationData.OperationResult;
+
     if (DataToRoute.UserId == 0)
     {
         Response.Redirect("~/Index.cshtml");
@@ -45,29 +47,40 @@
 
     void DefineClickTarget()
     {
-        if(Request["addRecipe"] != null)
+        if (Request["changeUserData"] != null)
+        {
+            RegistrationData.Age = userData[0].Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[1];
+
+            RegistrationData.UserName = userData[0].Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[0];
+
+            RegistrationData.Login = User.Identity.Name;
+
+            Response.Redirect("~/Pages/AddPages/Registration.cshtml");
+        }
+
+        else if (Request["addRecipe"] != null)
         {
             Response.Redirect("~/Pages/AddPages/CreateRecipe.cshtml");
         }
 
-        if (Request["signOut"] != null)
+        else if (Request["signOut"] != null)
         {
             FormsAuthentication.SignOut();
 
             Response.Redirect("~/Index.cshtml");
         }
 
-        if (Request["changeidentity"] != null)
+        else if (Request["changeidentity"] != null)
         {
             Response.Redirect("~/Pages/ChangeIdentity.cshtml");
         }
 
-        if (Request["changeUserData"] != null)
+        else if (Request["changeUserData"] != null)
         {
             Response.Redirect("~/Pages/ChangeUserData.cshtml");
         }
 
-        if (Request["delete"] != null)
+        else if (Request["delete"] != null)
         {
             EntityToDeleteData.EntityName = "User";
 
@@ -122,24 +135,26 @@
     <title></title>
 </head>
 <body>
-    @if (!string.IsNullOrEmpty(EntityToDeleteData.DeletionResult))
+    @if (!string.IsNullOrEmpty(operationResult))
     {
-        if (EntityToDeleteData.DeletionResult.ValidationPassed())
+        if (operationResult.ValidationPassed())
         {
             <div class="succsess_operation alert">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';"> &times; </span>
-                Recipe successfully deleted!
+                Operation successfully completed!
             </div>
         }
         else
         {
             <div class="alert">
                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                @EntityToDeleteData.DeletionResult
+                @operationResult
             </div>
         }
 
         EntityToDeleteData.Reset();
+
+        RegistrationData.Reset();
     }
 
     <div class="user_info">
@@ -206,9 +221,6 @@
             <div class="sign_out">
                 <p>
                     <button name="signOut" type="submit" class="button sign_out_button"> Sign Out</button>
-                </p>
-                <p>
-                    <button type="submit" class="button sign_out_button" name="changeIdentity"> Change login/password</button>
                 </p>
                 <button type="submit" class="button sign_out_button" name="changeUserData"> Change UserName/Age</button>
                 <p>

@@ -12,9 +12,7 @@ namespace BLInterfaces
 
         List<string> GetUserRecipes(int userId);
 
-        string UpdateUserInfo(int userId, string userName, int age);
-
-        string UpdateUserIdentity(int userId, string login, string password);
+        string UpdateUser(int userId, string userName, int age, string login, string password);
 
         string GetCommentAuthorName(int commentId);
 
