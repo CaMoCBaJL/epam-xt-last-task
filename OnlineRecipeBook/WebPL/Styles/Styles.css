@@ -392,6 +392,23 @@ input[type=text], input[type=password] {
     margin:10px auto;
 }
 
+.registration_password_display {
+    top: 260px;
+}
+
+.login_password_display {
+    top: 135px;
+}
+
+.password_display {
+    position: absolute;
+    right: 50px;
+    background-position-y: 5px;
+    width: 48px;
+    height: 48px;
+    background-image: url("https://img.icons8.com/color/48/000000/show-password.png");
+}
+
 .delete_recipe {
     background-position-y: 3.5px;
     width: 32px;

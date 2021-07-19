@@ -47,6 +47,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel=" stylesheet" href="~/Styles/Styles.css" />
+    <script src="~/scripts/showPassword.js"></script>
     <title></title>
 </head>
 <body>
@@ -91,13 +92,14 @@
                 <input value="@RegistrationData.Login" type="text" id="login_field" class="fadeIn second" name="login" placeholder="Login">
                 @if (string.IsNullOrEmpty(RegistrationData.Login))
                 {
-                    <input type="password" id="password_field" class="fadeIn third" name="password" placeholder="Password">
+                    <input type="password" id="password_field" class="fadeIn third" name="password" placeholder="Password"><button type="button" onclick="showPassword('password_field')"
+                                                                                                                                   class="button_params password_display registration_password_display"></button>
                     <input type="submit" class="fadeIn fourth" name="addUser" value="Add User">
                 }
                 else
                 {
-                    <input type="password" id="password_field" class="fadeIn third" name="password" placeholder="Old password">
-                    <input type="password" id="password_field" class="fadeIn third" name="newPassword" placeholder="New password">
+                    <input type="password" id="password_field" class="fadeIn third" name="password" placeholder="Old password"><button type="button" onclick="showPassword('password_field')" class="button_params password_display"></button>
+                    <input type="password" id="newPassword_field" class="fadeIn third" name="newPassword" placeholder="New password"><button type="button" onclick="showPassword('newPassword_field')" class="button_params password_display"></button>
                     <input type="submit" class="fadeIn fourth" name="changeUser" value="Change User">
                 }
             </form>

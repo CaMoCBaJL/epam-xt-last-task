@@ -23,6 +23,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="~/scripts/showPassword.js"></script>
     <link rel="stylesheet" href="~/Styles/Styles.css" />
     <title>Login page</title>
 </head>
@@ -42,19 +43,15 @@
         <div id="formContent">
             <!-- Tabs Titles -->
             <h2 class="active"> Sign In </h2>
-            <a href="~/Pages/Registration.cshtml">Sign Up </a>
+            <a href="~/Pages/AddPages/Registration.cshtml">Sign Up </a>
 
             <!-- Login Form -->
             <form method="post">
                 <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-                <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+                <input type="password" id="password" class="fadeIn third" name="password" placeholder="password"> <button type="button" onclick="showPassword('password')" 
+                                                                                                                          class="button_params password_display login_password_display"></button>
                 <input type="submit" class="fadeIn fourth" value="Log In">
             </form>
-
-            <!-- Remind Passowrd -->
-            <div id="formFooter">
-                <a class="underlineHover" href="#">Forgot Password?</a>
-            </div>
 
         </div>
     </div>
