@@ -38,6 +38,9 @@ namespace DataValidator
             if (login.Length > 100)
                 return "Login" + Constants.paramterTooLong;
 
+            if (login.Length < 8)
+                return "Login" + Constants.stringIsShort;
+
             return Constants.allOk;
         }
 

@@ -194,6 +194,8 @@
 }
 
 .confirmation_window {
+    position:absolute;
+    top:50px;
     font-size: 32px;
     text-align: center;
     color: #b7b7b7;
@@ -220,6 +222,13 @@
     cursor: pointer;
     transition: 0.3s;
     border: none;
+}
+
+.alert_btn {
+    background-color: transparent;
+    position:absolute;
+    left:12px;
+    top:27px;
 }
 
     /* When moving the mouse over the close button */

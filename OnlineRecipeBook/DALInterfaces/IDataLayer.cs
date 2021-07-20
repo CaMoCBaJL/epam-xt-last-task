@@ -1,7 +1,4 @@
-﻿using Entities;
-using System.Collections.Generic;
-
-namespace DALInterfaces
+﻿namespace DALInterfaces
 {
     public interface IDataLayer
     {

@@ -335,7 +335,8 @@ input[type=text], input[type=password] {
         color:white;
     }
 .textarea_style {
-    width: 350px;
+    max-width:40%;
+    width: 30%;
     height: 80px;
     border-radius: 5px;
     background-color: #b7b7b7;
@@ -398,6 +399,10 @@ input[type=text], input[type=password] {
 
 .login_password_display {
     top: 135px;
+}
+
+.add_recipe_title{
+    width:25%;
 }
 
 .password_display {

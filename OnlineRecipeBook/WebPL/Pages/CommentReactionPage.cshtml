@@ -14,7 +14,7 @@
         DependencyResolver.Instance.BL.CommentLogic.DislikeTheComment(UserReactionData.Commentid, UserReactionData.UserId);
     }
 
-    UserReactionData.IsDislike = null;
+    UserReactionData.Reset();
 
     Response.Redirect("~/Pages/Recipe.cshtml");
 }

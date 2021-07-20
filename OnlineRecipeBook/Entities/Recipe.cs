@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using CommonConstants;
+
 namespace Entities
 {
     public class Recipe : CommonEntity

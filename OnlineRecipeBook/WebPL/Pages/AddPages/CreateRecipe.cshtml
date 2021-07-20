@@ -42,14 +42,14 @@
             if (DataToAddAndUpdateRecipe.OperationResult.ValidationPassed())
             {
                 <div class="succsess_operation alert">
-                    <span class="closebtn" onclick="this.parentElement.style.display='none';"> &times; </span>
+                    <span class="closebtn alert_btn" onclick="this.parentElement.style.display='none';"> &times; </span>
                     Operation succesfully executed!
                 </div>
             }
             else
             {
                 <div class="alert">
-                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <span class="closebtn alert_btn" onclick="this.parentElement.style.display='none';">&times;</span>
                     @DataToAddAndUpdateRecipe.OperationResult
                 </div>
             }
@@ -57,15 +57,15 @@
             DataToAddAndUpdateRecipe.Reset();
         }
     <form method="post">
-        Insert recipe's title:
+        <h3>Insert recipe's title:</h3>
         <p>
-            <input type="text" id="recipeTitle" class="fadeIn second" name="title" value="@DataToAddAndUpdateRecipe.RecipeTitle" placeholder="Recipe title">
+            <input type="text" id="recipeTitle" style="height:40px; width:20%; max-width:40%;" name="title" value="@DataToAddAndUpdateRecipe.RecipeTitle" placeholder="Recipe title">
         </p>
-        Insert ingridients used by recipe:
+        <h3>Insert ingridients used by recipe:</h3>
         <p>
             <textarea name="ingridients" class="textarea_style">@DataToAddAndUpdateRecipe.RecipeIngridients</textarea>
         </p>
-        Insert cooking process:
+        <h3>Insert cooking process:</h3>
         <p>
             <textarea name="cookingProcess" class="textarea_style">@DataToAddAndUpdateRecipe.CookingProcess</textarea>
         </p>

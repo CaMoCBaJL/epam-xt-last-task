@@ -1,5 +1,4 @@
-﻿
-namespace WebPL.Models
+﻿namespace WebPL.Models
 {
     public static class EntityToDeleteData
     {

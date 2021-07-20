@@ -100,6 +100,7 @@
     <Compile Include="Models\DataToAddAndUpdateRecipe.cs" />
     <Compile Include="Models\DataToRoute.cs" />
     <Compile Include="Models\EntityToDeleteData.cs" />
+    <Compile Include="Models\ProjectRoleProvider.cs" />
     <Compile Include="Models\RegistrationData.cs" />
     <Compile Include="Models\UserReactionData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,8 +117,6 @@
     <Content Include="Pages\Common\ErrorPage.cshtml" />
     <Content Include="Pages\CommentReactionPage.cshtml" />
     <Content Include="Pages\AddPages\RegisterDataValidationPage.cshtml" />
-    <Content Include="Pages\ChangeIdentity.cshtml" />
-    <Content Include="Pages\ChangeUserData.cshtml" />
     <Content Include="Pages\Common\EntityDeleteConfirmation.cshtml" />
     <Content Include="Pages\DeletePages\DeleteUser.cshtml" />
     <Content Include="Pages\DeletePages\DeleteComment.cshtml" />
@@ -127,7 +126,6 @@
     <Content Include="Pages\UpdatePages\UpdateComment.cshtml" />
     <Content Include="Pages\AddPages\AddRecipeToDAO.cshtml" />
     <Content Include="Pages\UpdatePages\UpdateRecipe.cshtml" />
-    <Content Include="Pages\UpdatePages\UpdateUserPage.cshtml" />
     <Content Include="Pages\UpdatePages\UpdateDataValidationPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -10,7 +10,16 @@
 
     if (EntityToDeleteData.ConfirmationResult)
     {
-        Response.Redirect("~/Pages/DeletePages/DeleteComment.cshtml");
+        if (EntityToDeleteData.EntityName == "Comment")
+        {
+            Response.Redirect("~/Pages/DeletePages/DeleteComment.cshtml");
+        }
+        else if (EntityToDeleteData.EntityName == "Recipe")
+        {
+            EntityToDeleteData.SourcePage = "~/Index.cshtml";
+
+            Response.Redirect("~/Pages/DeletePages/DeleteRecipe.cshtml");
+        }
     }
 
     if (DataToRoute.RecipeId < 1)
@@ -47,68 +56,24 @@
 
     void DefineClickTarget()
     {
-        if (Request["changeRecipe"] != null)
+        if (Request["deleteRecipe"] != null)
         {
-            var recipeData = DependencyResolver.Instance.BL.RecipeLogic.GetRecipe(DataToRoute.RecipeId)
-            .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries);
+            DeleteRecipe(DataToRoute.RecipeId);
+        }
 
-            DataToAddAndUpdateRecipe.RecipeTitle = recipeData[0];
-
-            DataToAddAndUpdateRecipe.RecipeIngridients = recipeData[2];
-
-            DataToAddAndUpdateRecipe.CookingProcess = recipeData[3];
-
-            DataToAddAndUpdateRecipe.CreatorId = DependencyResolver.Instance.BL.RecipeLogic.GetRecipeAuthor(DataToRoute.RecipeId);
-
-            Response.Redirect("~/Pages/AddPages/CreateRecipe.cshtml");
+        else if (Request["changeRecipe"] != null)
+        {
+            ChangeRecipe();
         }
 
         else if (Request["changeComment"] != null)
         {
-            DataToAddAndUpdateComment.Text = Request["text"];
-
-            commentText = null;
-
-            Response.Redirect("~/Pages/UpdatePages/UpdateComment.cshtml");
+            AddCommentChanges();
         }
 
         else if (Request["addComment"] != null)
         {
-            int award = 0;
-
-            if (Request["rate5"] != null)
-            {
-                award = 5;
-            }
-            else if (Request["rate4"] != null)
-            {
-                award = 4;
-            }
-            else if (Request["rate3"] != null)
-            {
-                award = 3;
-            }
-            else if (Request["rate2"] != null)
-            {
-                award = 2;
-            }
-            else if (Request["rate1"] != null)
-            {
-                award = 1;
-            }
-
-            if (award != 0)
-            {
-                DependencyResolver.Instance.BL.RecipeLogic.RateTheRecipe(DataToRoute.RecipeId, DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name), award);
-            }
-
-            DataToAddAndUpdateComment.RecipeId = DataToRoute.RecipeId;
-
-            DataToAddAndUpdateComment.Text = Request["text"];
-
-            DataToAddAndUpdateComment.UserId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name);
-
-            Response.Redirect("~/Pages/AddPages/AddComment.cshtml");
+            AddComment();
         }
 
         for (int i = 0; i < DependencyResolver.Instance.BL.RecipeLogic.GetRecipeCommentaries(DataToRoute.RecipeId).Count; i++)
@@ -122,46 +87,145 @@
             {
                 //I used additional response to CommentReactionPage to avoid second data sending.
 
-                UserReactionData.IsDislike = false;
-
-                Response.Redirect("~/Pages/CommentReactionPage.cshtml");
+                LikeComment();
 
                 break;
             }
 
             else if (Request[i.ToString() + "dislike"] != null)
             {
-
-                UserReactionData.IsDislike = true;
-
-                Response.Redirect("~/Pages/CommentReactionPage.cshtml");
+                DislikeCommet();
 
                 break;
             }
 
-            else if (Request[i.ToString() + "del"] != null)
+            else if (Request[i.ToString() + "deleteComment"] != null)
             {
-                EntityToDeleteData.EntityId = UserReactionData.Commentid;
-
-                EntityToDeleteData.SourcePage = "~/Pages/Recipe.cshtml";
-
-                EntityToDeleteData.EntityName = "comment";
-
-                Response.Redirect("~/Pages/Common/EntityDeleteConfirmation.cshtml");
+                ConfirmCommentDeletion();
             }
 
-            else if (Request[i.ToString() + "ch"] != null)
+            else if (Request[i.ToString() + "changeComment"] != null)
             {
-                DataToAddAndUpdateComment.CommentId = int.Parse(DependencyResolver.Instance.BL.RecipeLogic.GetRecipeCommentaries(DataToRoute.RecipeId)[i]
-                    .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[3]);
-
-                commentText = DependencyResolver.Instance.BL.RecipeLogic.GetRecipeCommentaries(DataToRoute.RecipeId)[i]
-                .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[0];
+                ChangeComment(i);
             }
         }
     }
 
+    void DeleteRecipe(int recipeId)
+    {
+        EntityToDeleteData.EntityId = int.Parse(DependencyResolver.Instance.BL.RecipeLogic.GetRecipe(recipeId)
+.Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[4]);
 
+        EntityToDeleteData.SourcePage = "~/Pages/Recipe.cshtml";
+
+        EntityToDeleteData.EntityName = "Recipe";
+
+        Response.Redirect("~/Pages/Common/EntityDeleteConfirmation.cshtml");
+    }
+
+    void ChangeRecipe()
+    {
+        var recipeData = DependencyResolver.Instance.BL.RecipeLogic.GetRecipe(DataToRoute.RecipeId)
+        .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries);
+
+        DataToAddAndUpdateRecipe.RecipeTitle = recipeData[0];
+
+        DataToAddAndUpdateRecipe.RecipeIngridients = recipeData[2];
+
+        DataToAddAndUpdateRecipe.CookingProcess = recipeData[3];
+
+        DataToAddAndUpdateRecipe.CreatorId = DependencyResolver.Instance.BL.RecipeLogic.GetRecipeAuthor(DataToRoute.RecipeId);
+
+        Response.Redirect("~/Pages/AddPages/CreateRecipe.cshtml");
+    }
+
+    void AddCommentChanges()
+    {
+        DataToAddAndUpdateComment.Text = Request["text"];
+
+        commentText = null;
+
+        Response.Redirect("~/Pages/UpdatePages/UpdateComment.cshtml");
+    }
+
+    int GetUserAward()
+    {
+        if (Request["rate5"] != null)
+        {
+            return 5;
+        }
+        else if (Request["rate4"] != null)
+        {
+            return 4;
+        }
+        else if (Request["rate3"] != null)
+        {
+            return 3;
+        }
+        else if (Request["rate2"] != null)
+        {
+            return 2;
+        }
+        else if (Request["rate1"] != null)
+        {
+            return 1;
+        }
+
+        return 0;
+    }
+
+    void AddComment()
+    {
+        int award = GetUserAward();
+
+        if (award != 0)
+        {
+            DependencyResolver.Instance.BL.RecipeLogic.RateTheRecipe(DataToRoute.RecipeId, DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name), award);
+        }
+
+        DataToAddAndUpdateComment.RecipeId = DataToRoute.RecipeId;
+
+        DataToAddAndUpdateComment.Text = Request["text"];
+
+        DataToAddAndUpdateComment.UserId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name);
+
+        Response.Redirect("~/Pages/AddPages/AddComment.cshtml");
+    }
+
+    void LikeComment()
+    {
+        UserReactionData.IsDislike = false;
+
+        Response.Redirect("~/Pages/CommentReactionPage.cshtml");
+
+    }
+
+    void DislikeCommet()
+    {
+        UserReactionData.IsDislike = true;
+
+        Response.Redirect("~/Pages/CommentReactionPage.cshtml");
+    }
+
+    void ConfirmCommentDeletion()
+    {
+        EntityToDeleteData.EntityId = UserReactionData.Commentid;
+
+        EntityToDeleteData.SourcePage = "~/Pages/Recipe.cshtml";
+
+        EntityToDeleteData.EntityName = "Comment";
+
+        Response.Redirect("~/Pages/Common/EntityDeleteConfirmation.cshtml");
+    }
+
+    void ChangeComment(int commentId)
+    {
+        DataToAddAndUpdateComment.CommentId = int.Parse(DependencyResolver.Instance.BL.RecipeLogic.GetRecipeCommentaries(DataToRoute.RecipeId)[commentId]
+                .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[3]);
+
+        commentText = DependencyResolver.Instance.BL.RecipeLogic.GetRecipeCommentaries(DataToRoute.RecipeId)[commentId]
+        .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[0];
+    }
 }
 
 <!DOCTYPE html>
@@ -180,14 +244,14 @@
         if (operationResult.ValidationPassed())
         {
             <div class="succsess_operation alert">
-                <span class="closebtn" onclick="this.parentElement.style.display='none';"> &times; </span>
+                <span class="closebtn alert_btn" onclick="this.parentElement.style.display='none';"> &times; </span>
                 Operation succesfully executed!
             </div>
         }
         else
         {
             <div class="alert">
-                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <span class="closebtn alert_btn" onclick="this.parentElement.style.display='none';">&times;</span>
                 @operationResult
             </div>
         }
@@ -205,6 +269,11 @@
             @if (DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name) == DependencyResolver.Instance.BL.RecipeLogic.GetRecipeAuthor(DataToRoute.RecipeId))
             {
                 <button type="submit" class="button_params change_recipe" name="changeRecipe"> </button>
+            }
+            @if (DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name) == DependencyResolver.Instance.BL.RecipeLogic.GetRecipeAuthor(DataToRoute.RecipeId)
+                || User.IsInRole("admin"))
+            {
+                <button type="submit" class="button_params delete_recipe" name="deleteRecipe"> </button>
             }
         </h1>
     </form>
@@ -311,10 +380,11 @@
                                 <button onclick="this.setAttribute(value, null);" name="@counter.ToString()like" class="button_params like" type="submit"> </button> @commentData[1]
                                 <button name="@counter.ToString()dislike" class="button_params dislike" type="submit"> </button> @commentData[2]
 
-                                @if (DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name) == DependencyResolver.Instance.BL.UserLogic.GetCommentAuthor(int.Parse(commentData[3])))
+                                @if (DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name) == DependencyResolver.Instance.BL.UserLogic.GetCommentAuthor(int.Parse(commentData[3]))
+                                    || User.IsInRole("admin"))
                                 {
-                                    <button type="submit" class="button_params delete_comment" name="@counter.ToString()del"> </button>
-                                    <button type="submit" class="button_params change_comment" name="@counter.ToString()ch"> </button>
+                                    <button type="submit" class="button_params delete_comment" name="@counter.ToString()deleteComment"> </button>
+                                    <button type="submit" class="button_params change_comment" name="@counter.ToString()changeComment"> </button>
                                 }
                             </p>
                         </form>
@@ -322,8 +392,8 @@
                     else
                     {
                         <p class="counters">
-                            <a name="@counter.ToString()like" class="like"> </a> @commentData[1]
-                            <a name="@counter.ToString()dislike" class="dislike"> </a> @commentData[2]
+                            <a name="@counter.ToString()like" class="button_params like"> </a> @commentData[1]
+                            <a name="@counter.ToString()dislike" class="button_params dislike"> </a> @commentData[2]
                         </p>
                     }
                 </div>

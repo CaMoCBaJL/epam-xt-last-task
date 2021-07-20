@@ -10,7 +10,7 @@ namespace DataValidator
                 return Constants.allOk;
 
             if (password.Length < 8)
-                return Constants.passwordIsShort;
+                return "Password"+Constants.stringIsShort;
 
             if (!new Regex(@"\d{1,}").IsMatch(password))
                 return Constants.addNumberToPasswordMessage;

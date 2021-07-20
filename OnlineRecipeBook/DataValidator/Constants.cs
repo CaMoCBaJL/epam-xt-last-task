@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DataValidator
+﻿namespace DataValidator
 {
     public static class Constants
     {
@@ -16,7 +10,7 @@ namespace DataValidator
 
         public const string addNumberToPasswordMessage = "There are no numbers in password. Add some to it.";
 
-        public const string passwordIsShort = "Password is too short. Minimum passwords symbols amount - 8.";
+        public const string stringIsShort = " is too short. Minimum passwords symbols amount - 8.";
 
         public const string stringIsEmpty = " content is empty. Please fix it.";
 

@@ -13,7 +13,7 @@
 
     if (EntityToDeleteData.ConfirmationResult)
     {
-        if (EntityToDeleteData.EntityName == "user")
+        if (EntityToDeleteData.EntityName == "User")
         {
             Response.Redirect("~/Pages/DeletePages/DeleteUser.cshtml");
         }
@@ -49,13 +49,7 @@
     {
         if (Request["changeUserData"] != null)
         {
-            RegistrationData.Age = userData[0].Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[1];
-
-            RegistrationData.UserName = userData[0].Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[0];
-
-            RegistrationData.Login = User.Identity.Name;
-
-            Response.Redirect("~/Pages/AddPages/Registration.cshtml");
+            ChangeUserData();
         }
 
         else if (Request["addRecipe"] != null)
@@ -82,46 +76,77 @@
 
         else if (Request["delete"] != null)
         {
-            EntityToDeleteData.EntityName = "User";
-
-            EntityToDeleteData.EntityId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name);
-
-            EntityToDeleteData.SourcePage = "~/Pages/UserPage.cshtml";
-
-            Response.Redirect("~/Pages/Common/EntityDeleteConfirmation.cshtml");
+            DeleteUser();
         }
 
         for (int i = 2; i < userData.Count; i++)
         {
             if (Request[i.ToString() + "rec"] != null)
             {
-                DataToRoute.RecipeId = int.Parse(DependencyResolver.Instance.BL.UserLogic.GetUserRecipes(DataToRoute.UserId)[i - 2]
-                    .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[4]);
-
-                Response.Redirect("~/Pages/Recipe.cshtml");
+                ShowRecipe(i);
             }
 
             else if (Request[i.ToString() + "com"] != null)
             {
-                DataToRoute.RecipeId = DependencyResolver.Instance.BL.CommentLogic.FindCommentLocation(
-                    int.Parse(DependencyResolver.Instance.BL.UserLogic.GetUserCommentaries(DataToRoute.UserId)[i - 2 - recipeCounter]
-                    .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[3]));
-
-                Response.Redirect("~/Pages/Recipe.cshtml");
+                ShowComment(i);
             }
 
             else if (Request[i.ToString() + "del"] != null)
             {
-                EntityToDeleteData.EntityId = int.Parse(DependencyResolver.Instance.BL.UserLogic.GetUserRecipes(DataToRoute.UserId)[i - 2]
-                    .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[4]);
-
-                EntityToDeleteData.SourcePage = "~/Pages/UserPage.cshtml";
-
-                EntityToDeleteData.EntityName = "recipe";
-
-                Response.Redirect("~/Pages/Common/EntityDeleteConfirmation.cshtml");
+                DeleteRecipe(i);
             }
         }
+    }
+
+    void ChangeUserData()
+    {
+        RegistrationData.Age = userData[0].Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[1];
+
+        RegistrationData.UserName = userData[0].Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[0];
+
+        RegistrationData.Login = User.Identity.Name;
+
+        Response.Redirect("~/Pages/AddPages/Registration.cshtml");
+    }
+
+    void DeleteUser()
+    {
+        EntityToDeleteData.EntityName = "User";
+
+        EntityToDeleteData.EntityId = DependencyResolver.Instance.BL.UserLogic.GetUserId(User.Identity.Name);
+
+        EntityToDeleteData.SourcePage = "~/Pages/UserPage.cshtml";
+
+        Response.Redirect("~/Pages/Common/EntityDeleteConfirmation.cshtml");
+    }
+
+    void ShowRecipe(int recipeId)
+    {
+        DataToRoute.RecipeId = int.Parse(DependencyResolver.Instance.BL.UserLogic.GetUserRecipes(DataToRoute.UserId)[recipeId - 2]
+            .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[4]);
+
+        Response.Redirect("~/Pages/Recipe.cshtml");
+    }
+
+    void ShowComment(int commentId)
+    {
+        DataToRoute.RecipeId = DependencyResolver.Instance.BL.CommentLogic.FindCommentLocation(
+            int.Parse(DependencyResolver.Instance.BL.UserLogic.GetUserCommentaries(DataToRoute.UserId)[commentId - 2 - recipeCounter]
+            .Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[3]));
+
+        Response.Redirect("~/Pages/Recipe.cshtml");
+    }
+
+    void DeleteRecipe(int recipeId)
+    {
+        EntityToDeleteData.EntityId = int.Parse(DependencyResolver.Instance.BL.UserLogic.GetUserRecipes(DataToRoute.UserId)[recipeId - 2]
+.Split(new string[] { DelimiterConstant.myDelimiter }, StringSplitOptions.RemoveEmptyEntries)[4]);
+
+        EntityToDeleteData.SourcePage = "~/Pages/UserPage.cshtml";
+
+        EntityToDeleteData.EntityName = "recipe";
+
+        Response.Redirect("~/Pages/Common/EntityDeleteConfirmation.cshtml");
     }
 }
 
@@ -140,14 +165,14 @@
         if (operationResult.ValidationPassed())
         {
             <div class="succsess_operation alert">
-                <span class="closebtn" onclick="this.parentElement.style.display='none';"> &times; </span>
+                <span class="closebtn alert_btn" onclick="this.parentElement.style.display='none';"> &times; </span>
                 Operation successfully completed!
             </div>
         }
         else
         {
             <div class="alert">
-                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <span class="closebtn alert_btn" onclick="this.parentElement.style.display='none';">&times;</span>
                 @operationResult
             </div>
         }

@@ -1,8 +1,4 @@
-﻿using System;
-using CommonConstants;
-using System.Text;
-
-namespace Entities
+﻿namespace Entities
 {
     public class UserIdentity : CommonEntity
     {
