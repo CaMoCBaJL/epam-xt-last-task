@@ -13,7 +13,7 @@
 
         RegistrationData.Password = Request["password"];
 
-        Response.Redirect("~/Pages/AuthentificationPage.cshtml");
+        Response.Redirect("~/Pages/AuthentificationPage.cshtml"); // why not authenticate user right here?
     }
 }
 
@@ -48,8 +48,8 @@
             <!-- Login Form -->
             <form method="post">
                 <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-                <input type="password" id="password" class="fadeIn third" name="password" placeholder="password"> <button type="button" onclick="showPassword('password')" 
-                                                                                                                          class="button_params password_display login_password_display"></button>
+                <input type="password" id="password" class="fadeIn third" name="password" placeholder="password"> 
+                <button type="button" onclick="showPassword('password')" class="button_params password_display login_password_display"></button>
                 <input type="submit" class="fadeIn fourth" value="Log In">
             </form>
 

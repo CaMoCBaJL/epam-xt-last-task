@@ -1,6 +1,6 @@
 ﻿
 function showPassword(elemId) {
-    var c = elemId;
+    var c = elemId; // c is unused
 
     if (document.getElementById(elemId).type == 'password') {
         document.getElementById(elemId).type = 'text'

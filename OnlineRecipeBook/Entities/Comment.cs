@@ -23,6 +23,11 @@ namespace Entities
 
         public override string ToString()
         {
+            // this should output a simple string. Making HTML for comment is work for PL that is related to Web (Razor)
+            // What if you decide to switch to be a Web API (returning JSONs/SOAP/Protobuf messages/whatever else)? 
+            // You would need to change ToString in every entity for your usage (and 100 entities is a real number)
+            // But most probably you would need to stop using ToString to transform your entities and start using actual models (classes)
+
             StringBuilder result = new StringBuilder();
 
             result.Append(Text + DelimiterConstant.myDelimiter);

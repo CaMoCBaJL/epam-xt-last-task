@@ -10,7 +10,7 @@ namespace CommonLogic
             if (password == null)
                 return null;
 
-            HashAlgorithm sha = SHA256.Create();
+            HashAlgorithm sha = SHA256.Create(); // nice, that IS a good way of hashing passwords
 
             StringBuilder result = new StringBuilder();
 

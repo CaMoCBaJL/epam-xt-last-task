@@ -48,7 +48,7 @@ namespace BL
         public double GetRecipeAward(int recipeId)
         => _DAO.GetRecipeAward(recipeId);
 
-        public List<string> GetRecipeCommentaries(int recipeId)
+        public List<string> GetRecipeCommentaries(int recipeId) // comments logic because it returns comments
         {
             List<string> result = new List<string>();
 

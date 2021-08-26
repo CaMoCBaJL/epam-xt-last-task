@@ -1,28 +1,32 @@
 USE RecipeBookDataBase
+GO
 
 CREATE PROCEDURE GetComments
 AS
 BEGIN
 	SELECT * FROM [dbo].[Commentary]
 END
+GO
 
 CREATE PROCEDURE GetRecipeComments
 @RecipeId INT
 AS 
 BEGIN
-	SELECT * FROM [dbo].[Commentary] JOIN [dbo].[RecipeComments]
-	ON [dbo].[Commentary].[Id] = [dbo].[RecipeComments].[CommentId]
+	SELECT * FROM [dbo].[Commentary] 
+		JOIN [dbo].[RecipeComments] ON [dbo].[Commentary].[Id] = [dbo].[RecipeComments].[CommentId]
 	WHERE [dbo].[RecipeComments].[RecipeId] = @RecipeId
 END
+GO
 
 CREATE PROCEDURE GetUserComments
 @UserId INT
 AS
 BEGIN
-	SELECT * FROM [dbo].[Commentary] WHERE [dbo].[Commentary].[Id] IN
+	SELECT * FROM [dbo].[Commentary] WHERE [dbo].[Commentary].[Id] IN -- also solvable by EXISTS() (and probably even faster)
 	(SELECT [dbo].[UserCommentaries].[CommentId] FROM [dbo].[UserCommentaries] 
 	WHERE [dbo].[UserCommentaries].[UserId] = @UserId)
 END
+GO
 
 CREATE PROCEDURE AddCommentary
 @RecipeId INT,
@@ -49,24 +53,9 @@ BEGIN
 		IF (@@ERROR <> 0)
 		ROLLBACK
 END
+GO
 
-CREATE PROCEDURE LikeTheComment
-@UserId INT,
-@CommentaryId INT
-AS
-BEGIN
-	EXEC CommentAwarding @CommentaryId, @UserId, 1
-END
-
-CREATE PROCEDURE DislikeTheComment
-@UserId INT,
-@CommentaryId INT
-AS
-BEGIN
-	EXEC CommentAwarding @CommentaryId, @UserId, 0
-END
-
-CREATE PROCEDURE CommentAwarding
+CREATE PROCEDURE CommentAwarding -- defining before using
 @CommentId INT,
 @UserId INT,
 @NewAwardValue BIT
@@ -101,6 +90,25 @@ BEGIN
 				END
 		END
 END
+GO
+
+CREATE PROCEDURE LikeTheComment
+@UserId INT,
+@CommentaryId INT
+AS
+BEGIN
+	EXEC CommentAwarding @CommentaryId, @UserId, 1
+END
+GO
+
+CREATE PROCEDURE DislikeTheComment
+@UserId INT,
+@CommentaryId INT
+AS
+BEGIN
+	EXEC CommentAwarding @CommentaryId, @UserId, 0
+END
+GO
 
 CREATE PROCEDURE GetCommentLikes
 @CommentId INT
@@ -110,6 +118,7 @@ BEGIN
 	FROM [dbo].[UserReactions]
 	WHERE [dbo].[UserReactions].[Award] = 1 AND [dbo].[UserReactions].[CommentId] = @CommentId
 END
+GO
 
 CREATE PROCEDURE GetCommentDislikes
 @CommentId INT
@@ -119,6 +128,7 @@ BEGIN
 	FROM [dbo].[UserReactions]
 	WHERE [dbo].[UserReactions].[Award] = 0 AND [dbo].[UserReactions].[CommentId] = @CommentId
 END
+GO
 
 CREATE PROCEDURE RemoveComment
 @CommentId INT
@@ -126,6 +136,7 @@ AS
 BEGIN
 	DELETE FROM [dbo].[Commentary] WHERE [dbo].[Commentary].[Id] = @CommentId
 END
+GO
 
 CREATE PROCEDURE ChangeComment
 @CommentId INT,

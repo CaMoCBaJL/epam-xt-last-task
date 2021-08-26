@@ -1,10 +1,12 @@
 USE RecipeBookDataBase
+GO
 
 CREATE PROCEDURE GetRecipes
 AS
 BEGIN
 	SELECT * FROM [dbo].[Recipe]
 END
+GO
 
 CREATE PROCEDURE GetUserRecipes
 @UserId INT
@@ -14,13 +16,15 @@ BEGIN
 	(SELECT [dbo].[UserRecipes].[RecipeId] FROM [dbo].[UserRecipes] 
 	WHERE [dbo].[UserRecipes].[UserId] = @UserId)
 END
+GO
 
-CREATE PROCEDURE FindRecipeWithUserComment
+CREATE PROCEDURE FindRecipeWithUserComment -- BY comment id?
 @CommentId INT
 AS
 BEGIN
 	SELECT [dbo].[RecipeComments].[RecipeId] FROM [dbo].[RecipeComments] WHERE [dbo].[RecipeComments].[CommentId] = @CommentId
 END
+GO
 
 CREATE PROCEDURE AddRecipe
 @RecipeTitle NVARCHAR(100),
@@ -35,17 +39,19 @@ BEGIN
 		@CookingProcess)
 
 		IF (@@ERROR <> 0)
-		ROLLBACK
+			ROLLBACK
+
+		DECLARE @recipeId int = SCOPE_IDENTITY(); -- basically returns last value, created by IDENTITY column, see docs
 
 		INSERT INTO [dbo].[UserRecipes] VALUES 
-		(@UserId, 
-		(SELECT MAX([dbo].[Recipe].[Id]) FROM [dbo].[Recipe]))
+		(@UserId, @recipeId)
 
 		IF (@@ERROR <> 0)
 		ROLLBACK
 
 	COMMIT
 END
+GO
 
 CREATE PROCEDURE RateRecipe
 @RecipeId INT,
@@ -55,6 +61,7 @@ AS
 BEGIN
 	INSERT INTO [dbo].[RecipeAwards] VALUES (@RecipeId, @UserId, @Award)
 END
+GO
 
 CREATE PROCEDURE RemoveRecipe
 @RecipeId INT
@@ -62,6 +69,7 @@ AS
 BEGIN
 	DELETE FROM [dbo].[Recipe] WHERE [dbo].[Recipe].[Id] = @RecipeId
 END
+GO
 
 CREATE PROCEDURE ChangeRecipe
 @RecipeId INT,
@@ -76,13 +84,13 @@ BEGIN
 	[dbo].[Recipe].[Ingridients] = @Ingridients
 	WHERE [dbo].[Recipe].[Id] = @RecipeId
 END
+GO
 
 CREATE PROCEDURE GetRecipeAward
 @RecipeId INT
 AS
 BEGIN
-	SELECT CAST(SUM([dbo].[RecipeAwards].[AwardValue]) AS FLOAT) /
-	COUNT([dbo].[RecipeAwards].[AwardValue]) AS Award
+	SELECT CAST(SUM([dbo].[RecipeAwards].[AwardValue]) AS FLOAT) / COUNT([dbo].[RecipeAwards].[AwardValue]) AS Award -- you've invented AVG(CAST(AwardValue as float))
 	FROM [dbo].[RecipeAwards]
 	WHERE [dbo].[RecipeAwards].[RecipeId] = @RecipeId
 END

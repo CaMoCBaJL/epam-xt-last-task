@@ -29,7 +29,7 @@ namespace SqlDAL
                 try
                 {
                     command.ExecuteNonQuery();
-
+                    // LogManager.GetCurrentClassLogger() is a time consuming operation, NLog docs say that you should call this once in constructor instead
                     LogManager.GetCurrentClassLogger().Info($"User (ID:{userId}) created a comment in recipe (ID:{recipeId}).");
                 }
                 catch (Exception ex)
@@ -65,7 +65,7 @@ namespace SqlDAL
                              new Comment(
                                  id: (int)reader["ID"],
                                  text: reader["Text"] as string,
-                                 likesNum: GetCommentLikesCounter((int)reader["ID"]),
+                                 likesNum: GetCommentLikesCounter((int)reader["ID"]), // you are making 2n additional connections, while you keep this one open. Better approach would be calculate all that in SQL (that would be even faster)
                                  dislikesNum: GetCommentDislikesCounter(
                                      (int)reader["ID"])));
                     }

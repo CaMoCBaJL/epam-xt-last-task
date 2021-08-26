@@ -23,6 +23,7 @@ namespace Entities
         {
             StringBuilder result = new StringBuilder();
 
+            // By the way, you don't open <p> tag, only closing it with the wrong slash. Browsers may fix some of them for you, but you shouldn't think that they must.
             result.Append(UserName + DelimiterConstant.myDelimiter);
 
             result.Append(Age + DelimiterConstant.myDelimiter);

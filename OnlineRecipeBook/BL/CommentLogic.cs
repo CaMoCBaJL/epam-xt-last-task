@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using BLInterfaces;
 using DALInterfaces;
 using DataValidator;
@@ -7,12 +8,12 @@ namespace BL
 {
     class CommentLogic : ICommentLogic
     {
-        ICommentDAL _DAO;
+        ICommentDAL _DAO; // usually abbreviations are also written in PascalCase (Dal, Dao), but here it would be even camelCase (it's a private field)
 
 
         public CommentLogic(ICommentDAL CommentDAL) => _DAO = CommentDAL;
 
-        public string CreateComment(int recipeId, int userId, string text)
+        public string CreateComment(int recipeId, int userId, string text) // why don't you use models (entities)?
         {
             var validator = new CommentValidator();
 
@@ -27,6 +28,10 @@ namespace BL
                 return validator.ValidateComment(text);
         }
 
+        // these methods are about the same thing, group them together (and if likes/dislikes are about +1/-1 you could have only one method)
+        public bool LikeTheComment(int commentId, int userId)
+               => _DAO.LikeTheComment(commentId, userId);
+
         public bool DislikeTheComment(int commentId, int userId)
                => _DAO.DislikeTheComment(commentId, userId);
 
@@ -35,23 +40,14 @@ namespace BL
 
         public string GetCommentAuthor(int userId)
         {
-            throw new System.NotImplementedException();
+            throw new System.NotImplementedException(); // not good
         }
 
-        public List<string> GetEntities()
+        public List<string> GetEntities() // or GetComments maybe?
         {
-            List<string> result = new List<string>();
-
-            foreach (var comment in _DAO.GetEntities())
-            {
-                result.Add(comment.ToString());
-            }
-
-            return result;
+            return _DAO.GetEntities().Select(c => c.ToString()).ToList();
         }
 
-        public bool LikeTheComment(int commentId, int userId)
-               => _DAO.LikeTheComment(commentId, userId);
 
         public bool RemoveEntity(int entityId)
                => _DAO.RemoveEntity(entityId);

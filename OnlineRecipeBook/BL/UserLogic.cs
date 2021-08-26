@@ -51,7 +51,7 @@ namespace BL
             return result;
         }
 
-        public List<string> GetUserCommentaries(int userId)
+        public List<string> GetUserCommentaries(int userId) // this is more of a comments logic
         {
             List<string> result = new List<string>();
 
@@ -69,7 +69,7 @@ namespace BL
         public List<string> GetUserInfo(int userId)
                => _DAO.GetUserInfo(userId).ToList();
 
-        public List<string> GetUserRecipes(int userId)
+        public List<string> GetUserRecipes(int userId) // and this is more of a recipe logic
         {
             List<string> result = new List<string>();
 

@@ -11,6 +11,7 @@ namespace SqlDAL
 {
     public class RecipeDAL : IRecipeDAL
     {
+        // you have Recipe model, why not use it here?
         public bool CreateRecipe(int userId,
             string title, string ingridients, string cookingProcess)
         {

@@ -3,7 +3,8 @@ using DALInterfaces;
 
 namespace BL
 {
-    public class LogicDependencyProvider : IBLDependencyResolver
+    // Cool concept, but you could also move it to it's own folder, to add .Dependency to namespace (to separate from logic classes)
+    public class LogicDependencyProvider : IBLDependencyResolver 
     {
         IDALDependencyResolver _DAO;
 
