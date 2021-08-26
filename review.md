@@ -60,7 +60,7 @@ KISS (Keep it stupid simple) and YAGNI (You ain't gonna need it) principles: the
 
 ### DB scripts
 
-I appreciate the effort of creating these scripts manually, but perhaps you'd find it easier to create DB creatins script by right-clicking on the DB -> Tasks -> Generate scripts. It's also failproof (I couldn't setup my DB just by running these scripts, there were no GO statements). For comments about DB and SQL queries, see sql files
+I appreciate the effort of creating these scripts manually, but perhaps you'd find it easier to create DB creatins script by right-clicking on the DB -> Tasks -> Generate scripts. It's also failproof (I couldn't setup my DB just by running your scripts, there were no GO statements). For comments about DB and SQL queries, see sql files
 
 
 ### Pages
