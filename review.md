@@ -87,6 +87,8 @@ All I needed to do to reproduce it in controlled environment is:
 In reality it could be just a bad internet on Bob's side or a situation when Bob and Alice are trying to log in at the same time. If that happened, Alice could log in as Bob, without knowing his passport. That's an actual vulnerability.
 This looks similar to a GitHub vulnerability where they had to log everyone out, but their vulnerability wasn't so easy to exploit.
 
+Instead of static members you could solve problems right on the page or use [Session state](https://docs.microsoft.com/en-us/previous-versions/aspnet/ms178581(v=vs.100))
+
 ---
 
 
