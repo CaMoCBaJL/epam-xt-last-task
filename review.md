@@ -6,10 +6,10 @@ Since there is no pull request, all code review is done in code, using comments.
 
 * Used stored procedures, even transactions
 * Didn't use entities - used parameters for primitives instead. There **are** entities, but they are used only on DAL level only for them to be transformed into a string
-* Website is StYlEd (poorly, there's black text on dark background in Firefox, but login page looks good)
+* Website is Styled (poorly, there's black text on dark background in Firefox, but login page looks good)
 * No role management, it was in the task
 * logs are only on DAL level (they log user actions, that's good (though you don't know which user did what), but if something fails in BLL and PL, you'll never know about that from logs)
-* The App is not stable. Implemented architecture doesn't use benefits of types and OOP, and therefore has a lot of room for bugs. Plus web pages don't use parameters (query part of url), so a simple page reload crashes it.
+* The App is not stable. Implemented architecture doesn't use benefits of types and OOP, and therefore has a lot of room for bugs. Plus web pages don't use parameters (query part of url), so a simple page reload can crash it.
 
 ### Good commit messages (mostly)
 
@@ -60,7 +60,7 @@ KISS (Keep it stupid simple) and YAGNI (You ain't gonna need it) principles: the
 
 ### DB scripts
 
-I appreciate the effort of creating these scripts manually, but perhaps you'd find it easier to create DB creatins script by right-clicking on the DB -> Tasks -> Generate scripts. It's also failproof (I couldn't setup my DB just by running your scripts, there were no GO statements). For comments about DB and SQL queries, see sql files
+I appreciate the effort of creating these scripts manually, but perhaps you'd find it easier to create DB creating script by right-clicking on the DB -> Tasks -> Generate scripts. It's also more failproof (I couldn't setup my DB just by running your scripts, there were no GO statements). For comments about DB and SQL queries, see sql files
 
 
 ### Pages
@@ -72,7 +72,7 @@ I appreciate the effort of creating these scripts manually, but perhaps you'd fi
 #### A tale of an authentication interception vulnerability
 
 I'm sure you've heard that statics are evil. Here's one reason why: static members are like the one and only instance of class that can be accessed by anyone from everywhere in code.
-In app you use it save data between requests, and particularly to authenticate user. The thing that misses your expectations is that ASP.NET is made to be able to work with multiple users at the same time (using threads).
+In app you use it to save data between requests, and particularly to authenticate user. The thing that misses your expectations is that ASP.NET is made to be able to work with multiple users at the same time (using threads).
 Since you use statics, these values are accessible in every user thread.
 
 So, me, obviously being a bad hacker-guy was able to use that to my advantage and login as admin without entering credentials!
@@ -84,8 +84,8 @@ All I needed to do to reproduce it in controlled environment is:
 * open another browser and go to AuthentificationPage.cshtml there
 * Voila, server finishes authentication using data from static members.
 
-In reality it could be just a bad internet on Bob's side or a situation when Bob and Alice are trying to log in at the same time. If that happened, Alice could log in as Bob, without knowing his passport. That's an actual vulnerability.
-This looks similar to a GitHub vulnerability where they had to log everyone out, but their vulnerability wasn't so easy to exploit.
+In reality it could be just a bad internet on Bob's side or a situation when Bob and Alice are trying to log in at the same time. If that happened, Alice could log in as Bob, without knowing his password. That's an actual vulnerability.
+This looks similar to a recent GitHub vulnerability where they had to log everyone out, but their vulnerability wasn't so easy to exploit.
 
 Instead of static members you could solve problems right on the page or use [Session state](https://docs.microsoft.com/en-us/previous-versions/aspnet/ms178581(v=vs.100))
 
@@ -94,7 +94,7 @@ Instead of static members you could solve problems right on the page or use [Ses
 
 Overall, this project implementation is weak. I see that you are confused about programming concepts, but I also see that you've got the spirit for programming. It's almost like you rush to make _something_ to work, but then you stop improving/refactoring it because it works and you have other things to implement. And the same thing with learning - you play with things, but don't apply principles and "best practices".
 
-For now this project is like a stick house like in the Story With Three Little Pigs, with parts made out of straw. Principles, examples and "best practices" help you to make house that is less unique, but made of bricks. After you know how to made these, you can start experimenting and make them out of concrete, and even use beautiful origami in some places, knowing, that it'll not harm.
+For now this project is like a stick house like in the Story With Three Little Pigs, with parts made out of straw. Principles, examples and "best practices" help you to make house that is less unique, but made of bricks. After you know how to make these, you can start experimenting and make them out of concrete, and even use beautiful origami in some places, knowing, that it'll not harm.
 
 **I'd suggest you to re-read about OOP and SOLID principles, try to understand them, rewatch latest streams and do this experiment:**
 
